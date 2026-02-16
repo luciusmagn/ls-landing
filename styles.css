@@ -624,7 +624,7 @@ body::before {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: var(--line-subtle);
   border: 1px solid var(--line-subtle);
@@ -848,10 +848,6 @@ body::before {
   .about-content {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .contact-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .hero-stats {
