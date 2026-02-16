@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lambda Symbolics OU</title>
+    <meta
+      name="description"
+      content="Lambda Symbolics OU builds high-focus software products. Hiisi is live. Rust course coming soon."
+    />
+    <meta property="og:title" content="Lambda Symbolics OU" />
+    <meta
+      property="og:description"
+      content="Hacker-grade product studio by Lukáš Hozda. Hiisi is live. Rust course coming soon."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lambda-symbolics.com" />
+    <meta property="og:image" content="https://lambda-symbolics.com/og.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-noise" aria-hidden="true"></div>
+
+    <header class="site-header container" data-reveal>
+      <a class="brand" href="#top" aria-label="Lambda Symbolics homepage">
+        <span class="brand-lambda" aria-hidden="true">λ</span>
+        <span class="brand-name">Lambda Symbolics OU</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#product">Product</a>
+        <a href="#course">Rust Course</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main id="top" class="container">
+      <section class="hero" data-reveal>
+        <p class="eyebrow">SERIOUS SOFTWARE. SHARP EXECUTION.</p>
+        <h1>
+          Lambda Symbolics builds practical products with a hacker mindset and
+          Common Lisp precision.
+        </h1>
+        <p class="hero-copy">
+          One focused company, one live product, one clear standard: ship tools
+          people can trust. Right now: <strong>Hiisi</strong> for language
+          learning. Next: an advanced Rust course.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://hiisi.app" target="_blank" rel="noreferrer">
+            Open Hiisi.app
+          </a>
+          <a class="button button-secondary" href="#course">Rust Course Coming Soon</a>
+        </div>
+      </section>
+
+      <section class="panel panel-product" id="product" data-reveal>
+        <div class="panel-head">
+          <p class="panel-kicker">Live now</p>
+          <h2>Hiisi</h2>
+        </div>
+        <p>
+          Hiisi combines AI-powered translation with spaced repetition to help
+          users learn languages faster and retain what matters.
+        </p>
+        <ul class="product-points">
+          <li>Fast translation workflow with focused review loops</li>
+          <li>Built to keep learners in flow instead of app-hopping</li>
+          <li>Production-ready and available today</li>
+        </ul>
+        <a class="text-link" href="https://hiisi.app" target="_blank" rel="noreferrer">
+          Visit hiisi.app
+        </a>
+      </section>
+
+      <section class="two-column" id="course">
+        <article class="panel" data-reveal>
+          <p class="panel-kicker">Coming soon</p>
+          <h2>Rust Course</h2>
+          <p>
+            A practical, business-grade Rust training designed for people who
+            want strong engineering fundamentals, not toy projects.
+          </p>
+          <p class="status">Status: curriculum in development.</p>
+        </article>
+
+        <article class="panel" id="about" data-reveal>
+          <p class="panel-kicker">Who we are</p>
+          <h2>Lambda Symbolics OU</h2>
+          <p>
+            Lambda Symbolics is currently led by Lukáš Hozda. The goal is clear:
+            build fewer things, but build them exceptionally well.
+          </p>
+          <a class="text-link" href="https://github.com/luciusmagn" target="_blank" rel="noreferrer">
+            Follow updates on GitHub
+          </a>
+        </article>
+      </section>
+
+      <section class="terminal" data-reveal aria-label="Lambda Symbolics profile">
+        <p><span class="terminal-prompt">company@lambda-symbolics</span>:~$ status</p>
+        <p class="terminal-line">product: hiisi.app</p>
+        <p class="terminal-line">next: rust-course (planned)</p>
+        <p class="terminal-line">mode: shipping</p>
+      </section>
+    </main>
+
+    <footer class="site-footer container" data-reveal>
+      <p>© <span id="year"></span> Lambda Symbolics OU</p>
+      <p>Built for clarity, speed, and serious work.</p>
+    </footer>
+  </body>
+</html>
