@@ -3,19 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lambda Symbolics OU</title>
+    <title>Lambda Symbolics OU -- Serious Software, Sharp Execution</title>
     <meta
       name="description"
-      content="Lambda Symbolics OU builds high-focus software products. Hiisi is live. Rust course coming soon."
+      content="Lambda Symbolics OU builds high-focus software products with Common Lisp and Rust. Hiisi language learning is live. Advanced Rust course coming soon."
     />
+    <link rel="canonical" href="https://lambda-symbolics.com" />
+
+    <!-- OpenGraph -->
     <meta property="og:title" content="Lambda Symbolics OU" />
     <meta
       property="og:description"
-      content="Hacker-grade product studio by Lukáš Hozda. Hiisi is live. Rust course coming soon."
+      content="Hacker-grade product studio. Hiisi language learning is live. Advanced Rust course coming soon."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lambda-symbolics.com" />
     <meta property="og:image" content="https://lambda-symbolics.com/og.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Lambda Symbolics OU" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lambda Symbolics OU" />
+    <meta
+      name="twitter:description"
+      content="Hacker-grade product studio. Hiisi language learning is live. Advanced Rust course coming soon."
+    />
+    <meta name="twitter:image" content="https://lambda-symbolics.com/og.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%CE%BB</text></svg>" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Lambda Symbolics OU",
+      "url": "https://lambda-symbolics.com",
+      "description": "Hacker-grade product studio building high-focus software with Common Lisp and Rust.",
+      "founder": {
+        "@type": "Person",
+        "name": "Lukas Hozda",
+        "url": "https://github.com/luciusmagn"
+      },
+      "sameAs": [
+        "https://github.com/luciusmagn"
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,95 +63,316 @@
     <script src="app.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="bg-grid" aria-hidden="true"></div>
     <div class="bg-noise" aria-hidden="true"></div>
 
     <header class="site-header container" data-reveal>
       <a class="brand" href="#top" aria-label="Lambda Symbolics homepage">
-        <span class="brand-lambda" aria-hidden="true">λ</span>
-        <span class="brand-name">Lambda Symbolics OU</span>
+        <span class="brand-lambda" aria-hidden="true">&lambda;</span>
+        <span class="brand-name">Lambda Symbolics</span>
       </a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="#product">Product</a>
-        <a href="#course">Rust Course</a>
-        <a href="#about">About</a>
+        <a href="#product" data-nav>Product</a>
+        <a href="#stack" data-nav>Stack</a>
+        <a href="#course" data-nav>Rust Course</a>
+        <a href="#about" data-nav>About</a>
+        <a href="#contact" data-nav>Contact</a>
       </nav>
     </header>
 
-    <main id="top" class="container">
-      <section class="hero" data-reveal>
-        <p class="eyebrow">SERIOUS SOFTWARE. SHARP EXECUTION.</p>
+    <main id="main-content" class="container">
+      <!-- Hero -->
+      <section class="hero" id="top" data-reveal>
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          Now live: Hiisi language learning
+        </div>
         <h1>
-          Lambda Symbolics builds practical products with a hacker mindset and
-          Common Lisp precision.
+          We build software<br />
+          <span class="hero-typed" aria-label="that ships, that lasts, that works, with precision">that ships.</span>
         </h1>
         <p class="hero-copy">
-          One focused company, one live product, one clear standard: ship tools
-          people can trust. Right now: <strong>Hiisi</strong> for language
-          learning. Next: an advanced Rust course.
+          Lambda Symbolics is a product studio with a hacker mindset and
+          Common Lisp precision. We focus on fewer things and build them
+          exceptionally well. No committees, no bloat, no compromises.
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="https://hiisi.app" target="_blank" rel="noreferrer">
+            <span class="button-icon" aria-hidden="true">&nearr;</span>
             Open Hiisi.app
           </a>
-          <a class="button button-secondary" href="#course">Rust Course Coming Soon</a>
-        </div>
-      </section>
-
-      <section class="panel panel-product" id="product" data-reveal>
-        <div class="panel-head">
-          <p class="panel-kicker">Live now</p>
-          <h2>Hiisi</h2>
-        </div>
-        <p>
-          Hiisi combines AI-powered translation with spaced repetition to help
-          users learn languages faster and retain what matters.
-        </p>
-        <ul class="product-points">
-          <li>Fast translation workflow with focused review loops</li>
-          <li>Built to keep learners in flow instead of app-hopping</li>
-          <li>Production-ready and available today</li>
-        </ul>
-        <a class="text-link" href="https://hiisi.app" target="_blank" rel="noreferrer">
-          Visit hiisi.app
-        </a>
-      </section>
-
-      <section class="two-column" id="course">
-        <article class="panel" data-reveal>
-          <p class="panel-kicker">Coming soon</p>
-          <h2>Rust Course</h2>
-          <p>
-            A practical, business-grade Rust training designed for people who
-            want strong engineering fundamentals, not toy projects.
-          </p>
-          <p class="status">Status: curriculum in development.</p>
-        </article>
-
-        <article class="panel" id="about" data-reveal>
-          <p class="panel-kicker">Who we are</p>
-          <h2>Lambda Symbolics OU</h2>
-          <p>
-            Lambda Symbolics is currently led by Lukáš Hozda. The goal is clear:
-            build fewer things, but build them exceptionally well.
-          </p>
-          <a class="text-link" href="https://github.com/luciusmagn" target="_blank" rel="noreferrer">
-            Follow updates on GitHub
+          <a class="button button-secondary" href="#course">
+            Rust Course -- Coming Soon
           </a>
-        </article>
+        </div>
+        <div class="hero-stats" data-reveal data-delay="1">
+          <div class="stat">
+            <span class="stat-value">1</span>
+            <span class="stat-label">Live product</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">13</span>
+            <span class="stat-label">Languages</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">2</span>
+            <span class="stat-label">Backends</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">0</span>
+            <span class="stat-label">Electron apps</span>
+          </div>
+        </div>
       </section>
 
-      <section class="terminal" data-reveal aria-label="Lambda Symbolics profile">
-        <p><span class="terminal-prompt">company@lambda-symbolics</span>:~$ status</p>
-        <p class="terminal-line">product: hiisi.app</p>
-        <p class="terminal-line">next: rust-course (planned)</p>
-        <p class="terminal-line">mode: shipping</p>
+      <!-- Product: Hiisi -->
+      <section class="section" id="product">
+        <div class="section-header" data-reveal>
+          <p class="section-kicker">01 / Product</p>
+          <h2>Hiisi</h2>
+          <p class="section-subtitle">
+            AI-powered translation meets spaced repetition. Language learning
+            that respects your time and actually works.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card" data-reveal data-delay="0">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Dual-Backend Architecture</h3>
+            <p>Rust for authentication and payments. Common Lisp for core logic and UI. Each language where it excels.</p>
+          </div>
+          <div class="feature-card" data-reveal data-delay="1">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3>13 Target Languages</h3>
+            <p>Translate between any pair of supported languages with Claude-powered contextual translations and grammar notes.</p>
+          </div>
+          <div class="feature-card" data-reveal data-delay="2">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>SM-2 Spaced Repetition</h3>
+            <p>Bookmark translations as flashcards. The SM-2 algorithm schedules reviews at optimal intervals for long-term retention.</p>
+          </div>
+          <div class="feature-card" data-reveal data-delay="3">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Fast Translation Flow</h3>
+            <p>No app-hopping. Translate, review, and learn in one focused workflow. Built to keep you in flow state.</p>
+          </div>
+        </div>
+
+        <div class="product-cta" data-reveal>
+          <a class="button button-primary" href="https://hiisi.app" target="_blank" rel="noreferrer">
+            <span class="button-icon" aria-hidden="true">&nearr;</span>
+            Try Hiisi Free
+          </a>
+          <span class="product-cta-note">No credit card required</span>
+        </div>
+      </section>
+
+      <!-- Tech Stack -->
+      <section class="section" id="stack">
+        <div class="section-header" data-reveal>
+          <p class="section-kicker">02 / Stack</p>
+          <h2>Built Different</h2>
+          <p class="section-subtitle">
+            We pick tools for their strengths, not their popularity.
+            Our stack is unconventional because conventional stacks
+            produce conventional results.
+          </p>
+        </div>
+
+        <div class="stack-grid">
+          <div class="stack-card" data-reveal data-delay="0">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">()</span>
+              <h3>Common Lisp</h3>
+            </div>
+            <p>Core application logic, translation engine, flashcard system, and server-rendered UI with HSX templates. SBCL provides native compilation and a live REPL for rapid development.</p>
+          </div>
+          <div class="stack-card" data-reveal data-delay="1">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">fn</span>
+              <h3>Rust</h3>
+            </div>
+            <p>Authentication, payments, email delivery, static assets, and background tasks. Rocket framework with Diesel ORM. Memory safety and fearless concurrency where it matters most.</p>
+          </div>
+          <div class="stack-card" data-reveal data-delay="2">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">AI</span>
+              <h3>Claude API</h3>
+            </div>
+            <p>Contextual translations with grammar notes, word forms, and usage examples. Not a wrapper around Google Translate. Real linguistic analysis powered by Claude.</p>
+          </div>
+          <div class="stack-card" data-reveal data-delay="3">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">db</span>
+              <h3>SQLite</h3>
+            </div>
+            <p>Shared database accessed by both backends. Simple, fast, zero-config. Diesel migrations keep the schema versioned. No unnecessary infrastructure complexity.</p>
+          </div>
+          <div class="stack-card" data-reveal data-delay="4">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">hx</span>
+              <h3>HTMX</h3>
+            </div>
+            <p>Server-rendered HTML with surgical DOM updates. No JavaScript framework, no virtual DOM, no bundle size anxiety. Hypermedia as the engine of application state.</p>
+          </div>
+          <div class="stack-card" data-reveal data-delay="5">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">&lt;&gt;</span>
+              <h3>Sozu Proxy</h3>
+            </div>
+            <p>Hot-reloadable reverse proxy routing traffic between the Rust and Lisp backends. Zero-downtime deployments and upgrades built into the architecture.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rust Course -->
+      <section class="section" id="course">
+        <div class="section-header" data-reveal>
+          <p class="section-kicker">03 / Coming Soon</p>
+          <h2>Rust Course</h2>
+          <p class="section-subtitle">
+            A practical, business-grade Rust training designed for engineers who
+            want strong fundamentals, not toy projects.
+          </p>
+        </div>
+
+        <div class="course-content">
+          <div class="course-details" data-reveal>
+            <div class="course-module">
+              <h3>What to Expect</h3>
+              <ul class="course-list">
+                <li>Ownership, borrowing, and lifetimes explained through real production patterns</li>
+                <li>Error handling strategies that scale beyond tutorial-level code</li>
+                <li>Async Rust: tokio, futures, and practical concurrency</li>
+                <li>Building web services with Rocket, Axum, or Actix</li>
+                <li>Database access with Diesel and SQLx</li>
+                <li>Testing strategies for systems-level code</li>
+                <li>Interop with C, Common Lisp, and other languages</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="course-aside" data-reveal data-delay="1">
+            <div class="terminal" aria-label="Course status">
+              <div class="terminal-bar">
+                <span class="terminal-dot" aria-hidden="true"></span>
+                <span class="terminal-dot" aria-hidden="true"></span>
+                <span class="terminal-dot" aria-hidden="true"></span>
+                <span class="terminal-title">status</span>
+              </div>
+              <div class="terminal-body">
+                <p><span class="terminal-prompt">$</span> course --status</p>
+                <p class="terminal-line">curriculum: <span class="terminal-val">in development</span></p>
+                <p class="terminal-line">format: <span class="terminal-val">text + exercises + projects</span></p>
+                <p class="terminal-line">level: <span class="terminal-val">intermediate to advanced</span></p>
+                <p class="terminal-line">prereqs: <span class="terminal-val">some programming experience</span></p>
+                <p class="terminal-line">price: <span class="terminal-val">TBD</span></p>
+                <p><span class="terminal-prompt">$</span> <span class="terminal-cursor">_</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="section" id="about">
+        <div class="section-header" data-reveal>
+          <p class="section-kicker">04 / About</p>
+          <h2>Lambda Symbolics OU</h2>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text" data-reveal>
+            <p class="about-lead">
+              Lambda Symbolics is a one-person product studio registered in Estonia,
+              led by <strong>Lukas Hozda</strong>. The philosophy is simple: build fewer things,
+              but build them exceptionally well.
+            </p>
+            <p>
+              We believe the best software comes from small teams with strong opinions
+              and deep technical skill. We use Common Lisp not because it is trendy, but
+              because it is powerful. We use Rust not because everyone does, but because
+              memory safety matters when your users trust you with their data.
+            </p>
+            <p>
+              Every architectural decision serves a purpose. Every line of code is
+              written to last. No frameworks-of-the-week, no hype-driven development,
+              no technical debt accepted as normal.
+            </p>
+          </div>
+          <div class="about-values" data-reveal data-delay="1">
+            <div class="value-item">
+              <h3>Ship Real Things</h3>
+              <p>Products, not prototypes. Working software that people use every day.</p>
+            </div>
+            <div class="value-item">
+              <h3>Choose Boring Where It Counts</h3>
+              <p>SQLite over Postgres clusters. Server rendering over SPA frameworks. Simplicity is a feature.</p>
+            </div>
+            <div class="value-item">
+              <h3>Choose Weird Where It Matters</h3>
+              <p>Common Lisp in production. Dual-backend architecture. Unconventional choices that deliver unconventional results.</p>
+            </div>
+            <div class="value-item">
+              <h3>No Compromise on Quality</h3>
+              <p>No TODOs in production. No "good enough for now." Every feature ships complete or not at all.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section section-contact" id="contact">
+        <div class="section-header" data-reveal>
+          <p class="section-kicker">05 / Contact</p>
+          <h2>Get in Touch</h2>
+          <p class="section-subtitle">
+            Interested in Hiisi, the Rust course, or working together?
+          </p>
+        </div>
+
+        <div class="contact-grid" data-reveal>
+          <a class="contact-card" href="https://github.com/luciusmagn" target="_blank" rel="noreferrer">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-detail">@luciusmagn</span>
+          </a>
+          <a class="contact-card" href="https://hiisi.app" target="_blank" rel="noreferrer">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span class="contact-label">Product</span>
+            <span class="contact-detail">hiisi.app</span>
+          </a>
+          <a class="contact-card" href="mailto:lukas@lambda-symbolics.com">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="0"/><polyline points="22,4 12,13 2,4"/></svg>
+            <span class="contact-label">Email</span>
+            <span class="contact-detail">lukas@lambda-symbolics.com</span>
+          </a>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer container" data-reveal>
-      <p>© <span id="year"></span> Lambda Symbolics OU</p>
-      <p>Built for clarity, speed, and serious work.</p>
+      <div class="footer-left">
+        <p class="footer-brand">
+          <span class="brand-lambda" aria-hidden="true">&lambda;</span>
+          Lambda Symbolics OU
+        </p>
+        <p class="footer-tagline">Built for clarity, speed, and serious work.</p>
+      </div>
+      <div class="footer-right">
+        <p>&copy; <span id="year"></span> Lambda Symbolics OU</p>
+        <p>Tallinn, Estonia</p>
+      </div>
     </footer>
   </body>
 </html>
