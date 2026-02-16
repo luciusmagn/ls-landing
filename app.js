@@ -115,7 +115,7 @@ if ("IntersectionObserver" in window && sections.length > 0) {
 var typedElement = document.querySelector(".hero-typed");
 
 if (typedElement) {
-  var phrases = ["that ships.", "that lasts.", "that works.", "with precision."];
+  var phrases = ["that ships.", "that lasts.", "that works.", "that's based."];
   var phraseIndex = 0;
   var charIndex = 0;
   var isDeleting = false;

@@ -7,16 +7,16 @@
   --bg-soft:            #0a130d;
   --panel:              #0a130f;
   --panel-strong:       #0d1a13;
-  --line:               #224432;
-  --line-subtle:        #1a3327;
-  --text:               #e8ffe9;
-  --muted:              #93b79d;
-  --lisp-green:         #74ff9f;
-  --lisp-green-strong:  #49e67d;
-  --lisp-green-muted:   #2da056;
-  --lisp-green-dim:     rgba(116, 255, 159, 0.08);
+  --line:               #1e3a2c;
+  --line-subtle:        #162e22;
+  --text:               #e4f5e8;
+  --muted:              #8eaa95;
+  --lisp-green:         #3fb68b;
+  --lisp-green-strong:  #2d9a73;
+  --lisp-green-muted:   #24805f;
+  --lisp-green-dim:     rgba(63, 182, 139, 0.08);
+  --lisp-green-glow:    rgba(63, 182, 139, 0.25);
   --shadow:             rgba(9, 21, 14, 0.75);
-  --glow:               rgba(116, 255, 159, 0.15);
   --font-body:          "Space Grotesk", "Segoe UI", sans-serif;
   --font-mono:          "JetBrains Mono", monospace;
 }
@@ -41,8 +41,8 @@ body {
 body {
   font-family: var(--font-body);
   background:
-    radial-gradient(120% 120% at 90% -10%, #123122 0%, transparent 60%),
-    radial-gradient(120% 120% at 10% 120%, #0d2418 0%, transparent 62%),
+    radial-gradient(120% 120% at 90% -10%, #0f2a1e 0%, transparent 60%),
+    radial-gradient(120% 120% at 10% 120%, #0b1f15 0%, transparent 62%),
     var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -79,8 +79,8 @@ body::before {
   pointer-events: none;
   background: radial-gradient(
     480px circle at var(--cursor-x, 50%) var(--cursor-y, 20%),
-    rgba(116, 255, 159, 0.14) 0%,
-    rgba(116, 255, 159, 0.05) 30%,
+    rgba(63, 182, 139, 0.12) 0%,
+    rgba(63, 182, 139, 0.04) 30%,
     transparent 62%
   );
   z-index: 0;
@@ -97,8 +97,8 @@ body::before {
 
 .bg-grid {
   background-image:
-    linear-gradient(rgba(116, 255, 159, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(116, 255, 159, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(63, 182, 139, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(63, 182, 139, 0.035) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 40%, transparent 100%);
 }
@@ -421,7 +421,7 @@ body::before {
 
 .stack-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: var(--line-subtle);
   border: 1px solid var(--line-subtle);
@@ -481,25 +481,22 @@ body::before {
   align-items: start;
 }
 
-.course-module h3 {
+.course-lead {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.7;
   margin: 0 0 1rem;
-  font-size: 1.1rem;
 }
 
-.course-list {
-  margin: 0;
-  padding-left: 1.2rem;
+.course-lead strong {
+  color: var(--lisp-green);
+}
+
+.course-note {
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.7;
-}
-
-.course-list li {
-  margin: 0.5rem 0;
-}
-
-.course-list li::marker {
-  color: var(--lisp-green-muted);
+  margin: 0;
 }
 
 /* ---- Terminal ---- */
@@ -627,7 +624,7 @@ body::before {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   background: var(--line-subtle);
   border: 1px solid var(--line-subtle);
@@ -714,8 +711,8 @@ body::before {
 
 .button-primary:hover,
 .button-primary:focus-visible {
-  background: linear-gradient(180deg, #96ffb6 0%, #62ef92 100%);
-  box-shadow: 0 0 20px rgba(116, 255, 159, 0.3);
+  background: linear-gradient(180deg, #5cc9a0 0%, #3fb68b 100%);
+  box-shadow: 0 0 20px var(--lisp-green-glow);
 }
 
 .button-secondary {
@@ -726,7 +723,7 @@ body::before {
 .button-secondary:focus-visible {
   border-color: var(--lisp-green-muted);
   background: rgba(12, 25, 17, 0.95);
-  box-shadow: 0 0 15px rgba(116, 255, 159, 0.1);
+  box-shadow: 0 0 15px rgba(63, 182, 139, 0.1);
 }
 
 /* ---- Text Links ---- */
@@ -798,6 +795,14 @@ body::before {
   letter-spacing: 0.04em;
 }
 
+.footer-reg {
+  font-family: var(--font-mono);
+  font-size: 0.7rem !important;
+  letter-spacing: 0.02em;
+  margin-top: 0.2rem !important;
+  opacity: 0.7;
+}
+
 /* ---- Scroll Reveal ---- */
 
 .js [data-reveal] {
@@ -833,7 +838,7 @@ body::before {
   }
 
   .stack-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .course-content {
@@ -846,7 +851,7 @@ body::before {
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .hero-stats {
@@ -891,7 +896,7 @@ body::before {
     padding: 1.2rem;
   }
 
-  .stack-grid {
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 
