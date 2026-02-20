@@ -87,8 +87,8 @@
       </a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="#product" data-nav>Product</a>
-        <a href="#approach" data-nav>Approach</a>
         <a href="#courses" data-nav>Courses</a>
+        <a href="#approach" data-nav>Approach</a>
         <a href="#about" data-nav>About</a>
         <a href="#contact" data-nav>Contact</a>
       </nav>
@@ -156,7 +156,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <h3>14 Languages</h3>
-            <p>Translate between any pair of 14 supported languages -- including Finnish, Estonian, Czech, and others you will not find on most platforms.</p>
+            <p>Translate between any pair of 14 supported languages -- including Finnish, Estonian, Czech, and other less commonly supported languages.</p>
           </div>
           <div class="feature-card" data-reveal data-delay="1">
             <div class="feature-icon" aria-hidden="true">
@@ -177,67 +177,23 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <h3>Shareable Decks</h3>
-            <p>Create decks, share them with a link, and let others import your curated vocabulary. Also available for schools and institutions.</p>
+            <p>Create your own custom flashcards or save translations into decks. Share them with a link and let others import your curated vocabulary.</p>
           </div>
         </div>
 
         <div class="product-cta" data-reveal>
           <a class="button button-primary" href="https://hiisi.app" target="_blank" rel="noreferrer">
             <span class="button-icon" aria-hidden="true">&nearr;</span>
-            Try Hiisi Free
+            Try Hiisi for Free
           </a>
           <span class="product-cta-note">7-day free trial</span>
-        </div>
-      </section>
-
-      <!-- Approach -->
-      <section class="section" id="approach">
-        <div class="section-header" data-reveal>
-          <p class="section-kicker">02 / Approach</p>
-          <h2>Off the Beaten Path</h2>
-          <p class="section-subtitle">
-            We are distrustful of mainstream defaults and willing to venture
-            where fewer developers go. We choose tools that are rewarding
-            to work with, not just popular.
-          </p>
-        </div>
-
-        <div class="stack-grid">
-          <div class="stack-card" data-reveal data-delay="0">
-            <div class="stack-card-header">
-              <span class="stack-card-icon" aria-hidden="true">()</span>
-              <h3>Common Lisp</h3>
-            </div>
-            <p>We chose Common Lisp because it is cool, because its technical aspects are genuinely compelling, and because the REPL-driven workflow is unmatched. SBCL gives us native compilation and a live development experience.</p>
-          </div>
-          <div class="stack-card" data-reveal data-delay="1">
-            <div class="stack-card-header">
-              <span class="stack-card-icon" aria-hidden="true">fn</span>
-              <h3>Rust</h3>
-            </div>
-            <p>Rust where it fits: authentication, payments, email, background tasks. A language with real guarantees and a type system that earns its keep. Rocket framework, Diesel ORM, zero hand-waving.</p>
-          </div>
-          <div class="stack-card" data-reveal data-delay="2">
-            <div class="stack-card-header">
-              <span class="stack-card-icon" aria-hidden="true">hx</span>
-              <h3>HTMX</h3>
-            </div>
-            <p>Server-rendered HTML with surgical DOM updates. No JavaScript framework, no virtual DOM, no bundle size anxiety. Hypermedia as the engine of application state.</p>
-          </div>
-          <div class="stack-card" data-reveal data-delay="3">
-            <div class="stack-card-header">
-              <span class="stack-card-icon" aria-hidden="true">db</span>
-              <h3>SQLite</h3>
-            </div>
-            <p>Simple, fast, zero-config. One file, shared between both backends. No unnecessary infrastructure complexity. Sometimes boring technology is the right technology.</p>
-          </div>
         </div>
       </section>
 
       <!-- Courses -->
       <section class="section" id="courses">
         <div class="section-header" data-reveal>
-          <p class="section-kicker">03 / Coming Soon</p>
+          <p class="section-kicker">02 / Coming Soon</p>
           <h2>Courses</h2>
           <p class="section-subtitle">
             Practical, business-grade training for engineers who want strong
@@ -268,17 +224,61 @@
                 <span class="terminal-dot" aria-hidden="true"></span>
                 <span class="terminal-dot" aria-hidden="true"></span>
                 <span class="terminal-dot" aria-hidden="true"></span>
-                <span class="terminal-title">status</span>
+                <span class="terminal-title">SBCL REPL</span>
               </div>
               <div class="terminal-body">
-                <p><span class="terminal-prompt">$</span> courses --status</p>
-                <p class="terminal-line">rust: <span class="terminal-val">in development</span></p>
-                <p class="terminal-line">more: <span class="terminal-val">planned</span></p>
-                <p class="terminal-line">instructor: <span class="terminal-val">university lecturer</span></p>
-                <p class="terminal-line">experience: <span class="terminal-val">academic + commercial</span></p>
-                <p><span class="terminal-prompt">$</span> <span class="terminal-cursor">_</span></p>
+                <p><span class="terminal-prompt">*</span> (course-status)</p>
+                <p class="terminal-line">:rust <span class="terminal-val">"in development"</span></p>
+                <p class="terminal-line">:more <span class="terminal-val">"planned"</span></p>
+                <p class="terminal-line">:instructor <span class="terminal-val">"university lecturer"</span></p>
+                <p class="terminal-line">:experience <span class="terminal-val">"academic + commercial"</span></p>
+                <p><span class="terminal-prompt">*</span> <span class="terminal-cursor">_</span></p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Approach -->
+      <section class="section" id="approach">
+        <div class="section-header" data-reveal>
+          <p class="section-kicker">03 / Approach</p>
+          <h2>Off the Beaten Path</h2>
+          <p class="section-subtitle">
+            We are distrustful of mainstream defaults and willing to venture
+            where fewer developers go. We choose tools that are rewarding
+            to work with, not just popular.
+          </p>
+        </div>
+
+        <div class="stack-grid">
+          <div class="stack-card" data-reveal data-delay="0">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">()</span>
+              <h3>Common Lisp</h3>
+            </div>
+            <p>We chose Common Lisp because it is cool, because its technical aspects are genuinely compelling, and because the REPL-driven workflow is unmatched. SBCL gives us native compilation and a live development experience.</p>
+          </div>
+          <div class="stack-card" data-reveal data-delay="1">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">fn</span>
+              <h3>Rust</h3>
+            </div>
+            <p>Strong async runtime, strong type system. Rust handles things that must be correct and things that benefit from async: authentication, payments, email, and long-running background tasks. Rocket framework, Diesel ORM.</p>
+          </div>
+          <div class="stack-card" data-reveal data-delay="2">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">hx</span>
+              <h3>HTMX</h3>
+            </div>
+            <p>Server-rendered HTML with surgical DOM updates. No JavaScript framework, no virtual DOM. Hypermedia as the engine of application state.</p>
+          </div>
+          <div class="stack-card" data-reveal data-delay="3">
+            <div class="stack-card-header">
+              <span class="stack-card-icon" aria-hidden="true">&loz;</span>
+              <h3>Redis</h3>
+            </div>
+            <p>In-memory caching for fast lookups and session data. Simple, battle-tested, and keeps latency low where it matters.</p>
           </div>
         </div>
       </section>
@@ -306,15 +306,13 @@
             </p>
             <p>
               The goal is simple: build fewer things, build them well, and enjoy
-              the process of making them. Every technology choice is deliberate.
-              Every line of code is written with care. No frameworks-of-the-week,
-              no hype-driven development.
+              the process of making them.
             </p>
           </div>
           <div class="about-values" data-reveal data-delay="1">
             <div class="value-item">
               <h3>Interesting Tools, Better Results</h3>
-              <p>Common Lisp in production. Dual-backend architecture. We pick technologies that are rewarding to work with, and the results speak for themselves.</p>
+              <p>Common Lisp in production. We pick technologies that are rewarding to work with, and the results speak for themselves.</p>
             </div>
             <div class="value-item">
               <h3>Boring Where It Counts</h3>
@@ -322,7 +320,7 @@
             </div>
             <div class="value-item">
               <h3>Craftsmanship Over Process</h3>
-              <p>Small team, strong opinions, deep care. We would rather spend time writing good code than writing tickets about writing code.</p>
+              <p>Strong opinions, deep care. I would rather spend time writing good code than writing tickets about writing code.</p>
             </div>
           </div>
         </div>
