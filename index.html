@@ -1,48 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lambda Symbolics O&Uuml;</title>
     <meta
       name="description"
-      content="Lambda Symbolics O&Uuml; is a development company with a passionate mindset and enthusiasm for technology. Hiisi language learning is live. Courses and consulting coming soon."
-    />
-    <link rel="canonical" href="https://lambda-symbolics.com" />
+      content="Lambda Symbolics O&Uuml; is a software company in Tallinn. Common Lisp and Rust. Hiisi is live. Courses are in preparation."
+    >
+    <link rel="canonical" href="https://lambda-symbolics.com">
 
-    <!-- OpenGraph -->
-    <meta property="og:title" content="Lambda Symbolics O&Uuml;" />
+    <meta property="og:title" content="Lambda Symbolics O&Uuml;">
     <meta
       property="og:description"
-      content="Development company with a passionate mindset and enthusiasm for technology. Hiisi language learning is live."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://lambda-symbolics.com" />
-    <meta property="og:image" content="https://lambda-symbolics.com/og.png" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Lambda Symbolics O&Uuml;" />
+      content="Software company in Tallinn. Common Lisp and Rust. Hiisi is live."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lambda-symbolics.com">
+    <meta property="og:image" content="https://lambda-symbolics.com/og.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Lambda Symbolics O&Uuml;">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@LukasHozda" />
-    <meta name="twitter:title" content="Lambda Symbolics O&Uuml;" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@LukasHozda">
+    <meta name="twitter:title" content="Lambda Symbolics O&Uuml;">
     <meta
       name="twitter:description"
-      content="Development company with a passionate mindset and enthusiasm for technology. Hiisi language learning is live."
-    />
-    <meta name="twitter:image" content="https://lambda-symbolics.com/og.png" />
+      content="Software company in Tallinn. Common Lisp and Rust. Hiisi is live."
+    >
+    <meta name="twitter:image" content="https://lambda-symbolics.com/og.png">
 
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='50' dominant-baseline='central' text-anchor='middle' font-family='monospace' font-weight='700' font-size='80' fill='%233fb68b'>%CE%BB</text></svg>" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='50' dominant-baseline='central' text-anchor='middle' font-family='monospace' font-weight='700' font-size='80' fill='%233fb68b'>%CE%BB</text></svg>">
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Lambda Symbolics O\u00dc",
       "url": "https://lambda-symbolics.com",
-      "description": "Development company with a passionate mindset and enthusiasm for technology, building products with Common Lisp and Rust.",
+      "description": "Software company in Tallinn building technically opinionated systems with Common Lisp and Rust.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Tornim\u00e4e tn 5",
@@ -61,319 +57,496 @@
       },
       "sameAs": [
         "https://github.com/luciusmagn",
-        "https://x.com/LukasHozda"
+        "https://x.com/LukasHozda",
+        "https://hiisi.app"
       ]
     }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
+    >
+    <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="bg-noise" aria-hidden="true"></div>
 
-    <header class="site-header container" data-reveal>
-      <a class="brand" href="#top" aria-label="Lambda Symbolics homepage">
-        <span class="brand-lambda" aria-hidden="true">&lambda;</span>
-        <span class="brand-name">Lambda Symbolics</span>
-      </a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="#product" data-nav>Product</a>
-        <a href="#courses" data-nav>Courses</a>
-        <a href="#approach" data-nav>Approach</a>
-        <a href="#about" data-nav>About</a>
-        <a href="#contact" data-nav>Contact</a>
-      </nav>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <header class="site-header page-shell" id="top">
+      <div class="site-header__inner">
+        <a class="brand" href="#company" aria-label="Lambda Symbolics homepage">
+          <span class="brand-mark" aria-hidden="true">&lambda;</span>
+          <span class="brand-name">Lambda Symbolics</span>
+          <span class="brand-office">Office</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="#company" data-nav>01 Company</a>
+          <a href="#product" data-nav>02 Live Product</a>
+          <a href="#system" data-nav>03 Technical System</a>
+          <a href="#courses" data-nav>04 Queue</a>
+          <a href="#registry" data-nav>05 Registry</a>
+        </nav>
+      </div>
     </header>
 
-    <main id="main-content" class="container">
-      <!-- Hero -->
-      <section class="hero" id="top" data-reveal>
-        <div class="hero-badge">
-          <span class="hero-badge-dot" aria-hidden="true"></span>
-          Now live: Hiisi language learning
+    <main id="main-content" class="page-shell">
+      <section class="report-section report-section--hero" id="company" data-reveal>
+        <div class="section-index">
+          <span class="section-index__number">01</span>
+          <span class="section-index__label">Company / Office</span>
         </div>
-        <h1>
-          We build software<br />
-          <span class="hero-typed" aria-label="that ships, that lasts, that works, that's based">that ships.</span>
-        </h1>
-        <p class="hero-copy">
-          Lambda Symbolics is a development company with a passionate mindset
-          and enthusiasm for technology. We focus on fewer things and build them
-          exceptionally well.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="https://hiisi.app" target="_blank" rel="noreferrer">
-            <span class="button-icon" aria-hidden="true">&nearr;</span>
-            Open Hiisi.app
-          </a>
-          <a class="button button-secondary" href="#courses">
-            Courses -- Coming Soon
-          </a>
-        </div>
-        <div class="hero-stats" data-reveal data-delay="1">
-          <div class="stat">
-            <span class="stat-value">1</span>
-            <span class="stat-label">Live product</span>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="section-kicker">Lambda Symbolics O&Uuml;</p>
+            <h1>Software company in Tallinn. Common Lisp and Rust.</h1>
+            <p class="hero-statement">
+              Hiisi is live. Courses are in preparation.
+            </p>
+            <p class="hero-body">
+              Lambda Symbolics develops technically opinionated software with long
+              shelf life. The work favors direct systems, server-rendered
+              interfaces, explicit state, and tools that remain understandable
+              under inspection.
+            </p>
+
+            <div class="action-row">
+              <a class="action-link action-link--primary" href="https://hiisi.app" target="_blank" rel="noreferrer">
+                Open Hiisi
+              </a>
+              <a class="action-link" href="#registry">
+                Registry facts
+              </a>
+              <a class="action-link" href="https://github.com/luciusmagn" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </div>
           </div>
-          <div class="stat">
-            <span class="stat-value">14</span>
-            <span class="stat-label">Languages</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">&infin;</span>
-            <span class="stat-label">Parentheses</span>
-          </div>
-          <div class="stat">
-            <span class="stat-value">0</span>
-            <span class="stat-label">Electron apps</span>
+
+          <div class="sheet sheet--registry">
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Registry / Status</p>
+              <span class="status-stamp status-stamp--live">Live</span>
+            </div>
+
+            <dl class="fact-list">
+              <div class="fact-row">
+                <dt>Company</dt>
+                <dd>Lambda Symbolics O&Uuml;</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Location</dt>
+                <dd>Tallinn, Estonia</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Primary product</dt>
+                <dd>Hiisi</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Status</dt>
+                <dd>Production service online</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Stack</dt>
+                <dd>Common Lisp / Rust</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Courses</dt>
+                <dd>In preparation</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Registry code</dt>
+                <dd>17437416</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
 
-      <!-- Product: Hiisi -->
-      <section class="section" id="product">
-        <div class="section-header" data-reveal>
-          <p class="section-kicker">01 / Product</p>
+      <section class="report-section" id="product">
+        <div class="section-index" data-reveal>
+          <span class="section-index__number">02</span>
+          <span class="section-index__label">Live Product</span>
+        </div>
+
+        <div class="section-head" data-reveal>
           <h2>Hiisi</h2>
-          <p class="section-subtitle">
-            Automatic structured translation meets spaced repetition. Language
-            learning that respects your time and actually works.
+          <p>
+            Language-learning system built around automatic structured translation,
+            grammar breakdowns, and flashcard review.
           </p>
         </div>
 
-        <div class="feature-grid">
-          <div class="feature-card" data-reveal data-delay="0">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <div class="report-grid">
+          <article class="sheet sheet--product span-7" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Product sheet</p>
+              <a class="sheet__link" href="https://hiisi.app" target="_blank" rel="noreferrer">hiisi.app</a>
             </div>
-            <h3>14 Languages</h3>
-            <p>Translate between any pair of 14 supported languages -- including Finnish, Estonian, Czech, and other less commonly supported languages.</p>
-          </div>
-          <div class="feature-card" data-reveal data-delay="1">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            </div>
-            <h3>Grammar Breakdowns</h3>
-            <p>Every translation includes word-by-word analysis with part-of-speech tags, declension patterns, conjugation forms, and an interactive grammar term wiki.</p>
-          </div>
-          <div class="feature-card" data-reveal data-delay="2">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <h3>Spaced Repetition</h3>
-            <p>Save translations to custom decks and review them as flashcards. The SM-2 algorithm schedules reviews at optimal intervals for long-term retention.</p>
-          </div>
-          <div class="feature-card" data-reveal data-delay="3">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3>Shareable Decks</h3>
-            <p>Create your own custom flashcards or save translations into decks. Share them with a link and let others import your curated vocabulary.</p>
-          </div>
-        </div>
 
-        <div class="product-cta" data-reveal>
-          <a class="button button-primary" href="https://hiisi.app" target="_blank" rel="noreferrer">
-            <span class="button-icon" aria-hidden="true">&nearr;</span>
-            Try Hiisi for Free
-          </a>
-          <span class="product-cta-note">7-day free trial</span>
-        </div>
-      </section>
-
-      <!-- Courses -->
-      <section class="section" id="courses">
-        <div class="section-header" data-reveal>
-          <p class="section-kicker">02 / Coming Soon</p>
-          <h2>Courses</h2>
-          <p class="section-subtitle">
-            Practical, business-grade training for engineers who want strong
-            fundamentals, not toy projects.
-          </p>
-        </div>
-
-        <div class="course-content">
-          <div class="course-details" data-reveal>
-            <p class="course-lead">
-              <strong>Luk&aacute;&scaron; Hozda</strong> is a university lecturer and has
-              taught commercial Rust courses. The upcoming course offering will
-              cover Rust and more, with a focus on production-grade engineering
-              and real-world problem solving.
+            <p class="sheet__lead">
+              Structured translation paired with spaced repetition. Built for
+              serious language study rather than novelty interaction.
             </p>
-            <p class="course-note">
-              Details on curriculum, format, and pricing are still being shaped.
-              Follow along on X for updates.
-            </p>
-            <a class="text-link" href="https://x.com/LukasHozda" target="_blank" rel="noreferrer">
-              Follow @LukasHozda on X &rarr;
-            </a>
-          </div>
 
-          <div class="course-aside" data-reveal data-delay="1">
-            <div class="terminal" aria-label="Course status">
-              <div class="terminal-bar">
-                <span class="terminal-dot" aria-hidden="true"></span>
-                <span class="terminal-dot" aria-hidden="true"></span>
-                <span class="terminal-dot" aria-hidden="true"></span>
-                <span class="terminal-title">SBCL REPL</span>
+            <div class="status-strip">
+              <div class="status-strip__item">
+                <span class="status-strip__label">State</span>
+                <span class="status-strip__value">Live</span>
               </div>
-              <div class="terminal-body">
-                <p><span class="terminal-prompt">*</span> (course-status)</p>
-                <p class="terminal-line">:rust <span class="terminal-val">"in development"</span></p>
-                <p class="terminal-line">:more <span class="terminal-val">"planned"</span></p>
-                <p class="terminal-line">:instructor <span class="terminal-val">"university lecturer"</span></p>
-                <p class="terminal-line">:experience <span class="terminal-val">"academic + commercial"</span></p>
-                <p><span class="terminal-prompt">*</span> <span class="terminal-cursor">_</span></p>
+              <div class="status-strip__item">
+                <span class="status-strip__label">Access</span>
+                <span class="status-strip__value">Public web app</span>
+              </div>
+              <div class="status-strip__item">
+                <span class="status-strip__label">Trial</span>
+                <span class="status-strip__value">Available</span>
               </div>
             </div>
+
+            <table class="matrix-table">
+              <caption>Capability register</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Module</th>
+                  <th scope="col">State</th>
+                  <th scope="col">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Structured translation</th>
+                  <td>Live</td>
+                  <td>Automatic parsing with explicit output structure.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Grammar breakdowns</th>
+                  <td>Live</td>
+                  <td>Word analysis, explanations, and term linking.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Flashcard review</th>
+                  <td>Live</td>
+                  <td>Spaced repetition based on SM-2 scheduling.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Custom decks</th>
+                  <td>Live</td>
+                  <td>User-maintained card collections and assignment.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Deck sharing</th>
+                  <td>Live</td>
+                  <td>Importable shared vocabulary sets.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Starter decks</th>
+                  <td>Live</td>
+                  <td>Official curated material for selected triplets.</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <div class="sheet span-5" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Language coverage</p>
+              <span class="sheet__meta">14 supported languages</span>
+            </div>
+
+            <ul class="language-list">
+              <li><span>EN</span><strong>English</strong></li>
+              <li><span>CS</span><strong>Czech</strong></li>
+              <li><span>FI</span><strong>Finnish</strong></li>
+              <li><span>ET</span><strong>Estonian</strong></li>
+              <li><span>DE</span><strong>German</strong></li>
+              <li><span>ES</span><strong>Spanish</strong></li>
+              <li><span>IT</span><strong>Italian</strong></li>
+              <li><span>PT</span><strong>Portuguese</strong></li>
+              <li><span>RU</span><strong>Russian</strong></li>
+              <li><span>PL</span><strong>Polish</strong></li>
+              <li><span>NL</span><strong>Dutch</strong></li>
+              <li><span>SV</span><strong>Swedish</strong></li>
+              <li><span>NO</span><strong>Norwegian</strong></li>
+              <li><span>DA</span><strong>Danish</strong></li>
+            </ul>
+
+            <div class="note-block">
+              <p class="note-block__label">Current focus</p>
+              <p>
+                Translation and review for pairs that are commonly underserved by
+                mainstream language software, including Nordic and Central
+                European combinations.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Approach -->
-      <section class="section" id="approach">
-        <div class="section-header" data-reveal>
-          <p class="section-kicker">03 / Approach</p>
-          <h2>Off the Beaten Path</h2>
-          <p class="section-subtitle">
-            We are distrustful of mainstream defaults and willing to venture
-            where fewer developers go. We choose tools that are rewarding
-            to work with, not just popular.
+      <section class="report-section" id="system">
+        <div class="section-index" data-reveal>
+          <span class="section-index__number">03</span>
+          <span class="section-index__label">Technical System</span>
+        </div>
+
+        <div class="section-head" data-reveal>
+          <h2>Direct systems, explicit state</h2>
+          <p>
+            The company stack favors inspectability, low ceremony, and long-lived
+            infrastructure over fashion-driven complexity.
           </p>
         </div>
 
-        <div class="stack-grid">
-          <div class="stack-card" data-reveal data-delay="0">
-            <div class="stack-card-header">
-              <span class="stack-card-icon" aria-hidden="true">()</span>
-              <h3>Common Lisp</h3>
+        <div class="report-grid">
+          <article class="sheet span-8" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Runtime arrangement</p>
+              <span class="sheet__meta">Hiisi production system</span>
             </div>
-            <p>We chose Common Lisp because it is cool, because its technical aspects are genuinely compelling, and because the REPL-driven workflow is unmatched. SBCL gives us native compilation and a live development experience.</p>
-          </div>
-          <div class="stack-card" data-reveal data-delay="1">
-            <div class="stack-card-header">
-              <span class="stack-card-icon" aria-hidden="true">fn</span>
-              <h3>Rust</h3>
+
+            <div class="system-lanes">
+              <div class="system-lane">
+                <h3>Interface</h3>
+                <p>Server-rendered HTML, HTMX interactions, static assets.</p>
+              </div>
+              <div class="system-lane">
+                <h3>Application core</h3>
+                <p>Common Lisp for translation logic, flashcards, deck workflows, and UI composition.</p>
+              </div>
+              <div class="system-lane">
+                <h3>Control plane</h3>
+                <p>Rust for authentication, billing, email, and long-running background work.</p>
+              </div>
+              <div class="system-lane">
+                <h3>State</h3>
+                <p>SQLite for the primary datastore, Redis for transient data and fast lookups.</p>
+              </div>
             </div>
-            <p>Strong async runtime, strong type system. Rust handles things that must be correct and things that benefit from async: authentication, payments, email, and long-running background tasks. Rocket framework, Diesel ORM.</p>
-          </div>
-          <div class="stack-card" data-reveal data-delay="2">
-            <div class="stack-card-header">
-              <span class="stack-card-icon" aria-hidden="true">hx</span>
-              <h3>HTMX</h3>
+
+            <table class="matrix-table matrix-table--compact">
+              <caption>Routing split</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Route surface</th>
+                  <th scope="col">Process</th>
+                  <th scope="col">Responsibility</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">/app/*</th>
+                  <td>Common Lisp</td>
+                  <td>Core application workflows and user interface.</td>
+                </tr>
+                <tr>
+                  <th scope="row">/auth/*</th>
+                  <td>Rust</td>
+                  <td>Registration, login, activation, session concerns.</td>
+                </tr>
+                <tr>
+                  <th scope="row">/subscribe/*</th>
+                  <td>Rust</td>
+                  <td>Billing and subscription management.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Reverse proxy</th>
+                  <td>S&omacr;zu</td>
+                  <td>Request routing between services.</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <div class="sheet span-4" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Stack register</p>
             </div>
-            <p>Server-rendered HTML with surgical DOM updates. No JavaScript framework, no virtual DOM. Hypermedia as the engine of application state.</p>
-          </div>
-          <div class="stack-card" data-reveal data-delay="3">
-            <div class="stack-card-header">
-              <span class="stack-card-icon" aria-hidden="true">&loz;</span>
-              <h3>Redis</h3>
-            </div>
-            <p>In-memory caching for fast lookups and session data. Simple, battle-tested, and keeps latency low where it matters.</p>
+
+            <dl class="stack-list">
+              <div class="stack-row">
+                <dt>Common Lisp</dt>
+                <dd>Application logic and interface generation.</dd>
+              </div>
+              <div class="stack-row">
+                <dt>Rust</dt>
+                <dd>Auth, billing, email, background tasks.</dd>
+              </div>
+              <div class="stack-row">
+                <dt>HTMX</dt>
+                <dd>Hypermedia interaction without SPA indirection.</dd>
+              </div>
+              <div class="stack-row">
+                <dt>SQLite</dt>
+                <dd>Primary datastore.</dd>
+              </div>
+              <div class="stack-row">
+                <dt>Redis</dt>
+                <dd>Fast transient state and counters.</dd>
+              </div>
+              <div class="stack-row">
+                <dt>S&omacr;zu</dt>
+                <dd>Reverse proxy and service split.</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
 
-      <!-- About -->
-      <section class="section" id="about">
-        <div class="section-header" data-reveal>
-          <p class="section-kicker">04 / About</p>
-          <h2>Lambda Symbolics O&Uuml;</h2>
+      <section class="report-section" id="courses">
+        <div class="section-index" data-reveal>
+          <span class="section-index__number">04</span>
+          <span class="section-index__label">Courses / Queue</span>
         </div>
 
-        <div class="about-content">
-          <div class="about-text" data-reveal>
-            <p class="about-lead">
-              Lambda Symbolics is a one-person company registered in Estonia,
-              led by <strong>Luk&aacute;&scaron; Hozda</strong>. We build things with
-              interesting technologies and have fun with the craftsmanship.
-            </p>
-            <p>
-              We are distrustful of mainstream choices and willing to venture off
-              the beaten path. We use Common Lisp because it is genuinely cool
-              and technically rewarding. We use Rust because it makes real
-              promises and keeps them. We pick tools that make us excited to
-              write code, not tools that everyone else already picked.
-            </p>
-            <p>
-              The goal is simple: build fewer things, build them well, and enjoy
-              the process of making them.
-            </p>
-          </div>
-          <div class="about-values" data-reveal data-delay="1">
-            <div class="value-item">
-              <h3>Interesting Tools, Better Results</h3>
-              <p>Common Lisp in production. We pick technologies that are rewarding to work with, and the results speak for themselves.</p>
-            </div>
-            <div class="value-item">
-              <h3>Boring Where It Counts</h3>
-              <p>SQLite over Postgres clusters. Server rendering over SPA frameworks. Simplicity is a feature. Not every choice needs to be exotic.</p>
-            </div>
-            <div class="value-item">
-              <h3>Craftsmanship Over Process</h3>
-              <p>Strong opinions, deep care. I would rather spend time writing good code than writing tickets about writing code.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section class="section section-contact" id="contact">
-        <div class="section-header" data-reveal>
-          <p class="section-kicker">05 / Contact</p>
-          <h2>Get in Touch</h2>
-          <p class="section-subtitle">
-            Interested in Hiisi, upcoming courses, or working together?
+        <div class="section-head" data-reveal>
+          <h2>Instruction queue</h2>
+          <p>
+            Course work is being prepared. The initial focus is technical
+            instruction with a production bias rather than introductory demo material.
           </p>
         </div>
 
-        <div class="contact-grid" data-reveal>
-          <a class="contact-card" href="https://x.com/LukasHozda" target="_blank" rel="noreferrer">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            <span class="contact-label">X / Twitter</span>
-            <span class="contact-detail">@LukasHozda</span>
-          </a>
-          <a class="contact-card" href="https://github.com/luciusmagn" target="_blank" rel="noreferrer">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            <span class="contact-label">GitHub</span>
-            <span class="contact-detail">@luciusmagn</span>
-          </a>
-          <a class="contact-card" href="https://hiisi.app" target="_blank" rel="noreferrer">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            <span class="contact-label">Product</span>
-            <span class="contact-detail">hiisi.app</span>
-          </a>
-          <a class="contact-card" href="mailto:me@mag.wiki">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="0"/><polyline points="22,4 12,13 2,4"/></svg>
-            <span class="contact-label">Email</span>
-            <span class="contact-detail">me@mag.wiki</span>
-          </a>
+        <div class="report-grid">
+          <article class="sheet span-7" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Program register</p>
+              <span class="status-stamp status-stamp--pending">In preparation</span>
+            </div>
+
+            <table class="matrix-table matrix-table--compact">
+              <caption>Queue</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Item</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Rust course</th>
+                  <td>Preparing</td>
+                  <td>Production-oriented material informed by prior commercial delivery.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Additional subjects</th>
+                  <td>Planned</td>
+                  <td>Further topics will follow after the first course line is fixed.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Format and schedule</th>
+                  <td>Pending</td>
+                  <td>To be announced once the first course offer is locked.</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <div class="sheet span-5" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Instruction</p>
+              <span class="sheet__meta">Luk&aacute;&scaron; Hozda</span>
+            </div>
+
+            <p class="sheet__lead">
+              University lecturer with prior commercial Rust-course delivery.
+            </p>
+            <p>
+              The course line is intended for engineers who want technical depth,
+              direct reasoning, and material grounded in production systems rather
+              than tutorial theater.
+            </p>
+
+            <div class="queue-log">
+              <p><span>01</span> rust-course ............ preparing</p>
+              <p><span>02</span> additional-subjects .... planned</p>
+              <p><span>03</span> public schedule ........ pending</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="report-section report-section--registry" id="registry">
+        <div class="section-index" data-reveal>
+          <span class="section-index__number">05</span>
+          <span class="section-index__label">Contact / Registry</span>
+        </div>
+
+        <div class="section-head" data-reveal>
+          <h2>Registry footer</h2>
+          <p>
+            Legal information, contact points, and public references.
+          </p>
+        </div>
+
+        <div class="report-grid">
+          <article class="sheet span-6" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Company registry</p>
+            </div>
+
+            <dl class="fact-list">
+              <div class="fact-row">
+                <dt>Legal name</dt>
+                <dd>Lambda Symbolics O&Uuml;</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Registry code</dt>
+                <dd>17437416</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Registered office</dt>
+                <dd>Harju maakond, Tallinn, Kesklinna linnaosa</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Address</dt>
+                <dd>Tornim&auml;e tn 5, 10145</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Maintainer</dt>
+                <dd>Luk&aacute;&scaron; Hozda</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="sheet span-6" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Contact points</p>
+            </div>
+
+            <ul class="link-register">
+              <li>
+                <span>Product</span>
+                <a href="https://hiisi.app" target="_blank" rel="noreferrer">hiisi.app</a>
+              </li>
+              <li>
+                <span>Email</span>
+                <a href="mailto:me@mag.wiki">me@mag.wiki</a>
+              </li>
+              <li>
+                <span>GitHub</span>
+                <a href="https://github.com/luciusmagn" target="_blank" rel="noreferrer">@luciusmagn</a>
+              </li>
+              <li>
+                <span>X</span>
+                <a href="https://x.com/LukasHozda" target="_blank" rel="noreferrer">@LukasHozda</a>
+              </li>
+            </ul>
+          </article>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer container" data-reveal>
-      <div class="footer-left">
-        <p class="footer-brand">
-          <span class="brand-lambda" aria-hidden="true">&lambda;</span>
-          Lambda Symbolics O&Uuml;
-        </p>
-        <p class="footer-tagline">Built with care, curiosity, and Common Lisp.</p>
-      </div>
-      <div class="footer-right">
+    <footer class="site-footer page-shell" data-reveal>
+      <div class="site-footer__inner">
         <p>&copy; <span id="year"></span> Lambda Symbolics O&Uuml;</p>
-        <p>Harju maakond, Tallinn, Kesklinna linnaosa</p>
-        <p>Tornim&auml;e tn 5, 10145</p>
-        <p class="footer-reg">Registry code: 17437416</p>
+        <p>PROD / static landing / document revision 2026.03</p>
       </div>
     </footer>
   </body>

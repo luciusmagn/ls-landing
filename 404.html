@@ -1,117 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 -- Lambda Symbolics OU</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='50' dominant-baseline='central' text-anchor='middle' font-family='monospace' font-weight='700' font-size='80' fill='%233fb68b'>%CE%BB</text></svg>" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 / Lambda Symbolics O&Uuml;</title>
+    <meta
+      name="description"
+      content="Requested Lambda Symbolics page not found."
+    >
+    <link rel="canonical" href="https://lambda-symbolics.com/404">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='50' dominant-baseline='central' text-anchor='middle' font-family='monospace' font-weight='700' font-size='80' fill='%233fb68b'>%CE%BB</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-    />
-    <style>
-      :root {
-        --bg:          #050906;
-        --text:        #e8ffe9;
-        --muted:       #93b79d;
-        --lisp-green:  #74ff9f;
-        --line:        #224432;
-        --font-body:   "Space Grotesk", "Segoe UI", sans-serif;
-        --font-mono:   "JetBrains Mono", monospace;
-      }
-
-      * { box-sizing: border-box; }
-
-      html, body {
-        margin: 0;
-        min-height: 100vh;
-      }
-
-      body {
-        font-family: var(--font-body);
-        background: var(--bg);
-        color: var(--text);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 2rem;
-        text-align: center;
-      }
-
-      .error-code {
-        font-family: var(--font-mono);
-        font-size: clamp(4rem, 15vw, 8rem);
-        font-weight: 700;
-        color: var(--lisp-green);
-        line-height: 1;
-        margin: 0 0 1rem;
-        opacity: 0.7;
-      }
-
-      h1 {
-        margin: 0 0 0.8rem;
-        font-size: clamp(1.2rem, 3vw, 1.8rem);
-      }
-
-      p {
-        color: var(--muted);
-        margin: 0 0 2rem;
-        max-width: 40ch;
-        line-height: 1.6;
-      }
-
-      .terminal-block {
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        border: 1px solid var(--line);
-        padding: 1rem 1.4rem;
-        text-align: left;
-        background: #08120d;
-        margin-bottom: 2.5rem;
-        color: var(--muted);
-      }
-
-      .terminal-block .prompt {
-        color: var(--lisp-green);
-        font-weight: 600;
-      }
-
-      a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-family: var(--font-mono);
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        color: #041008;
-        background: linear-gradient(180deg, var(--lisp-green) 0%, #49e67d 100%);
-        border: 1px solid var(--lisp-green);
-        padding: 0.6rem 1.3rem;
-        text-decoration: none;
-        font-weight: 700;
-        min-height: 2.9rem;
-        transition: transform 150ms ease, box-shadow 150ms ease;
-      }
-
-      a:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 0 20px rgba(116, 255, 159, 0.3);
-      }
-    </style>
+    >
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <p class="error-code" aria-hidden="true">404</p>
-    <h1>Page not found</h1>
-    <p>The page you are looking for does not exist or has been moved.</p>
-    <div class="terminal-block" aria-hidden="true">
-      <span class="prompt">$</span> find / -name "this-page" -type f<br/>
-      <span style="color: #e8ffe9;">No results.</span>
-    </div>
-    <a href="/">Back to Home</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <header class="site-header page-shell" id="top">
+      <div class="site-header__inner">
+        <a class="brand" href="/" aria-label="Lambda Symbolics homepage">
+          <span class="brand-mark" aria-hidden="true">&lambda;</span>
+          <span class="brand-name">Lambda Symbolics</span>
+          <span class="brand-office">Office</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-shell">
+      <section class="report-section report-section--hero" data-reveal>
+        <div class="section-index">
+          <span class="section-index__number">404</span>
+          <span class="section-index__label">Missing Document</span>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy hero-copy--wide">
+            <p class="error-code" aria-hidden="true">404</p>
+            <p class="section-kicker">Lambda Symbolics O&Uuml;</p>
+            <h1>Document not found.</h1>
+            <p class="hero-statement">
+              Requested page is not present on this host.
+            </p>
+            <p class="hero-body">
+              The requested path does not resolve to a published page or public
+              document. Return to the company index or continue to the live
+              product.
+            </p>
+
+            <div class="action-row">
+              <a class="action-link action-link--primary" href="/">
+                Company index
+              </a>
+              <a class="action-link" href="https://hiisi.app" target="_blank" rel="noreferrer">
+                Open Hiisi
+              </a>
+            </div>
+          </div>
+
+          <div class="sheet sheet--registry">
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Request / Status</p>
+              <span class="status-stamp status-stamp--pending">404</span>
+            </div>
+
+            <dl class="fact-list">
+              <div class="fact-row">
+                <dt>Status</dt>
+                <dd>Not found</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Host</dt>
+                <dd>lambda-symbolics.com</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Requested path</dt>
+                <dd class="path-value" id="request-path">/</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Product</dt>
+                <dd>Hiisi</dd>
+              </div>
+              <div class="fact-row">
+                <dt>Office</dt>
+                <dd>Tallinn, Estonia</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="report-grid">
+          <article class="sheet span-7" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Operator note</p>
+            </div>
+
+            <p class="sheet__lead">
+              The route may have expired, moved, or been entered incorrectly.
+            </p>
+            <p>
+              Lambda Symbolics keeps the public surface small. If you expected a
+              document here, start from the company index and move through the
+              published entry points.
+            </p>
+          </article>
+
+          <div class="sheet span-5" data-reveal>
+            <div class="sheet__header">
+              <p class="sheet__eyebrow">Trace</p>
+              <span class="sheet__meta">Static host</span>
+            </div>
+
+            <div class="queue-log">
+              <p><span>01</span> request ................. received</p>
+              <p><span>02</span> path .................... unresolved</p>
+              <p><span>03</span> public index ............ available</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer page-shell" data-reveal>
+      <div class="site-footer__inner">
+        <p>&copy; <span id="year"></span> Lambda Symbolics O&Uuml;</p>
+        <p>PROD / static landing / document revision 2026.03</p>
+      </div>
+    </footer>
   </body>
 </html>
