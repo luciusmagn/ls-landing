@@ -1,3 +1,35 @@
+@font-face {
+  font-family: "Berkeley Mono";
+  src: url("fonts/BerkeleyMono-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Berkeley Mono";
+  src: url("fonts/BerkeleyMono-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Berkeley Mono";
+  src: url("fonts/BerkeleyMono-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Berkeley Mono";
+  src: url("fonts/BerkeleyMono-BoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   --paper:                #f2f0e8;
   --paper-strong:         #f7f5ef;
@@ -13,8 +45,8 @@
   --stamp:                #a34f3b;
   --stamp-soft:           rgba(163, 79, 59, 0.06);
   --panel-accent:         rgba(63, 182, 139, 0.05);
-  --font-sans:            "IBM Plex Sans", "Segoe UI", sans-serif;
-  --font-mono:            "IBM Plex Mono", "SFMono-Regular", monospace;
+  --font-sans:            "Berkeley Mono", monospace;
+  --font-mono:            "Berkeley Mono", monospace;
   --page-width:           min(1240px, calc(100% - 2rem));
   --section-gap:          clamp(2.8rem, 6vw, 4.4rem);
   --module-gap:           1rem;
@@ -39,7 +71,7 @@ body {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -119,20 +151,12 @@ select {
   line-height: 1;
 }
 
-.brand-name,
-.brand-office {
+.brand-name {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.brand-name {
   color: var(--ink);
-}
-
-.brand-office {
-  color: var(--muted);
 }
 
 .site-nav {
@@ -205,9 +229,9 @@ select {
 
 .section-head h2 {
   margin: 0;
-  font-size: clamp(1.7rem, 3vw, 2.55rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
   line-height: 1.02;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   max-width: 16ch;
 }
 
@@ -236,10 +260,10 @@ select {
 
 .hero-copy h1 {
   margin: 0;
-  font-size: clamp(2rem, 4.8vw, 3.75rem);
-  line-height: 0.96;
-  letter-spacing: -0.035em;
-  max-width: 8.5ch;
+  font-size: clamp(1.55rem, 3.4vw, 2.35rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  max-width: 12ch;
 }
 
 .error-code {
@@ -273,7 +297,7 @@ select {
   margin: 1.1rem 0 0;
   max-width: 48ch;
   color: var(--ink-soft);
-  font-size: 0.96rem;
+  font-size: 0.88rem;
 }
 
 .action-row {
@@ -387,7 +411,7 @@ select {
 }
 
 .sheet__lead {
-  font-size: 0.96rem;
+  font-size: 0.88rem;
   color: var(--ink);
 }
 
@@ -514,7 +538,8 @@ select {
 
 .matrix-table thead th {
   border-top: 0;
-  padding-top: 0;
+  padding-top: 0.42rem;
+  padding-bottom: 0.55rem;
   font-family: var(--font-mono);
   font-size: 0.66rem;
   letter-spacing: 0.06em;
