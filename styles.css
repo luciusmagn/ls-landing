@@ -223,12 +223,20 @@ select {
   margin-bottom: 1.5rem;
 }
 
+.section-head--wide-title {
+  grid-template-columns: minmax(0, 2fr) minmax(16rem, 0.9fr);
+}
+
 .section-head h2 {
   margin: 0;
   font-size: clamp(1.25rem, 2.4vw, 1.8rem);
   line-height: 1.02;
   letter-spacing: -0.01em;
   max-width: 16ch;
+}
+
+.section-head--wide-title h2 {
+  max-width: 24ch;
 }
 
 .section-head p {
@@ -566,11 +574,19 @@ select {
 }
 
 .newsletter-form__label {
+  display: block;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
+  padding-left: 0.75rem;
+}
+
+.newsletter-form__controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.6rem;
 }
 
 .newsletter-form__input {
@@ -587,7 +603,8 @@ select {
 }
 
 .newsletter-form__submit {
-  width: 100%;
+  min-width: 8rem;
+  width: auto;
 }
 
 .newsletter-form__submit:disabled {
@@ -800,6 +817,14 @@ select {
   .status-strip,
   .system-lanes {
     grid-template-columns: 1fr;
+  }
+
+  .newsletter-form__controls {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form__submit {
+    width: 100%;
   }
 
   .system-lane,
