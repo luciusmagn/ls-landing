@@ -14,39 +14,86 @@ if (requestPathNode) {
   requestPathNode.textContent = window.location.pathname || "/";
 }
 
-/* ---- Scroll Reveal ---- */
+/* ---- Newsletter Signup ---- */
 
-var revealNodes = Array.from(document.querySelectorAll("[data-reveal]"));
+var newsletterForm = document.getElementById("newsletter-form");
+var newsletterFeedback = document.getElementById("newsletter-feedback");
+var newsletterSubmit = document.getElementById("newsletter-submit");
 
-function showAllRevealNodes() {
-  revealNodes.forEach(function showNode(node) {
-    node.classList.add("is-visible");
-  });
+function newsletterEndpoint() {
+  var hostname = window.location.hostname;
+
+  if (hostname === "localhost" || hostname === "127.0.0.1") {
+    return "http://localhost:8888/app/api/newsletter-signup";
+  }
+
+  return "https://hiisi.app/app/api/newsletter-signup";
 }
 
-if ("IntersectionObserver" in window) {
-  var revealObserver = new IntersectionObserver(
-    function handleReveal(entries, currentObserver) {
-      entries.forEach(function processEntry(entry) {
-        if (!entry.isIntersecting) {
-          return;
+function newsletterFeedbackSet(status, message) {
+  if (!newsletterFeedback) {
+    return;
+  }
+
+  newsletterFeedback.className = "newsletter-feedback is-" + status;
+  newsletterFeedback.textContent = message;
+}
+
+if (newsletterForm && newsletterFeedback) {
+  newsletterForm.addEventListener("submit", function handleNewsletterSubmit(event) {
+    event.preventDefault();
+
+    var emailField = document.getElementById("newsletter-email");
+    var email = emailField ? emailField.value.trim() : "";
+
+    if (!email) {
+      newsletterFeedbackSet("error", "Please enter your email address.");
+      return;
+    }
+
+    if (newsletterSubmit) {
+      newsletterSubmit.disabled = true;
+    }
+
+    newsletterFeedbackSet("pending", "Submitting...");
+
+    fetch(newsletterEndpoint(), {
+      method: "POST",
+      headers: {
+        "Accept": "application/json"
+      },
+      body: new URLSearchParams({
+        email: email
+      })
+    })
+      .then(function handleResponse(response) {
+        if (!response.ok) {
+          throw new Error("Newsletter request failed.");
         }
 
-        entry.target.classList.add("is-visible");
-        currentObserver.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: "0px 0px -48px 0px"
-    }
-  );
+        return response.json();
+      })
+      .then(function handlePayload(payload) {
+        var status = payload && payload.status ? payload.status : "success";
+        var message = payload && payload.message
+          ? payload.message
+          : "You are in! We will notify you when Hiisi launches.";
 
-  revealNodes.forEach(function observeNode(node) {
-    revealObserver.observe(node);
+        newsletterFeedbackSet(status, message);
+
+        if (status === "success") {
+          newsletterForm.reset();
+        }
+      })
+      .catch(function handleFailure() {
+        newsletterFeedbackSet("error", "Something went wrong. Please try again.");
+      })
+      .finally(function handleFinally() {
+        if (newsletterSubmit) {
+          newsletterSubmit.disabled = false;
+        }
+      });
   });
-} else {
-  showAllRevealNodes();
 }
 
 /* ---- Active Nav Tracking ---- */

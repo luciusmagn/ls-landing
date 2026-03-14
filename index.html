@@ -6,14 +6,14 @@
     <title>Lambda Symbolics O&Uuml;</title>
     <meta
       name="description"
-      content="Lambda Symbolics O&Uuml; builds software from Chlumec nad Cidlinou. Common Lisp and Rust. Hiisi is live. Courses are in preparation."
+      content="Lambda Symbolics O&Uuml; works from Chlumec nad Cidlinou. Education and Computer Science. Per aspera ad astra."
     >
     <link rel="canonical" href="https://lambda-symbolics.com">
 
     <meta property="og:title" content="Lambda Symbolics O&Uuml;">
     <meta
       property="og:description"
-      content="Lambda Symbolics builds software from Chlumec nad Cidlinou. Common Lisp and Rust. Hiisi is live."
+      content="Lambda Symbolics works from Chlumec nad Cidlinou. Education and Computer Science. Per aspera ad astra."
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lambda-symbolics.com">
@@ -26,7 +26,7 @@
     <meta name="twitter:title" content="Lambda Symbolics O&Uuml;">
     <meta
       name="twitter:description"
-      content="Lambda Symbolics builds software from Chlumec nad Cidlinou. Common Lisp and Rust. Hiisi is live."
+      content="Lambda Symbolics works from Chlumec nad Cidlinou. Education and Computer Science. Per aspera ad astra."
     >
     <meta name="twitter:image" content="https://lambda-symbolics.com/og.png">
 
@@ -38,7 +38,7 @@
       "@type": "Organization",
       "name": "Lambda Symbolics O\u00dc",
       "url": "https://lambda-symbolics.com",
-      "description": "Lambda Symbolics builds technically opinionated systems with Common Lisp and Rust from Chlumec nad Cidlinou.",
+      "description": "Lambda Symbolics works from Chlumec nad Cidlinou in education and computer science.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Tornim\u00e4e tn 5",
@@ -92,21 +92,19 @@
       <section class="report-section report-section--hero" id="company" data-reveal>
         <div class="section-index">
           <span class="section-index__number">01</span>
-          <span class="section-index__label">Company / Office</span>
+          <span class="section-index__label">Company</span>
         </div>
 
         <div class="hero-grid">
           <div class="hero-copy">
             <p class="section-kicker">Lambda Symbolics O&Uuml;</p>
-            <h1>Common Lisp and Rust.</h1>
+            <h1>Education and Computer Science</h1>
             <p class="hero-statement">
-              Hiisi is live. Courses are in preparation.
+              Per aspera ad astra
             </p>
             <p class="hero-body">
-              Lambda Symbolics builds technically opinionated software from
-              Chlumec nad Cidlinou. The work favors direct systems,
-              server-rendered interfaces, explicit state, and tools that remain
-              understandable under inspection.
+              Lambda Symbolics works from Chlumec nad Cidlinou. We focus on
+              education, specializing in human languages and CompSci skills.
             </p>
 
             <div class="action-row">
@@ -145,14 +143,6 @@
                 <dt>Stack</dt>
                 <dd>Common Lisp / Rust</dd>
               </div>
-              <div class="fact-row">
-                <dt>Interface</dt>
-                <dd>Server-rendered / HTMX</dd>
-              </div>
-              <div class="fact-row">
-                <dt>Courses</dt>
-                <dd>In preparation</dd>
-              </div>
             </dl>
           </div>
         </div>
@@ -168,7 +158,7 @@
           <h2>Hiisi</h2>
           <p>
             Language-learning system built around automatic structured translation,
-            grammar breakdowns, and flashcard review.
+            grammar breakdowns, and spaced repetition.
           </p>
         </div>
 
@@ -178,11 +168,6 @@
               <p class="sheet__eyebrow">Product sheet</p>
               <a class="sheet__link" href="https://hiisi.app" target="_blank" rel="noreferrer">hiisi.app</a>
             </div>
-
-            <p class="sheet__lead">
-              Structured translation paired with spaced repetition. Built for
-              serious language study rather than novelty interaction.
-            </p>
 
             <div class="status-strip">
               <div class="status-strip__item">
@@ -220,7 +205,7 @@
                   <td>Word analysis, explanations, and term linking.</td>
                 </tr>
                 <tr>
-                  <th scope="row">Flashcard review</th>
+                  <th scope="row">Spaced repetition</th>
                   <td>Live</td>
                   <td>Spaced repetition based on SM-2 scheduling.</td>
                 </tr>
@@ -243,35 +228,65 @@
             </table>
           </article>
 
-          <div class="sheet span-5" data-reveal>
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">Language coverage</p>
-              <span class="sheet__meta">14 supported languages</span>
+          <div class="stacked-sheet-column span-5" data-reveal>
+            <div class="sheet">
+              <div class="sheet__header">
+                <p class="sheet__eyebrow">Newsletter</p>
+                <span class="sheet__meta">Hiisi updates</span>
+              </div>
+
+              <p class="sheet__lead">
+                Providing users with tools to tailor their language learning
+                journey via user-generated content
+              </p>
+
+              <form
+                class="newsletter-form"
+                id="newsletter-form"
+                action="https://hiisi.app/app/api/newsletter-signup"
+                method="post"
+              >
+                <label class="newsletter-form__label" for="newsletter-email">
+                  Email address
+                </label>
+                <input
+                  class="newsletter-form__input"
+                  type="email"
+                  id="newsletter-email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                >
+                <button
+                  class="action-link action-link--primary newsletter-form__submit"
+                  type="submit"
+                  id="newsletter-submit"
+                >
+                  Sign up
+                </button>
+              </form>
+
+              <div
+                class="newsletter-feedback"
+                id="newsletter-feedback"
+                aria-live="polite"
+              ></div>
+
+              <p class="newsletter-form__fine-print">
+                Hiisi product and course updates by email.
+              </p>
             </div>
 
-            <ul class="language-list">
-              <li><span>EN</span><strong>English</strong></li>
-              <li><span>CS</span><strong>Czech</strong></li>
-              <li><span>FI</span><strong>Finnish</strong></li>
-              <li><span>ET</span><strong>Estonian</strong></li>
-              <li><span>DE</span><strong>German</strong></li>
-              <li><span>ES</span><strong>Spanish</strong></li>
-              <li><span>IT</span><strong>Italian</strong></li>
-              <li><span>PT</span><strong>Portuguese</strong></li>
-              <li><span>RU</span><strong>Russian</strong></li>
-              <li><span>PL</span><strong>Polish</strong></li>
-              <li><span>NL</span><strong>Dutch</strong></li>
-              <li><span>SV</span><strong>Swedish</strong></li>
-              <li><span>NO</span><strong>Norwegian</strong></li>
-              <li><span>DA</span><strong>Danish</strong></li>
-            </ul>
+            <div class="sheet">
+              <div class="sheet__header">
+                <p class="sheet__eyebrow">For educators</p>
+              </div>
 
-            <div class="note-block">
-              <p class="note-block__label">Current focus</p>
-              <p>
-                Translation and review for pairs that are commonly underserved by
-                mainstream language software, including Nordic and Central
-                European combinations.
+              <p class="sheet__lead">
+                Hiisi is built by an educator with a long family tradition of
+                education and besides self-learners, caters to the needs of
+                fellow teachers, lecturers, and tutors
               </p>
             </div>
           </div>
@@ -285,10 +300,9 @@
         </div>
 
         <div class="section-head" data-reveal>
-          <h2>Direct systems, explicit state</h2>
+          <h2>Based and flexible technical solutions</h2>
           <p>
-            The company stack favors inspectability, low ceremony, and long-lived
-            infrastructure over fashion-driven complexity.
+            Technologies unconstrained by the follies of the mainstream
           </p>
         </div>
 
@@ -344,8 +358,8 @@
                   <td>Billing and subscription management.</td>
                 </tr>
                 <tr>
-                  <th scope="row">Reverse proxy</th>
-                  <td>S&omacr;zu</td>
+                  <th scope="row">Edge routing</th>
+                  <td>Reverse proxy</td>
                   <td>Request routing between services.</td>
                 </tr>
               </tbody>
@@ -368,7 +382,7 @@
               </div>
               <div class="stack-row">
                 <dt>HTMX</dt>
-                <dd>Hypermedia interaction without SPA indirection.</dd>
+                <dd>Hypermedia as the engine of application state.</dd>
               </div>
               <div class="stack-row">
                 <dt>SQLite</dt>
@@ -379,7 +393,7 @@
                 <dd>Fast transient state and counters.</dd>
               </div>
               <div class="stack-row">
-                <dt>S&omacr;zu</dt>
+                <dt>Edge routing</dt>
                 <dd>Reverse proxy and service split.</dd>
               </div>
             </dl>
@@ -396,8 +410,7 @@
         <div class="section-head" data-reveal>
           <h2>Instruction queue</h2>
           <p>
-            Course work is being prepared. The initial focus is technical
-            instruction with a production bias rather than introductory demo material.
+            Weekly live online lessons with direct contact to the lecturer.
           </p>
         </div>
 
@@ -421,17 +434,17 @@
                 <tr>
                   <th scope="row">Rust course</th>
                   <td>Preparing</td>
-                  <td>Production-oriented material informed by prior commercial delivery.</td>
+                  <td>Weekly live online lessons with direct contact to the lecturer.</td>
                 </tr>
                 <tr>
-                  <th scope="row">Additional subjects</th>
+                  <th scope="row">Portfolio projects</th>
                   <td>Planned</td>
-                  <td>Further topics will follow after the first course line is fixed.</td>
+                  <td>Hands-on work intended for student portfolios.</td>
                 </tr>
                 <tr>
-                  <th scope="row">Format and schedule</th>
-                  <td>Pending</td>
-                  <td>To be announced once the first course offer is locked.</td>
+                  <th scope="row">Hiring opportunities</th>
+                  <td>Planned</td>
+                  <td>Partner and project opportunities around course completion.</td>
                 </tr>
               </tbody>
             </table>
@@ -447,15 +460,16 @@
               University lecturer with prior commercial Rust-course delivery.
             </p>
             <p>
-              The course line is intended for engineers who want technical depth,
-              direct reasoning, and material grounded in production systems rather
-              than tutorial theater.
+              Our courses combine technical depth with hands-on experience, use
+              weekly live online lessons with direct contact to the lecturer,
+              and leave you with hiring opportunities with our partners and
+              projects for your portfolio to increase your hiring prospects
             </p>
 
             <div class="queue-log">
-              <p><span>01</span> rust-course ............ preparing</p>
-              <p><span>02</span> additional-subjects .... planned</p>
-              <p><span>03</span> public schedule ........ pending</p>
+              <p><span>01</span> weekly-live-lessons .... preparing</p>
+              <p><span>02</span> portfolio-projects ..... planned</p>
+              <p><span>03</span> hiring-opportunities ... planned</p>
             </div>
           </div>
         </div>
@@ -488,10 +502,6 @@
               <div class="fact-row">
                 <dt>Registry code</dt>
                 <dd>17437416</dd>
-              </div>
-              <div class="fact-row">
-                <dt>Registered office</dt>
-                <dd>Harju maakond, Tallinn, Kesklinna linnaosa</dd>
               </div>
               <div class="fact-row">
                 <dt>Address</dt>
