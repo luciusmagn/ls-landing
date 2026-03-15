@@ -355,6 +355,10 @@ select {
   grid-column: span 4;
 }
 
+.span-3 {
+  grid-column: span 3;
+}
+
 .span-5 {
   grid-column: span 5;
 }
@@ -371,14 +375,26 @@ select {
   grid-column: span 8;
 }
 
+.span-9 {
+  grid-column: span 9;
+}
+
 .stacked-sheet-column {
   display: grid;
-  grid-column: span 5;
   gap: var(--module-gap);
 }
 
 .sheet--registry {
   grid-column: span 5;
+}
+
+.sheet--feature {
+  border-color: var(--ink);
+  background: var(--paper);
+}
+
+.sheet--feature .sheet__header {
+  border-bottom-color: var(--ink);
 }
 
 .sheet__header {
@@ -580,12 +596,12 @@ select {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
-  padding-left: 0.75rem;
+  padding-left: 0.85rem;
 }
 
 .newsletter-form__controls {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
   gap: 0.6rem;
 }
 
@@ -603,8 +619,8 @@ select {
 }
 
 .newsletter-form__submit {
-  min-width: 8rem;
-  width: auto;
+  width: 100%;
+  min-width: 0;
 }
 
 .newsletter-form__submit:disabled {
@@ -675,6 +691,34 @@ select {
 .system-lane p {
   margin: 0;
   color: var(--ink-soft);
+}
+
+.support-list {
+  display: grid;
+  gap: 1px;
+  margin: 1rem;
+  border-top: 1px solid var(--rule);
+  background: var(--rule);
+}
+
+.support-row {
+  padding: 0.85rem 1rem;
+  background: var(--paper-strong);
+}
+
+.support-row__label {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.support-row p:last-child {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
 }
 
 .queue-log {
@@ -784,10 +828,12 @@ select {
   }
 
   .span-4,
+  .span-3,
   .span-5,
   .span-6,
   .span-7,
-  .span-8 {
+  .span-8,
+  .span-9 {
     grid-column: span 12;
   }
 }
@@ -817,14 +863,6 @@ select {
   .status-strip,
   .system-lanes {
     grid-template-columns: 1fr;
-  }
-
-  .newsletter-form__controls {
-    grid-template-columns: 1fr;
-  }
-
-  .newsletter-form__submit {
-    width: 100%;
   }
 
   .system-lane,
