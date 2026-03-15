@@ -223,20 +223,12 @@ select {
   margin-bottom: 1.5rem;
 }
 
-.section-head--wide-title {
-  grid-template-columns: minmax(0, 2fr) minmax(16rem, 0.9fr);
-}
-
 .section-head h2 {
   margin: 0;
   font-size: clamp(1.25rem, 2.4vw, 1.8rem);
   line-height: 1.02;
   letter-spacing: -0.01em;
   max-width: 16ch;
-}
-
-.section-head--wide-title h2 {
-  max-width: 24ch;
 }
 
 .section-head p {
@@ -355,10 +347,6 @@ select {
   grid-column: span 4;
 }
 
-.span-3 {
-  grid-column: span 3;
-}
-
 .span-5 {
   grid-column: span 5;
 }
@@ -375,10 +363,6 @@ select {
   grid-column: span 8;
 }
 
-.span-9 {
-  grid-column: span 9;
-}
-
 .stacked-sheet-column {
   display: grid;
   gap: var(--module-gap);
@@ -386,10 +370,6 @@ select {
 
 .sheet--registry {
   grid-column: span 5;
-}
-
-.sheet--full {
-  grid-column: 1 / -1;
 }
 
 .sheet--feature {
@@ -667,37 +647,6 @@ select {
   font-size: 0.78rem;
 }
 
-.technology-grid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--rule);
-  background: var(--rule);
-}
-
-.technology-card {
-  display: flex;
-  align-items: flex-end;
-  min-height: 4.8rem;
-  padding: 0.95rem 1rem;
-  background: var(--paper-strong);
-  color: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.technology-card--primary {
-  grid-column: span 2;
-  min-height: 6.8rem;
-  background: var(--paper);
-  font-size: clamp(1rem, 2.1vw, 1.35rem);
-}
-
 .queue-log {
   margin: 1rem;
   padding: 0.9rem 0 0;
@@ -805,12 +754,10 @@ select {
   }
 
   .span-4,
-  .span-3,
   .span-5,
   .span-6,
   .span-7,
-  .span-8,
-  .span-9 {
+  .span-8 {
     grid-column: span 12;
   }
 }
@@ -839,14 +786,6 @@ select {
 
   .status-strip {
     grid-template-columns: 1fr;
-  }
-
-  .technology-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .technology-card--primary {
-    grid-column: span 2;
   }
 
   .fact-row,
