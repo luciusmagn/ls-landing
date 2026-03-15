@@ -81,7 +81,7 @@
         <nav class="site-nav" aria-label="Main navigation">
           <a href="#company" data-nav>01 Company</a>
           <a href="#product" data-nav>02 Live Product</a>
-          <a href="#system" data-nav>03 Technical System</a>
+          <a href="#system" data-nav>03 Toolchain</a>
           <a href="#courses" data-nav>04 Queue</a>
           <a href="#registry" data-nav>05 Registry</a>
         </nav>
@@ -292,96 +292,41 @@
       <section class="report-section" id="system">
         <div class="section-index" data-reveal>
           <span class="section-index__number">03</span>
-          <span class="section-index__label">Technical System</span>
+          <span class="section-index__label">Technology Register</span>
         </div>
 
         <div class="section-head section-head--wide-title" data-reveal>
-          <h2>Based and flexible technical solutions</h2>
+          <h2>Project toolchain</h2>
           <p>
-            Technologies unconstrained by the follies of the mainstream
+            Selected technologies in current use.
           </p>
         </div>
 
         <div class="report-grid">
-          <article class="sheet sheet--feature span-9" data-reveal>
+          <article class="sheet sheet--feature sheet--full" data-reveal>
             <div class="sheet__header">
-              <p class="sheet__eyebrow">Runtime arrangement</p>
-              <span class="sheet__meta">Hiisi production system</span>
+              <p class="sheet__eyebrow">Technology register</p>
+              <span class="sheet__meta">Current working set</span>
             </div>
 
-            <div class="system-lanes">
-              <div class="system-lane">
-                <h3>Interface</h3>
-                <p>Server-rendered HTML, HTMX interactions, static assets.</p>
-              </div>
-              <div class="system-lane">
-                <h3>Application core</h3>
-                <p>Common Lisp for translation logic, flashcards, deck workflows, and UI composition.</p>
-              </div>
-              <div class="system-lane">
-                <h3>Control plane</h3>
-                <p>Rust for authentication, billing, email, and long-running background work.</p>
-              </div>
-              <div class="system-lane">
-                <h3>State</h3>
-                <p>SQLite for the primary datastore, Redis for transient data and fast lookups.</p>
-              </div>
-            </div>
-
-            <table class="matrix-table matrix-table--compact">
-              <caption>Routing split</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Route surface</th>
-                  <th scope="col">Process</th>
-                  <th scope="col">Responsibility</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">/app/*</th>
-                  <td>Common Lisp</td>
-                  <td>Core application workflows and user interface.</td>
-                </tr>
-                <tr>
-                  <th scope="row">/auth/*</th>
-                  <td>Rust</td>
-                  <td>Registration, login, activation, session concerns.</td>
-                </tr>
-                <tr>
-                  <th scope="row">/subscribe/*</th>
-                  <td>Rust</td>
-                  <td>Billing and subscription management.</td>
-                </tr>
-              </tbody>
-            </table>
+            <ul class="technology-grid">
+              <li class="technology-card technology-card--primary">Common Lisp</li>
+              <li class="technology-card technology-card--primary">Rust</li>
+              <li class="technology-card">HTMX</li>
+              <li class="technology-card">Scheme</li>
+              <li class="technology-card">Linux</li>
+              <li class="technology-card">DragonFly BSD</li>
+              <li class="technology-card">HSX</li>
+              <li class="technology-card">Haskell</li>
+              <li class="technology-card">Redis</li>
+              <li class="technology-card">SQLite</li>
+              <li class="technology-card">Postgres</li>
+              <li class="technology-card">Nim</li>
+              <li class="technology-card">Nix</li>
+              <li class="technology-card">Emacs</li>
+              <li class="technology-card">SML</li>
+            </ul>
           </article>
-
-          <div class="sheet span-3" data-reveal>
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">Operating note</p>
-            </div>
-
-            <p class="sheet__lead">
-              Hiisi is the public focus. The technical layer exists to keep the
-              product inspectable, direct, and maintainable.
-            </p>
-
-            <div class="support-list">
-              <div class="support-row">
-                <p class="support-row__label">Interaction</p>
-                <p>Hypermedia as the engine of application state.</p>
-              </div>
-              <div class="support-row">
-                <p class="support-row__label">Toolchain</p>
-                <p>Common Lisp and Rust, with responsibilities kept explicit.</p>
-              </div>
-              <div class="support-row">
-                <p class="support-row__label">State</p>
-                <p>SQLite and Redis keep the operational model compact.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
