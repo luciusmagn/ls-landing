@@ -96,6 +96,57 @@ if (newsletterForm && newsletterFeedback) {
   });
 }
 
+/* ---- Mobile Menu ---- */
+
+var siteHeader = document.querySelector(".site-header");
+var menuToggle = document.querySelector("[data-menu-toggle]");
+var menuPanel = document.querySelector("[data-menu-panel]");
+
+function setMenuOpen(isOpen) {
+  if (!siteHeader || !menuToggle) {
+    return;
+  }
+
+  siteHeader.classList.toggle("is-menu-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+if (siteHeader && menuToggle) {
+  menuToggle.addEventListener("click", function handleMenuToggle() {
+    setMenuOpen(!siteHeader.classList.contains("is-menu-open"));
+  });
+
+  if (menuPanel) {
+    menuPanel.addEventListener("click", function handleMenuPanelClick(event) {
+      if (event.target.closest("a")) {
+        setMenuOpen(false);
+      }
+    });
+  }
+
+  document.addEventListener("click", function handleDocumentClick(event) {
+    if (!siteHeader.classList.contains("is-menu-open")) {
+      return;
+    }
+
+    if (!siteHeader.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", function handleKeyDown(event) {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+    }
+  });
+
+  window.addEventListener("resize", function handleResize() {
+    if (window.innerWidth > 820) {
+      setMenuOpen(false);
+    }
+  });
+}
+
 /* ---- Active Nav Tracking ---- */
 
 var navItems = Array.from(document.querySelectorAll("[data-nav]"))
@@ -119,6 +170,14 @@ var navItems = Array.from(document.querySelectorAll("[data-nav]"))
   })
   .filter(Boolean);
 
+function siteHeaderHeight() {
+  if (!siteHeader) {
+    return 0;
+  }
+
+  return siteHeader.getBoundingClientRect().height;
+}
+
 function setActiveNav(sectionId) {
   navItems.forEach(function updateNavItem(item) {
     if (item.section.id === sectionId) {
@@ -130,13 +189,34 @@ function setActiveNav(sectionId) {
 }
 
 function currentSectionId() {
-  var headerOffset = 120;
   var bestItem = navItems[0] || null;
+  var bestDistance = Number.POSITIVE_INFINITY;
+  var headerOffset = siteHeaderHeight();
+  var focusLine = headerOffset + Math.max(72, (window.innerHeight - headerOffset) * 0.28);
+
+  if (navItems.length === 0) {
+    return null;
+  }
+
+  if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 4)) {
+    return navItems[navItems.length - 1].section.id;
+  }
 
   navItems.forEach(function inspectItem(item) {
-    var top = item.section.getBoundingClientRect().top;
+    var rect = item.section.getBoundingClientRect();
+    var distance = Math.min(
+      Math.abs(rect.top - focusLine),
+      Math.abs(rect.bottom - focusLine)
+    );
 
-    if (top - headerOffset <= 0) {
+    if (rect.top <= focusLine && rect.bottom >= focusLine) {
+      bestItem = item;
+      bestDistance = 0;
+      return;
+    }
+
+    if (distance < bestDistance) {
+      bestDistance = distance;
       bestItem = item;
     }
   });
@@ -154,23 +234,7 @@ if (navItems.length > 0) {
   };
 
   syncNav();
-
-  if ("IntersectionObserver" in window) {
-    var navObserver = new IntersectionObserver(
-      function handleNavIntersection() {
-        syncNav();
-      },
-      {
-        threshold: [0, 0.2, 0.5, 0.8],
-        rootMargin: "-96px 0px -55% 0px"
-      }
-    );
-
-    navItems.forEach(function observeSection(item) {
-      navObserver.observe(item.section);
-    });
-  } else {
-    window.addEventListener("scroll", syncNav, { passive: true });
-    window.addEventListener("resize", syncNav);
-  }
+  window.addEventListener("scroll", syncNav, { passive: true });
+  window.addEventListener("resize", syncNav);
+  window.addEventListener("load", syncNav);
 }
