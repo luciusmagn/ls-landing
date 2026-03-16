@@ -42,6 +42,7 @@
   --rule-strong:          #888d87;
   --accent:               #3fb68b;
   --accent-ink:           #0b5f45;
+  --accent-blue:          #2d5fb4;
   --stamp:                #a34f3b;
   --stamp-soft:           rgba(163, 79, 59, 0.06);
   --panel-accent:         rgba(63, 182, 139, 0.05);
@@ -231,11 +232,15 @@ select {
 }
 
 .section-index__number {
-  color: var(--ink);
+  color: var(--accent-blue);
 }
 
 .section-index__label {
   color: var(--muted);
+}
+
+.separator-slash {
+  color: var(--accent);
 }
 
 .section-head {
