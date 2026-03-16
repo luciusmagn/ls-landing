@@ -236,7 +236,7 @@ select {
 }
 
 .section-index__label {
-  color: var(--muted);
+  color: var(--stamp);
 }
 
 .separator-slash {
