@@ -919,12 +919,14 @@ select {
   .program-card__header,
   .capability-card__header {
     display: grid;
-    justify-content: flex-start;
+    gap: 0.45rem;
+    justify-items: start;
   }
 
   .program-card .status-pill,
   .capability-card .status-pill {
-    justify-self: flex-start;
+    justify-self: start;
+    width: fit-content;
   }
 
   .site-footer__inner {
