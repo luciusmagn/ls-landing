@@ -145,6 +145,8 @@ if (siteHeader && menuToggle) {
       setMenuOpen(false);
     }
   });
+
+  menuToggle.hidden = false;
 }
 
 /* ---- Active Nav Tracking ---- */
