@@ -77,7 +77,7 @@ if (newsletterForm && newsletterFeedback) {
         var status = payload && payload.status ? payload.status : "success";
         var message = payload && payload.message
           ? payload.message
-          : "You are in! We will notify you when Hiisi launches.";
+          : "You are in! We will send Hiisi product and course updates.";
 
         newsletterFeedbackSet(status, message);
 
