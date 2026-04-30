@@ -5,7 +5,7 @@ Static landing page for Lambda Symbolics OU.
 ## Stack
 
 - HTML + CSS + vanilla JavaScript
-- Google Fonts (Space Grotesk, JetBrains Mono)
+- Self-hosted Berkeley Mono font files
 - Vercel static hosting (`vercel.json`)
 
 ## Local preview
