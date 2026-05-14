@@ -65,7 +65,7 @@
     </script>
 
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js" defer></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.14"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -81,11 +81,19 @@
 
         <button
           class="menu-toggle"
+          id="site-menu-toggle"
           type="button"
-          data-menu-toggle
-          hidden
           aria-expanded="false"
           aria-controls="site-nav-panel"
+          _="on click
+               set header to #top
+               if header matches .is-menu-open
+                 remove .is-menu-open from header
+                 set my @aria-expanded to 'false'
+               else
+                 add .is-menu-open to header
+                 set my @aria-expanded to 'true'
+               end"
         >
           Menu
         </button>
@@ -93,13 +101,12 @@
         <nav
           class="site-nav"
           id="site-nav-panel"
-          data-menu-panel
           aria-label="Main navigation"
         >
-          <a href="#company" data-nav>01 Company</a>
-          <a href="#product" data-nav>02 Products</a>
-          <a href="#courses" data-nav>03 Courses</a>
-          <a href="#registry" data-nav>04 Registry</a>
+          <a href="#company" _="on click remove .is-menu-open from #top set #site-menu-toggle's @aria-expanded to 'false'">01 Company</a>
+          <a href="#product" _="on click remove .is-menu-open from #top set #site-menu-toggle's @aria-expanded to 'false'">02 Products</a>
+          <a href="#courses" _="on click remove .is-menu-open from #top set #site-menu-toggle's @aria-expanded to 'false'">03 Courses</a>
+          <a href="#registry" _="on click remove .is-menu-open from #top set #site-menu-toggle's @aria-expanded to 'false'">04 Registry</a>
         </nav>
       </div>
     </header>
@@ -249,57 +256,6 @@
           </article>
 
           <div class="stacked-sheet-column span-4" data-reveal>
-            <div class="sheet">
-              <div class="sheet__header">
-                <p class="sheet__eyebrow">Newsletter</p>
-                <span class="sheet__meta">Lambda updates</span>
-              </div>
-
-              <p class="sheet__lead">
-                Providing users with tools to tailor their language learning
-                journey via user-generated content
-              </p>
-
-              <form
-                class="newsletter-form"
-                id="newsletter-form"
-                action="https://hiisi.app/app/api/newsletter-signup"
-                method="post"
-              >
-                <label class="newsletter-form__label" for="newsletter-email">
-                  Email address
-                </label>
-                <div class="newsletter-form__controls">
-                  <input
-                    class="newsletter-form__input"
-                    type="email"
-                    id="newsletter-email"
-                    name="email"
-                    placeholder="you@example.com"
-                    autocomplete="email"
-                    required
-                  >
-                  <button
-                    class="action-link action-link--primary newsletter-form__submit"
-                    type="submit"
-                    id="newsletter-submit"
-                  >
-                    Sign up
-                  </button>
-                </div>
-              </form>
-
-              <div
-                class="newsletter-feedback"
-                id="newsletter-feedback"
-                aria-live="polite"
-              ></div>
-
-              <p class="newsletter-form__fine-print">
-                Lambda Symbolics product and course updates by email.
-              </p>
-            </div>
-
             <div class="sheet">
               <div class="sheet__header">
                 <p class="sheet__eyebrow">For educators</p>
@@ -544,7 +500,7 @@
 
     <footer class="site-footer page-shell" data-reveal>
       <div class="site-footer__inner">
-        <p>&copy; <span id="year"></span> Lambda Symbolics O&Uuml;</p>
+        <p>&copy; <span _="init js return new Date().getFullYear() end put it into me">2026</span> Lambda Symbolics O&Uuml;</p>
         <p>PROD / static landing / document revision 2026.04</p>
       </div>
     </footer>
