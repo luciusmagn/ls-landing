@@ -14,7 +14,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 INK = (0, 0, 0)
-PAPER = (251, 248, 239)  # #FBF8EF
+PAPER = (255, 253, 247)  # #FFFDF7
 
 WIDTH, HEIGHT = 1200, 630
 MARGIN = 90
@@ -46,7 +46,7 @@ def main():
     lede_font = load_font(REGULAR_CANDIDATES, 44)
     meta_font = load_font(REGULAR_CANDIDATES, 30)
 
-    draw.text((MARGIN, 150), "λ Lambda Symbolics", font=title_font, fill=INK)
+    draw.text((MARGIN, 150), "Lambda Symbolics", font=title_font, fill=INK)
 
     rule_y = 310
     draw.rectangle([MARGIN, rule_y, WIDTH - MARGIN, rule_y + 3], fill=INK)

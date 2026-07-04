@@ -1,11 +1,11 @@
 /* Lambda Symbolics · Programmable Paper stylesheet.
-   Serif-forward, black ink on off-white paper, no flat gray, no JavaScript.
+   Black ink on one gentle off-white substrate. No second surface color,
+   no flat gray, no solid shadows, no JavaScript.
    Reference: DESIGN.md (Programmable Paper) in the Hiisi repository. */
 
 :root {
-  --ink:     #000000;
-  --paper:   #fbf8ef;
-  --surface: #ffffff;
+  --ink:   #000000;
+  --paper: #fffdf7;
 
   --font-serif: "Times New Roman", Times, "Nimbus Roman No9 L", "Liberation Serif", serif;
   --font-mono:  "Courier New", Courier, "Liberation Mono", monospace;
@@ -32,7 +32,7 @@ body {
 
 ::selection {
   background: var(--ink);
-  color: var(--surface);
+  color: var(--paper);
 }
 
 :focus-visible {
@@ -53,7 +53,7 @@ body {
   left: 12px;
   top: 12px;
   z-index: 10;
-  background: var(--surface);
+  background: var(--paper);
   color: var(--ink);
   border: 1px solid var(--ink);
   padding: 4px 8px;
@@ -64,61 +64,55 @@ body {
   transform: translateY(0);
 }
 
-/* -- Header -- */
+/* -- Letterhead header -- */
 
-.site-header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--ink);
-}
-
-.site-header .shell {
+.letterhead {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 16px 24px;
+  gap: 12px 28px;
   flex-wrap: wrap;
-  padding-block: 10px;
+  border-bottom: 2px solid var(--ink);
+  padding: 16px 0 10px;
 }
 
 .wordmark {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;
   white-space: nowrap;
 }
 
-.wordmark:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 .site-nav {
   display: flex;
-  gap: 8px 20px;
+  gap: 8px 24px;
   flex-wrap: wrap;
 }
 
 .site-nav a {
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--ink);
+  text-decoration: none;
+  padding-block: 4px;
+}
+
+.wordmark:hover,
+.site-nav a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
-  padding-block: 4px;
 }
 
 /* -- Document structure -- */
 
-main {
-  padding-block: 48px 0;
-}
-
 h1 {
-  font-size: clamp(42px, 7vw, 72px);
+  font-size: clamp(46px, 8vw, 92px);
   line-height: 0.95;
   letter-spacing: -0.045em;
   font-weight: 700;
-  margin: 0 0 24px;
+  margin: 0 0 28px;
 }
 
 h2 {
@@ -128,7 +122,7 @@ h2 {
   font-weight: 700;
   border-bottom: 1px solid var(--ink);
   padding-bottom: 6px;
-  margin: 0 0 16px;
+  margin: 0 0 20px;
 }
 
 h3 {
@@ -173,31 +167,42 @@ code {
 .lede {
   font-size: 21px;
   line-height: 1.35;
-  max-width: 58ch;
+  max-width: 56ch;
 }
 
 .motto {
   font-size: 15px;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
-.metadata {
-  font-size: 13px;
-  letter-spacing: 0.015em;
+/* -- Cover hero -- */
+
+.cover {
+  padding: 88px 0 24px;
+  max-width: 880px;
 }
 
-.object-line {
-  font-size: 15px;
-  margin: 0 0 16px;
+/* -- Two-column hero with a document specimen -- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 32px 48px;
+  align-items: start;
+  padding-top: 56px;
+}
+
+.hero-copy h1 {
+  font-size: clamp(42px, 7vw, 72px);
 }
 
 /* -- Actions -- */
 
 .actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin: 24px 0 16px;
+  margin: 28px 0 16px;
 }
 
 .button {
@@ -212,41 +217,61 @@ code {
   text-decoration: none;
 }
 
-.button:hover {
-  background: var(--surface);
-}
-
+.button:hover,
+.button:focus-visible,
 .button:active {
   background: var(--ink);
   color: var(--paper);
 }
 
-/* -- Hero -- */
+/* -- Catalogue entries -- */
 
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: 32px 48px;
-  align-items: start;
-  margin-bottom: 32px;
+.entry {
+  max-width: 68ch;
+  margin-top: 36px;
 }
 
-.hero-copy {
-  padding-top: 24px;
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.entry-head h3 {
+  margin: 0;
+}
+
+.entry-head a {
+  font-size: 15px;
+}
+
+.entry p {
+  margin-top: 8px;
 }
 
 /* -- Window and property sheet -- */
 
 .window {
-  background: var(--surface);
+  position: relative;
+  background: var(--paper);
   border: 1px solid var(--ink);
-  box-shadow: 2px 2px 0 var(--ink);
-  max-width: 540px;
+  max-width: 620px;
+}
+
+.window::after {
+  content: "";
+  position: absolute;
+  inset: 6px -6px -6px 6px;
+  background-image: var(--bitmap-dither);
+  background-size: 3px 3px;
+  z-index: -1;
 }
 
 .window-titlebar {
   background: var(--ink);
-  color: var(--surface);
+  color: var(--paper);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.15;
@@ -254,14 +279,13 @@ code {
 }
 
 .window-body {
-  padding: 12px;
+  padding: 12px 14px;
 }
 
 .property-sheet {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
   gap: 6px 16px;
-  background: var(--surface);
   border: 1px solid var(--ink);
   padding: 12px 16px;
   margin: 0 0 16px;
@@ -281,33 +305,6 @@ code {
   border: 0;
   padding: 0;
   margin: 0;
-}
-
-/* -- Status markers -- */
-
-.status-marker {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border: 1px solid var(--ink);
-  background: var(--surface);
-  margin-right: 3px;
-}
-
-.status-marker--operating {
-  background: var(--ink);
-}
-
-.status-marker--early {
-  background-color: var(--surface);
-  background-image: var(--bitmap-dither);
-  background-size: 3px 3px;
-}
-
-.status-marker--preparing {
-  background-color: var(--surface);
-  background-image: var(--bitmap-dither);
-  background-size: 5px 5px;
 }
 
 /* -- Tables -- */
@@ -338,11 +335,6 @@ td {
 
 th {
   font-weight: 700;
-  background: var(--paper);
-}
-
-td {
-  background: var(--surface);
 }
 
 /* -- Two-column groups -- */
@@ -365,22 +357,19 @@ td {
   margin-bottom: 10px;
 }
 
-/* -- Footer -- */
+/* -- Colophon footer -- */
 
-.site-footer {
-  border-top: 1px solid var(--ink);
-  margin-top: 96px;
-}
-
-.site-footer .shell {
+.colophon {
   display: flex;
   justify-content: space-between;
   gap: 8px 24px;
   flex-wrap: wrap;
-  padding-block: 14px 40px;
+  border-top: 2px solid var(--ink);
+  margin-top: 128px;
+  padding: 12px 0 48px;
 }
 
-.site-footer p {
+.colophon p {
   margin: 0;
   font-size: 13px;
   letter-spacing: 0.015em;
@@ -391,14 +380,19 @@ td {
 @media (max-width: 880px) {
   .hero {
     grid-template-columns: 1fr;
+    padding-top: 32px;
   }
 
-  .hero-copy {
-    padding-top: 0;
+  .cover {
+    padding-top: 48px;
   }
 
   .doc-section {
     margin-top: 72px;
+  }
+
+  .colophon {
+    margin-top: 96px;
   }
 
   .site-nav a {
@@ -424,17 +418,13 @@ td {
 /* -- Print -- */
 
 @media print {
-  html {
-    background: #ffffff;
-  }
-
   .skip-link,
   .site-nav {
     display: none;
   }
 
-  .window {
-    box-shadow: none;
+  .window::after {
+    display: none;
   }
 
   .doc-section {

@@ -30,7 +30,7 @@
     >
     <meta name="twitter:image" content="https://lambda-symbolics.com/og.png">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FBF8EF'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>%CE%BB</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFDF7'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>%CE%BB</text></svg>">
 
     <script type="application/ld+json">
     {
@@ -69,188 +69,79 @@
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header class="site-header">
-      <div class="shell">
-        <a class="wordmark" href="/">λ Lambda Symbolics</a>
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="/">Lambda Symbolics</a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="#products">Products</a>
-          <a href="#courses">Courses</a>
-          <a href="#registry">Registry</a>
+          <a href="https://hiisi.app">Hiisi</a>
+          <a href="https://clankermails.com">ClankerMails</a>
           <a href="/rust-course">Rust course</a>
+          <a href="#company">Company</a>
         </nav>
       </div>
     </header>
 
     <main id="main-content" class="shell">
-      <section class="hero" aria-label="Company">
-        <div class="hero-copy">
-          <h1>Education and computer science.</h1>
-          <p class="lede">
-            Lambda Symbolics builds Hiisi, a language learning application,
-            and ClankerMails, hosted mailboxes for programs. It also teaches
-            live programming courses. The company works from Chlumec nad
-            Cidlinou, Czechia.
-          </p>
-          <div class="actions">
-            <a class="button" href="https://hiisi.app">Open Hiisi</a>
-            <a class="button" href="/rust-course">Rust course</a>
-          </div>
-          <p class="motto"><em>Per aspera ad astra.</em></p>
-        </div>
-
-        <div class="window">
-          <div class="window-titlebar">Lambda Symbolics · Properties</div>
-          <div class="window-body">
-            <dl class="property-sheet">
-              <dt>Name</dt>
-              <dd>Lambda Symbolics OÜ</dd>
-              <dt>Kind</dt>
-              <dd>Software and education company</dd>
-              <dt>Products</dt>
-              <dd>Hiisi · ClankerMails</dd>
-              <dt>Stack</dt>
-              <dd>Common Lisp · Rust</dd>
-              <dt>Base</dt>
-              <dd>Chlumec nad Cidlinou, Czechia</dd>
-              <dt>State</dt>
-              <dd><span class="status-marker status-marker--operating" aria-hidden="true"></span> Operating</dd>
-            </dl>
-          </div>
-        </div>
-      </section>
-
-      <section class="doc-section" id="products" aria-labelledby="products-title">
-        <h2 id="products-title">Products</h2>
-        <p>Two products, each with one job and a public address.</p>
-
-        <h3>Hiisi</h3>
-        <p class="object-line">
-          <a href="https://hiisi.app">hiisi.app</a> ·
-          <span class="status-marker status-marker--operating" aria-hidden="true"></span> Open for accounts
-        </p>
-        <p>
-          Hiisi is a language learning application built around structured
-          translation. It translates a sentence, breaks the grammar down word
-          by word, and turns the result into spaced-repetition flashcards.
-          Every translation names three languages: the language you translate
-          from, the language you translate to, and the language the
-          explanations are written in.
-        </p>
-        <table>
-          <tbody>
-            <tr>
-              <th scope="row">Structured translation</th>
-              <td>Each translation arrives as structured data: the sentence, its translation, word forms, and notes.</td>
-            </tr>
-            <tr>
-              <th scope="row">Grammar breakdowns</th>
-              <td>Word-by-word analysis with linked grammar terms, written in your explanation language.</td>
-            </tr>
-            <tr>
-              <th scope="row">Spaced repetition</th>
-              <td>The SM-2 algorithm schedules each flashcard for review before it is forgotten.</td>
-            </tr>
-            <tr>
-              <th scope="row">Decks</th>
-              <td>Cards are organized into decks. Decks can be shared and imported.</td>
-            </tr>
-            <tr>
-              <th scope="row">Starter decks</th>
-              <td>Curated decks give a guided entry into a new language.</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
-          Hiisi is built by an educator. It serves self-learners as well as
-          teachers, lecturers, and tutors.
+      <section class="cover" aria-label="Introduction">
+        <h1>Education and computer science.</h1>
+        <p class="lede">
+          Lambda Symbolics builds small, focused software and teaches
+          programming. The company works from Chlumec nad Cidlinou, Czechia.
         </p>
         <div class="actions">
           <a class="button" href="https://hiisi.app">Open Hiisi</a>
+          <a class="button" href="/rust-course">Rust course</a>
         </div>
-
-        <h3>ClankerMails</h3>
-        <p class="object-line">
-          <a href="https://clankermails.com">clankermails.com</a> ·
-          <span class="status-marker status-marker--early" aria-hidden="true"></span> Early access
-        </p>
-        <p>
-          ClankerMails gives a program its own mailbox. It accepts inbound
-          mail for addresses at clankermails.com, stores messages and
-          attachments, and hands them to your code over HTTP.
-        </p>
-        <table>
-          <tbody>
-            <tr>
-              <th scope="row">Hosted inboxes</th>
-              <td>An address at clankermails.com without running mail infrastructure.</td>
-            </tr>
-            <tr>
-              <th scope="row">REST API</th>
-              <td>Programs fetch incoming messages from a small HTTP API instead of speaking IMAP.</td>
-            </tr>
-            <tr>
-              <th scope="row">Webhooks</th>
-              <td>A callback fires when mail arrives, so automation stays event-driven.</td>
-            </tr>
-            <tr>
-              <th scope="row">Scope</th>
-              <td>Inbound mail for programs. No mail client, no sending suite, no consumer inbox.</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="actions">
-          <a class="button" href="https://clankermails.com">Open ClankerMails</a>
-        </div>
+        <p class="motto"><em>Per aspera ad astra.</em></p>
       </section>
 
-      <section class="doc-section" id="courses" aria-labelledby="courses-title">
-        <h2 id="courses-title">Courses</h2>
+      <section class="doc-section" id="software" aria-labelledby="software-title">
+        <h2 id="software-title">Software</h2>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Hiisi</h3>
+            <a href="https://hiisi.app">hiisi.app</a>
+          </div>
+          <p>
+            Language learning through structured translation. Hiisi translates
+            a sentence, explains its grammar word by word, and turns the
+            result into spaced-repetition flashcards. Accounts are open.
+          </p>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>ClankerMails</h3>
+            <a href="https://clankermails.com">clankermails.com</a>
+          </div>
+          <p>
+            Hosted mailboxes for programs. Inbound mail becomes a small REST
+            API and webhooks, so software can receive email without running
+            mail infrastructure. In early access.
+          </p>
+        </article>
+      </section>
+
+      <section class="doc-section" id="teaching" aria-labelledby="teaching-title">
+        <h2 id="teaching-title">Teaching</h2>
         <p>
           Live online courses taught by Lukáš Hozda, a university lecturer
-          with prior commercial Rust course delivery. Lessons are weekly and
-          live, with direct contact with the lecturer, and each course ends
-          with a project worth discussing in an engineering interview.
-        </p>
-
-        <h3>Rust: build a Game Boy emulator</h3>
-        <p class="object-line">
-          <a href="/rust-course">Course page</a> ·
-          <span class="status-marker status-marker--preparing" aria-hidden="true"></span> In preparation, dates to be announced
-        </p>
-        <dl class="property-sheet">
-          <dt>Format</dt>
-          <dd>10 weeks · 20 live online sessions</dd>
-          <dt>Project</dt>
-          <dd>Game Boy emulator</dd>
-          <dt>Level</dt>
-          <dd>Intermediate programmers</dd>
-          <dt>Language</dt>
-          <dd>English</dd>
-          <dt>Schedule</dt>
-          <dd>Dates to be announced</dd>
-        </dl>
-        <p>
-          The course teaches ownership, lifetimes, typed errors, testing, and
-          performance on a real machine: an emulator core that parses binary
-          data, decodes instructions, and renders pixels.
+          with prior commercial Rust training. The first course runs ten
+          weeks: twenty live sessions in which every student builds a Game
+          Boy emulator in Rust. Dates are to be announced.
         </p>
         <div class="actions">
           <a class="button" href="/rust-course">Course page</a>
           <a class="button" href="mailto:contact@lambda-symbolics.com?subject=Rust%20course%20interest">Register interest</a>
         </div>
-        <p>
-          Also planned: portfolio project mentoring and code review of
-          student repositories.
-        </p>
       </section>
 
-      <section class="doc-section" id="registry" aria-labelledby="registry-title">
-        <h2 id="registry-title">Registry</h2>
-        <p>Legal record, contact points, and public references.</p>
-
-        <div class="duo">
-          <div>
-            <h3>Company registry</h3>
+      <section class="doc-section" id="company" aria-labelledby="company-title">
+        <h2 id="company-title">Company</h2>
+        <div class="window">
+          <div class="window-titlebar">Lambda Symbolics OÜ · Properties</div>
+          <div class="window-body">
             <dl class="property-sheet">
               <dt>Legal name</dt>
               <dd>Lambda Symbolics OÜ</dd>
@@ -260,33 +151,22 @@
               <dd>Tornimäe tn 5, 10145 Tallinn, Estonia</dd>
               <dt>Operating base</dt>
               <dd>Chlumec nad Cidlinou, Czechia</dd>
-              <dt>Maintainer</dt>
+              <dt>Founder</dt>
               <dd>Lukáš Hozda</dd>
-            </dl>
-          </div>
-          <div>
-            <h3>Contact points</h3>
-            <dl class="property-sheet">
               <dt>Email</dt>
               <dd><a href="mailto:contact@lambda-symbolics.com">contact@lambda-symbolics.com</a></dd>
               <dt>GitHub</dt>
               <dd><a href="https://github.com/luciusmagn">@luciusmagn</a></dd>
               <dt>X</dt>
               <dd><a href="https://x.com/LukasHozda">@LukasHozda</a></dd>
-              <dt>Hiisi</dt>
-              <dd><a href="https://hiisi.app">hiisi.app</a></dd>
-              <dt>ClankerMails</dt>
-              <dd><a href="https://clankermails.com">clankermails.com</a></dd>
-              <dt>Rust course</dt>
-              <dd><a href="/rust-course">lambda-symbolics.com/rust-course</a></dd>
             </dl>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="shell">
+    <footer class="shell">
+      <div class="colophon">
         <p>© 2026 Lambda Symbolics OÜ</p>
         <p>Revised 4 July 2026</p>
       </div>
