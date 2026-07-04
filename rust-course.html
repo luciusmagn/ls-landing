@@ -60,7 +60,6 @@
         <nav class="site-nav" aria-label="Primary">
           <ul class="site-nav-list">
             <li><a href="#approach">Approach</a></li>
-            <li><a href="#syllabus">Syllabus</a></li>
             <li><a href="#details">Details</a></li>
             <li><a href="#registration">Registration</a></li>
           </ul>
@@ -81,7 +80,6 @@
           </p>
           <div class="actions">
             <a class="button" href="mailto:contact@lambda-symbolics.com?subject=Rust%20course%20interest">Register interest</a>
-            <a class="button" href="#syllabus">View syllabus</a>
           </div>
         </div>
 
@@ -140,29 +138,6 @@
             </p>
           </div>
         </div>
-      </section>
-
-      <section class="doc-section" id="syllabus" aria-labelledby="syllabus-title">
-        <h2 id="syllabus-title">Syllabus</h2>
-        <p>
-          The final schedule is published together with the dates. The
-          current plan is a focused live cohort with practical work between
-          sessions.
-        </p>
-        <ol class="syllabus">
-          <li><strong>Toolchain and Rust mindset.</strong> Install Rust, Cargo, rust-analyzer, rustfmt, and clippy. Set up the emulator workspace and its testing harness.</li>
-          <li><strong>Values, ownership, and cartridge data.</strong> Use ownership and borrowing to load ROM bytes, parse headers, and model data without accidental copies.</li>
-          <li><strong>Structs, enums, and machine state.</strong> Represent registers, flags, opcodes, and execution state with precise data types.</li>
-          <li><strong>Pattern matching and instruction decoding.</strong> Decode instructions, avoid giant unstructured conditionals, and keep impossible cases explicit.</li>
-          <li><strong>Memory map and bus design.</strong> Build the boundary between CPU, cartridge, RAM, IO registers, and display state.</li>
-          <li><strong>Typed errors and diagnostics.</strong> Model invalid ROMs, unsupported features, parse failures, and emulator bugs with useful error types.</li>
-          <li><strong>CPU loop, timing, and interrupts.</strong> Advance the emulator one instruction at a time and make timing state inspectable instead of mysterious.</li>
-          <li><strong>Tests with traces and known ROMs.</strong> Use unit tests, golden traces, and small compatibility programs to keep the emulator honest.</li>
-          <li><strong>Rendering and input.</strong> Expose pixels, connect keyboard input, and separate emulator logic from presentation code.</li>
-          <li><strong>Traits, generics, and reusable boundaries.</strong> Use traits where they simplify substitution, tests, frontends, and extension points.</li>
-          <li><strong>Performance and profiling.</strong> Measure before optimizing, remove accidental allocation, and use Rust's abstractions without hiding costs.</li>
-          <li><strong>Packaging and portfolio polish.</strong> Document the emulator, publish a clean repository, and explain design tradeoffs like an engineer.</li>
-        </ol>
       </section>
 
       <section class="doc-section" id="details" aria-labelledby="details-title">
