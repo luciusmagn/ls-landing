@@ -98,7 +98,10 @@ body {
   padding-block: 4px;
 }
 
-.wordmark:hover,
+.wordmark:hover {
+  text-decoration: none;
+}
+
 .site-nav a:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -236,6 +239,13 @@ code {
 
 .entry-head a {
   font-size: 15px;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.property-sheet a {
+  text-decoration: underline;
+  font-style: italic;
 }
 
 .entry p {
