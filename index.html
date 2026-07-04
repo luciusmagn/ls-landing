@@ -73,9 +73,11 @@
       <div class="letterhead">
         <a class="wordmark" href="/">Lambda Symbolics</a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="https://hiisi.app">Hiisi</a>
-          <a href="https://clankermails.com">ClankerMails</a>
-          <a href="/rust-course">Rust course</a>
+          <ul class="site-nav-list">
+            <li><a href="https://hiisi.app">Hiisi</a></li>
+            <li><a href="../../clankermails">ClankerMails</a></li>
+            <li><a href="/rust-course">Rust course</a></li>
+          </ul>
         </nav>
       </div>
     </header>
@@ -124,11 +126,11 @@
       <section class="doc-section" id="software" aria-labelledby="software-title">
         <h2 id="software-title">Software</h2>
         <div class="duo">
-          <article class="entry">
-            <div class="entry-head">
+          <article class="product">
+            <header class="product-head">
               <h3>Hiisi</h3>
               <a href="https://hiisi.app">hiisi.app</a>
-            </div>
+            </header>
             <p>
               Language learning through structured translation. Hiisi
               translates a sentence, explains its grammar word by word, and
@@ -137,11 +139,11 @@
             </p>
           </article>
 
-          <article class="entry">
-            <div class="entry-head">
+          <article class="product">
+            <header class="product-head">
               <h3>ClankerMails</h3>
-              <a href="https://clankermails.com">clankermails.com</a>
-            </div>
+              <a class="service-link" href="../../clankermails">clankermails.com</a>
+            </header>
             <p>
               Hosted mailboxes for programs. Inbound mail becomes a small
               REST API and webhooks, so software can receive email without

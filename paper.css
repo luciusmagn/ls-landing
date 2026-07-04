@@ -120,9 +120,17 @@ body {
 }
 
 .site-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav-list {
   display: flex;
   gap: 8px 24px;
   flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .site-nav a {
@@ -257,7 +265,30 @@ code {
 
 /* -- Catalogue entries -- */
 
-.entry {
+.product {
+  max-width: 68ch;
+}
+
+.product-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.product-head h3 {
+  margin: 0;
+}
+
+.product-head a {
+  font-size: 15px;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.entry,
+.entry-head {
   max-width: 68ch;
 }
 
@@ -279,11 +310,18 @@ code {
   font-style: italic;
 }
 
+.service-link {
+  font-size: 15px;
+  text-decoration: underline;
+  font-style: italic;
+}
+
 .property-sheet a {
   text-decoration: underline;
   font-style: italic;
 }
 
+.product p,
 .entry p {
   margin-top: 8px;
 }
