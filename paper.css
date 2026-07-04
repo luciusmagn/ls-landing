@@ -417,7 +417,8 @@ th {
 
 .colophon p {
   margin: 0;
-  font-size: 13px;
+  font-size: 18px;
+  font-style: italic;
   letter-spacing: 0.015em;
 }
 
