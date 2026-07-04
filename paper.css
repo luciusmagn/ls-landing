@@ -3,6 +3,40 @@
    no flat gray, no solid shadows, no JavaScript.
    Reference: DESIGN.md (Programmable Paper) in the Hiisi repository. */
 
+@font-face {
+  font-family: "Times New Roman";
+  src: url("fonts/times-new-roman.woff2") format("woff2"),
+       url("fonts/times-new-roman.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Times New Roman";
+  src: url("fonts/times-new-roman.woff2") format("woff2"),
+       url("fonts/times-new-roman.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Times New Roman";
+  src: url("fonts/times-new-roman-italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Times New Roman";
+  src: url("fonts/times-new-roman-italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   --ink:   #000000;
   --paper: #fffefa;
