@@ -2,9 +2,10 @@
 """Regenerate og.png for lambda-symbolics.com.
 
 Deterministic, typographic cover per the Programmable Paper design
-language: black ink on off-white paper, serif type, one rule, no
-photography, no gradients, no gray design values (glyph antialiasing
-is the permitted exception).
+language: black ink on one gentle off-white substrate, the repository's
+own Times New Roman faces, a masthead-weight (regular) title, one rule,
+an italic metadata line. No photography, no gradients, no gray design
+values (glyph antialiasing is the permitted exception).
 
 Usage: python3 tools/make-og.py  (from the repository root)
 """
@@ -19,15 +20,20 @@ PAPER = (255, 254, 250)  # #FFFEFA
 WIDTH, HEIGHT = 1200, 630
 MARGIN = 90
 
-BOLD_CANDIDATES = [
-    "/usr/share/fonts/liberation/LiberationSerif-Bold.ttf",
-    "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf",
-    "/usr/share/fonts/gsfonts/NimbusRoman-Bold.otf",
-]
+ROOT = Path(__file__).resolve().parent.parent
+FONTS = ROOT / "fonts"
+
 REGULAR_CANDIDATES = [
+    str(FONTS / "times-new-roman-regular.ttf"),
     "/usr/share/fonts/liberation/LiberationSerif-Regular.ttf",
     "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf",
     "/usr/share/fonts/gsfonts/NimbusRoman-Regular.otf",
+]
+ITALIC_CANDIDATES = [
+    str(FONTS / "times-new-roman-italic.ttf"),
+    "/usr/share/fonts/liberation/LiberationSerif-Italic.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf",
+    "/usr/share/fonts/gsfonts/NimbusRoman-Italic.otf",
 ]
 
 
@@ -35,16 +41,16 @@ def load_font(candidates, size):
     for path in candidates:
         if Path(path).exists():
             return ImageFont.truetype(path, size)
-    raise SystemExit("No Times-compatible serif font found; install liberation fonts.")
+    raise SystemExit("No Times-compatible serif font found.")
 
 
 def main():
     image = Image.new("RGB", (WIDTH, HEIGHT), PAPER)
     draw = ImageDraw.Draw(image)
 
-    title_font = load_font(BOLD_CANDIDATES, 104)
+    title_font = load_font(REGULAR_CANDIDATES, 104)
     lede_font = load_font(REGULAR_CANDIDATES, 44)
-    meta_font = load_font(REGULAR_CANDIDATES, 30)
+    meta_font = load_font(ITALIC_CANDIDATES, 30)
 
     draw.text((MARGIN, 150), "Lambda Symbolics", font=title_font, fill=INK)
 
@@ -56,7 +62,7 @@ def main():
     meta = "lambda-symbolics.com · Hiisi · ClankerMails · Per aspera ad astra"
     draw.text((MARGIN, HEIGHT - MARGIN - 30), meta, font=meta_font, fill=INK)
 
-    out = Path(__file__).resolve().parent.parent / "og.png"
+    out = ROOT / "og.png"
     image.save(out, "PNG")
     print(f"wrote {out} ({WIDTH}x{HEIGHT})")
 

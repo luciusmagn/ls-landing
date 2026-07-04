@@ -18,7 +18,7 @@ gray, no JavaScript. The full design specification lives in
 - `rust-course.html`: Rust course page
 - `404.html`: not-found page
 - `paper.css`: Programmable Paper stylesheet
-- `tools/make-og.py`: regenerates `og.png` (Pillow + Liberation Serif)
+- `tools/make-og.py`: regenerates `og.png` (Pillow + the repo Times New Roman faces)
 
 ## Local preview
 
