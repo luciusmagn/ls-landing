@@ -8,16 +8,7 @@
   src: url("fonts/times-new-roman.woff2") format("woff2"),
        url("fonts/times-new-roman.ttf") format("truetype");
   font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Times New Roman";
-  src: url("fonts/times-new-roman.woff2") format("woff2"),
-       url("fonts/times-new-roman.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 400 700;
   font-display: swap;
 }
 
@@ -25,15 +16,7 @@
   font-family: "Times New Roman";
   src: url("fonts/times-new-roman-italic.ttf") format("truetype");
   font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Times New Roman";
-  src: url("fonts/times-new-roman-italic.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 700;
+  font-weight: 400 700;
   font-display: swap;
 }
 
@@ -57,6 +40,7 @@ html {
   line-height: 1.52;
   color: var(--ink);
   background: var(--paper);
+  font-synthesis: weight;
   text-rendering: optimizeLegibility;
 }
 
