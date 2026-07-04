@@ -14,7 +14,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 INK = (0, 0, 0)
-PAPER = (255, 253, 247)  # #FFFDF7
+PAPER = (255, 254, 250)  # #FFFEFA
 
 WIDTH, HEIGHT = 1200, 630
 MARGIN = 90

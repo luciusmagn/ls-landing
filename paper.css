@@ -5,7 +5,7 @@
 
 :root {
   --ink:   #000000;
-  --paper: #fffdf7;
+  --paper: #fffefa;
 
   --font-serif: "Times New Roman", Times, "Nimbus Roman No9 L", "Liberation Serif", serif;
   --font-mono:  "Courier New", Courier, "Liberation Mono", monospace;
@@ -70,14 +70,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 12px 28px;
+  gap: 12px 32px;
   flex-wrap: wrap;
   border-bottom: 2px solid var(--ink);
-  padding: 16px 0 10px;
+  padding: 30px 0 16px;
 }
 
 .wordmark {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -92,8 +92,7 @@ body {
 }
 
 .site-nav a {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 17px;
   color: var(--ink);
   text-decoration: none;
   padding-block: 4px;
@@ -175,13 +174,6 @@ code {
   margin-top: 24px;
 }
 
-/* -- Cover hero -- */
-
-.cover {
-  padding: 88px 0 24px;
-  max-width: 880px;
-}
-
 /* -- Two-column hero with a document specimen -- */
 
 .hero {
@@ -228,7 +220,6 @@ code {
 
 .entry {
   max-width: 68ch;
-  margin-top: 36px;
 }
 
 .entry-head {
@@ -341,8 +332,8 @@ th {
 
 .duo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 32px 48px;
   align-items: start;
   max-width: 1180px;
 }
@@ -353,8 +344,15 @@ th {
 
 /* -- Syllabus -- */
 
+.syllabus {
+  max-width: 1180px;
+  columns: 2 340px;
+  column-gap: 48px;
+}
+
 .syllabus li {
-  margin-bottom: 10px;
+  break-inside: avoid;
+  margin-bottom: 12px;
 }
 
 /* -- Colophon footer -- */
@@ -381,10 +379,6 @@ th {
   .hero {
     grid-template-columns: 1fr;
     padding-top: 32px;
-  }
-
-  .cover {
-    padding-top: 48px;
   }
 
   .doc-section {
