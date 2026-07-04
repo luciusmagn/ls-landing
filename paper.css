@@ -266,6 +266,9 @@ code {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.15;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
   padding: 5px 8px;
 }
 
