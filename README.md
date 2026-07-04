@@ -1,12 +1,23 @@
 # Lambda Symbolics Landing
 
-Static landing page for Lambda Symbolics OU.
+Static landing site for Lambda Symbolics OÜ, set in the Programmable Paper
+design language: Times New Roman, black ink on off-white paper, no flat
+gray, no JavaScript, no webfonts. The full design specification lives in
+`DESIGN.md` in the Hiisi repository.
 
 ## Stack
 
-- HTML + CSS + vanilla JavaScript
-- Self-hosted Berkeley Mono font files
+- Hand-written HTML and one stylesheet (`paper.css`)
+- No JavaScript, no webfonts, no build step
 - Vercel static hosting (`vercel.json`)
+
+## Files
+
+- `index.html`: company page
+- `rust-course.html`: Rust course page
+- `404.html`: not-found page
+- `paper.css`: Programmable Paper stylesheet
+- `tools/make-og.py`: regenerates `og.png` (Pillow + Liberation Serif)
 
 ## Local preview
 

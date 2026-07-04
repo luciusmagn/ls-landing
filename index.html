@@ -3,45 +3,45 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lambda Symbolics O&Uuml;</title>
+    <title>Lambda Symbolics OÜ</title>
     <meta
       name="description"
-      content="Lambda Symbolics O&Uuml; builds Hiisi, ClankerMails, and technical education from Chlumec nad Cidlinou, Czechia. Per aspera ad astra."
+      content="Lambda Symbolics OÜ builds Hiisi, a language learning application, and ClankerMails, hosted mailboxes for programs, and teaches live programming courses from Chlumec nad Cidlinou, Czechia."
     >
     <link rel="canonical" href="https://lambda-symbolics.com">
 
-    <meta property="og:title" content="Lambda Symbolics O&Uuml;">
+    <meta property="og:title" content="Lambda Symbolics OÜ">
     <meta
       property="og:description"
-      content="Lambda Symbolics builds Hiisi, ClankerMails, and technical education from Chlumec nad Cidlinou, Czechia. Per aspera ad astra."
+      content="Lambda Symbolics builds Hiisi and ClankerMails and teaches live programming courses from Chlumec nad Cidlinou, Czechia. Per aspera ad astra."
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lambda-symbolics.com">
     <meta property="og:image" content="https://lambda-symbolics.com/og.png">
     <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="Lambda Symbolics O&Uuml;">
+    <meta property="og:site_name" content="Lambda Symbolics OÜ">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@LukasHozda">
-    <meta name="twitter:title" content="Lambda Symbolics O&Uuml;">
+    <meta name="twitter:title" content="Lambda Symbolics OÜ">
     <meta
       name="twitter:description"
-      content="Lambda Symbolics builds Hiisi, ClankerMails, and technical education from Chlumec nad Cidlinou, Czechia. Per aspera ad astra."
+      content="Lambda Symbolics builds Hiisi and ClankerMails and teaches live programming courses from Chlumec nad Cidlinou, Czechia. Per aspera ad astra."
     >
     <meta name="twitter:image" content="https://lambda-symbolics.com/og.png">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='50' dominant-baseline='central' text-anchor='middle' font-family='monospace' font-weight='700' font-size='80' fill='%233fb68b'>%CE%BB</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FBF8EF'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>%CE%BB</text></svg>">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Lambda Symbolics O\u00dc",
+      "name": "Lambda Symbolics OÜ",
       "url": "https://lambda-symbolics.com",
       "description": "Lambda Symbolics is based in Chlumec nad Cidlinou, Czechia, working in education and computer science.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Tornim\u00e4e tn 5",
+        "streetAddress": "Tornimäe tn 5",
         "addressLocality": "Tallinn",
         "addressRegion": "Harju maakond",
         "postalCode": "10145",
@@ -49,7 +49,7 @@
       },
       "founder": {
         "@type": "Person",
-        "name": "Luk\u00e1\u0161 Hozda",
+        "name": "Lukáš Hozda",
         "url": "https://github.com/luciusmagn",
         "sameAs": [
           "https://x.com/LukasHozda"
@@ -64,444 +64,231 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/hyperscript.org@0.9.14"></script>
+    <link rel="stylesheet" href="paper.css">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <div class="page-grid" aria-hidden="true"></div>
-
-    <header class="site-header page-shell" id="top">
-      <div class="site-header__inner">
-        <a class="brand" href="#company" aria-label="Lambda Symbolics homepage">
-          <span class="brand-mark" aria-hidden="true">&lambda;</span>
-          <span class="brand-name">Lambda Symbolics</span>
-        </a>
-
-        <button
-          class="menu-toggle"
-          id="site-menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav-panel"
-          _="on click
-               set header to #top
-               if header matches .is-menu-open
-                 remove .is-menu-open from header
-                 set my @aria-expanded to 'false'
-               else
-                 add .is-menu-open to header
-                 set my @aria-expanded to 'true'
-               end"
-        >
-          Menu
-        </button>
-
-        <nav
-          class="site-nav"
-          id="site-nav-panel"
-          aria-label="Main navigation"
-        >
-          <a href="#company" _="on click remove .is-menu-open from #top set #site-menu-toggle's @aria-expanded to 'false'">01 Company</a>
-          <a href="#product" _="on click remove .is-menu-open from #top set #site-menu-toggle's @aria-expanded to 'false'">02 Products</a>
-          <a href="#courses" _="on click remove .is-menu-open from #top set #site-menu-toggle's @aria-expanded to 'false'">03 Courses</a>
-          <a href="#registry" _="on click remove .is-menu-open from #top set #site-menu-toggle's @aria-expanded to 'false'">04 Registry</a>
+    <header class="site-header">
+      <div class="shell">
+        <a class="wordmark" href="/">λ Lambda Symbolics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#products">Products</a>
+          <a href="#courses">Courses</a>
+          <a href="#registry">Registry</a>
+          <a href="/rust-course">Rust course</a>
         </nav>
       </div>
     </header>
 
-    <main id="main-content" class="page-shell">
-      <section class="report-section report-section--hero" id="company" data-reveal>
-        <div class="section-index">
-          <span class="section-index__number">01</span>
-          <span class="section-index__label">Company</span>
+    <main id="main-content" class="shell">
+      <section class="hero" aria-label="Company">
+        <div class="hero-copy">
+          <h1>Education and computer science.</h1>
+          <p class="lede">
+            Lambda Symbolics builds Hiisi, a language learning application,
+            and ClankerMails, hosted mailboxes for programs. It also teaches
+            live programming courses. The company works from Chlumec nad
+            Cidlinou, Czechia.
+          </p>
+          <div class="actions">
+            <a class="button" href="https://hiisi.app">Open Hiisi</a>
+            <a class="button" href="/rust-course">Rust course</a>
+          </div>
+          <p class="motto"><em>Per aspera ad astra.</em></p>
         </div>
 
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="section-kicker">Lambda Symbolics O&Uuml;</p>
-            <h1>Education and Computer Science</h1>
-            <p class="hero-statement">
-              Per aspera ad astra
-            </p>
-            <p class="hero-body">
-              Lambda Symbolics is based in <em>Chlumec nad Cidlinou</em>,
-              Czechia. We build focused software products and technical
-              education around language learning, bot infrastructure, and
-              systems programming.
-            </p>
-
-            <div class="action-row">
-              <a class="action-link action-link--primary" href="https://hiisi.app" target="_blank" rel="noreferrer">
-                Open Hiisi
-              </a>
-              <a class="action-link" href="/rust-course">
-                Rust course
-              </a>
-            </div>
-          </div>
-
-          <div class="sheet sheet--registry">
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">
-                Status <span class="separator-slash">/</span> Products
-              </p>
-              <span class="status-stamp status-stamp--live">Just launched</span>
-            </div>
-
-            <dl class="fact-list">
-              <div class="fact-row">
-                <dt>Base</dt>
-                <dd>Chlumec nad Cidlinou, Czechia</dd>
-              </div>
-              <div class="fact-row">
-                <dt>Products</dt>
-                <dd>Hiisi / ClankerMails</dd>
-              </div>
-              <div class="fact-row">
-                <dt>State</dt>
-                <dd>Hiisi initial availability phase</dd>
-              </div>
-              <div class="fact-row">
-                <dt>Stack</dt>
-                <dd>Common Lisp / Rust</dd>
-              </div>
+        <div class="window">
+          <div class="window-titlebar">Lambda Symbolics · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Name</dt>
+              <dd>Lambda Symbolics OÜ</dd>
+              <dt>Kind</dt>
+              <dd>Software and education company</dd>
+              <dt>Products</dt>
+              <dd>Hiisi · ClankerMails</dd>
+              <dt>Stack</dt>
+              <dd>Common Lisp · Rust</dd>
+              <dt>Base</dt>
+              <dd>Chlumec nad Cidlinou, Czechia</dd>
+              <dt>State</dt>
+              <dd><span class="status-marker status-marker--operating" aria-hidden="true"></span> Operating</dd>
             </dl>
           </div>
         </div>
       </section>
 
-      <section class="report-section" id="product">
-        <div class="section-index" data-reveal>
-          <span class="section-index__number">02</span>
-          <span class="section-index__label">Products</span>
+      <section class="doc-section" id="products" aria-labelledby="products-title">
+        <h2 id="products-title">Products</h2>
+        <p>Two products, each with one job and a public address.</p>
+
+        <h3>Hiisi</h3>
+        <p class="object-line">
+          <a href="https://hiisi.app">hiisi.app</a> ·
+          <span class="status-marker status-marker--operating" aria-hidden="true"></span> Open for accounts
+        </p>
+        <p>
+          Hiisi is a language learning application built around structured
+          translation. It translates a sentence, breaks the grammar down word
+          by word, and turns the result into spaced-repetition flashcards.
+          Every translation names three languages: the language you translate
+          from, the language you translate to, and the language the
+          explanations are written in.
+        </p>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">Structured translation</th>
+              <td>Each translation arrives as structured data: the sentence, its translation, word forms, and notes.</td>
+            </tr>
+            <tr>
+              <th scope="row">Grammar breakdowns</th>
+              <td>Word-by-word analysis with linked grammar terms, written in your explanation language.</td>
+            </tr>
+            <tr>
+              <th scope="row">Spaced repetition</th>
+              <td>The SM-2 algorithm schedules each flashcard for review before it is forgotten.</td>
+            </tr>
+            <tr>
+              <th scope="row">Decks</th>
+              <td>Cards are organized into decks. Decks can be shared and imported.</td>
+            </tr>
+            <tr>
+              <th scope="row">Starter decks</th>
+              <td>Curated decks give a guided entry into a new language.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Hiisi is built by an educator. It serves self-learners as well as
+          teachers, lecturers, and tutors.
+        </p>
+        <div class="actions">
+          <a class="button" href="https://hiisi.app">Open Hiisi</a>
         </div>
 
-        <div class="section-head" data-reveal>
-          <h2>Product register</h2>
-          <p>
-            Small, direct products with public URLs and boring operational
-            boundaries.
-          </p>
-        </div>
-
-        <div class="report-grid">
-          <article class="sheet sheet--feature sheet--product span-8" data-reveal>
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">Product sheet</p>
-              <a class="sheet__link" href="https://hiisi.app" target="_blank" rel="noreferrer">hiisi.app</a>
-            </div>
-
-            <div class="status-strip">
-              <div class="status-strip__item">
-                <span class="status-strip__label">State</span>
-                <span class="status-strip__value">Just launched</span>
-              </div>
-              <div class="status-strip__item">
-                <span class="status-strip__label">Signup</span>
-                <span class="status-strip__value">Accounts open</span>
-              </div>
-            </div>
-
-            <div class="capability-grid">
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>Structured translation</h3>
-                  <span class="status-pill status-pill--accent">Core</span>
-                </div>
-                <p>Automatic parsing with explicit output structure.</p>
-              </article>
-
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>Grammar breakdowns</h3>
-                  <span class="status-pill status-pill--accent">Core</span>
-                </div>
-                <p>Word analysis, explanations, and term linking.</p>
-              </article>
-
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>Spaced repetition</h3>
-                  <span class="status-pill">Practice</span>
-                </div>
-                <p>SM-2 review scheduling for long-term retention.</p>
-              </article>
-
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>Custom decks</h3>
-                  <span class="status-pill">Authoring</span>
-                </div>
-                <p>User-maintained card collections and assignment.</p>
-              </article>
-
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>Deck sharing</h3>
-                  <span class="status-pill">Sharing</span>
-                </div>
-                <p>Importable shared vocabulary sets.</p>
-              </article>
-
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>Starter decks</h3>
-                  <span class="status-pill">Editorial</span>
-                </div>
-                <p>Official curated material for guided entry points.</p>
-              </article>
-            </div>
-          </article>
-
-          <div class="stacked-sheet-column span-4" data-reveal>
-            <div class="sheet">
-              <div class="sheet__header">
-                <p class="sheet__eyebrow">For educators</p>
-              </div>
-
-              <p class="sheet__lead">
-                Hiisi is built by an educator with a long family tradition of
-                education and besides self-learners, caters to the needs of
-                fellow teachers, lecturers, and tutors
-              </p>
-            </div>
-          </div>
-
-          <article class="sheet sheet--feature sheet--product span-6" data-reveal>
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">Product sheet</p>
-              <a class="sheet__link" href="https://clankermails.com" target="_blank" rel="noreferrer">clankermails.com</a>
-            </div>
-
-            <div class="status-strip">
-              <div class="status-strip__item">
-                <span class="status-strip__label">State</span>
-                <span class="status-strip__value">Early access</span>
-              </div>
-              <div class="status-strip__item">
-                <span class="status-strip__label">Purpose</span>
-                <span class="status-strip__value">Email automation for programs and bots</span>
-              </div>
-            </div>
-
-            <div class="capability-grid">
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>Hosted inboxes</h3>
-                  <span class="status-pill status-pill--accent">Core</span>
-                </div>
-                <p>Give a bot an address at clankermails.com without running mail infrastructure.</p>
-              </article>
-
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>REST polling</h3>
-                  <span class="status-pill status-pill--accent">Core</span>
-                </div>
-                <p>Fetch incoming messages from a small API instead of teaching every bot IMAP.</p>
-              </article>
-
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>Webhooks</h3>
-                  <span class="status-pill">Delivery</span>
-                </div>
-                <p>Receive a callback when mail arrives and keep automation event-driven.</p>
-              </article>
-
-              <article class="capability-card">
-                <div class="capability-card__header">
-                  <h3>No mailbox theater</h3>
-                  <span class="status-pill">Scope</span>
-                </div>
-                <p>No SMTP product suite, no desktop mail client assumptions, no consumer inbox ceremony.</p>
-              </article>
-            </div>
-          </article>
-
-          <article class="sheet span-6" data-reveal>
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">Product line</p>
-              <span class="sheet__meta">Software + education</span>
-            </div>
-
-            <p class="sheet__lead">
-              Hiisi handles structured language learning. ClankerMails gives
-              programs and bots real hosted inboxes.
-            </p>
-            <p>
-              ClankerMails accepts inbound mail for provisioned addresses,
-              stores messages and attachments, exposes them through a REST API,
-              and can notify automation through webhooks.
-            </p>
-          </article>
+        <h3>ClankerMails</h3>
+        <p class="object-line">
+          <a href="https://clankermails.com">clankermails.com</a> ·
+          <span class="status-marker status-marker--early" aria-hidden="true"></span> Early access
+        </p>
+        <p>
+          ClankerMails gives a program its own mailbox. It accepts inbound
+          mail for addresses at clankermails.com, stores messages and
+          attachments, and hands them to your code over HTTP.
+        </p>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">Hosted inboxes</th>
+              <td>An address at clankermails.com without running mail infrastructure.</td>
+            </tr>
+            <tr>
+              <th scope="row">REST API</th>
+              <td>Programs fetch incoming messages from a small HTTP API instead of speaking IMAP.</td>
+            </tr>
+            <tr>
+              <th scope="row">Webhooks</th>
+              <td>A callback fires when mail arrives, so automation stays event-driven.</td>
+            </tr>
+            <tr>
+              <th scope="row">Scope</th>
+              <td>Inbound mail for programs. No mail client, no sending suite, no consumer inbox.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="actions">
+          <a class="button" href="https://clankermails.com">Open ClankerMails</a>
         </div>
       </section>
 
-      <section class="report-section" id="courses">
-        <div class="section-index" data-reveal>
-          <span class="section-index__number">03</span>
-          <span class="section-index__label">
-            Courses <span class="separator-slash">/</span> Queue
-          </span>
+      <section class="doc-section" id="courses" aria-labelledby="courses-title">
+        <h2 id="courses-title">Courses</h2>
+        <p>
+          Live online courses taught by Lukáš Hozda, a university lecturer
+          with prior commercial Rust course delivery. Lessons are weekly and
+          live, with direct contact with the lecturer, and each course ends
+          with a project worth discussing in an engineering interview.
+        </p>
+
+        <h3>Rust: build a Game Boy emulator</h3>
+        <p class="object-line">
+          <a href="/rust-course">Course page</a> ·
+          <span class="status-marker status-marker--preparing" aria-hidden="true"></span> In preparation, dates to be announced
+        </p>
+        <dl class="property-sheet">
+          <dt>Format</dt>
+          <dd>10 weeks · 20 live online sessions</dd>
+          <dt>Project</dt>
+          <dd>Game Boy emulator</dd>
+          <dt>Level</dt>
+          <dd>Intermediate programmers</dd>
+          <dt>Language</dt>
+          <dd>English</dd>
+          <dt>Schedule</dt>
+          <dd>Dates to be announced</dd>
+        </dl>
+        <p>
+          The course teaches ownership, lifetimes, typed errors, testing, and
+          performance on a real machine: an emulator core that parses binary
+          data, decodes instructions, and renders pixels.
+        </p>
+        <div class="actions">
+          <a class="button" href="/rust-course">Course page</a>
+          <a class="button" href="mailto:contact@lambda-symbolics.com?subject=Rust%20course%20interest">Register interest</a>
         </div>
-
-        <div class="section-head" data-reveal>
-          <h2>Instruction queue</h2>
-          <p>
-            Weekly live online lessons with direct contact to the lecturer.
-            Dates are to be announced.
-          </p>
-        </div>
-
-        <div class="report-grid">
-          <article class="sheet sheet--feature span-8" data-reveal>
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">Program register</p>
-              <span class="status-stamp status-stamp--pending">In preparation</span>
-            </div>
-
-            <div class="program-list">
-              <article class="program-card">
-                <div class="program-card__header">
-                  <h3>
-                    <a class="program-card__link" href="/rust-course">Rust course</a>
-                  </h3>
-                  <span class="status-pill status-pill--pending">Preparing</span>
-                </div>
-                <p>Expected format: 10 weeks, 20 live sessions, and a Game Boy emulator project.</p>
-              </article>
-
-              <article class="program-card">
-                <div class="program-card__header">
-                  <h3>Portfolio projects</h3>
-                  <span class="status-pill">Planned</span>
-                </div>
-                <p>Hands-on work intended for student portfolios.</p>
-              </article>
-
-              <article class="program-card">
-                <div class="program-card__header">
-                  <h3>Code review</h3>
-                  <span class="status-pill">Planned</span>
-                </div>
-                <p>Review of project structure, idiomatic Rust, tests, and README material.</p>
-              </article>
-            </div>
-          </article>
-
-          <div class="sheet span-4" data-reveal>
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">Instruction</p>
-              <span class="sheet__meta">Luk&aacute;&scaron; Hozda</span>
-            </div>
-
-            <p class="sheet__lead">
-              University lecturer with prior commercial Rust-course delivery.
-            </p>
-            <p>
-              Our courses combine technical depth with hands-on experience, use
-              weekly live online lessons with direct contact to the lecturer,
-              and leave students with projects that are good enough to discuss
-              in serious engineering interviews.
-            </p>
-
-            <div class="queue-log">
-              <p><span>01</span> rust-emulator-course ... preparing</p>
-              <p><span>02</span> dates ................. to-be-announced</p>
-              <p><span>03</span> code-review ............ planned</p>
-            </div>
-          </div>
-        </div>
+        <p>
+          Also planned: portfolio project mentoring and code review of
+          student repositories.
+        </p>
       </section>
 
-      <section class="report-section report-section--registry" id="registry">
-        <div class="section-index" data-reveal>
-          <span class="section-index__number">04</span>
-          <span class="section-index__label">
-            Contact <span class="separator-slash">/</span> Registry
-          </span>
-        </div>
+      <section class="doc-section" id="registry" aria-labelledby="registry-title">
+        <h2 id="registry-title">Registry</h2>
+        <p>Legal record, contact points, and public references.</p>
 
-        <div class="section-head" data-reveal>
-          <h2>Registry footer</h2>
-          <p>
-            Legal information, contact points, and public references.
-          </p>
-        </div>
-
-        <div class="report-grid">
-          <article class="sheet span-6" data-reveal>
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">Company registry</p>
-            </div>
-
-            <dl class="fact-list">
-              <div class="fact-row">
-                <dt>Legal name</dt>
-                <dd>Lambda Symbolics O&Uuml;</dd>
-              </div>
-              <div class="fact-row">
-                <dt>Registry code</dt>
-                <dd>17437416</dd>
-              </div>
-              <div class="fact-row">
-                <dt>Address</dt>
-                <dd>Tornim&auml;e tn 5, 10145</dd>
-              </div>
-              <div class="fact-row">
-                <dt>Operating base</dt>
-                <dd>Chlumec nad Cidlinou, Czechia</dd>
-              </div>
-              <div class="fact-row">
-                <dt>Maintainer</dt>
-                <dd>Luk&aacute;&scaron; Hozda</dd>
-              </div>
+        <div class="duo">
+          <div>
+            <h3>Company registry</h3>
+            <dl class="property-sheet">
+              <dt>Legal name</dt>
+              <dd>Lambda Symbolics OÜ</dd>
+              <dt>Registry code</dt>
+              <dd>17437416</dd>
+              <dt>Registered address</dt>
+              <dd>Tornimäe tn 5, 10145 Tallinn, Estonia</dd>
+              <dt>Operating base</dt>
+              <dd>Chlumec nad Cidlinou, Czechia</dd>
+              <dt>Maintainer</dt>
+              <dd>Lukáš Hozda</dd>
             </dl>
-          </article>
-
-          <article class="sheet span-6" data-reveal>
-            <div class="sheet__header">
-              <p class="sheet__eyebrow">Contact points</p>
-            </div>
-
-            <ul class="link-register">
-              <li>
-                <span>Hiisi</span>
-                <a href="https://hiisi.app" target="_blank" rel="noreferrer">hiisi.app</a>
-              </li>
-              <li>
-                <span>ClankerMails</span>
-                <a href="https://clankermails.com" target="_blank" rel="noreferrer">clankermails.com</a>
-              </li>
-              <li>
-                <span>Course</span>
-                <a href="/rust-course">Rust course</a>
-              </li>
-              <li>
-                <span>Email</span>
-                <a href="mailto:contact@lambda-symbolics.com">contact@lambda-symbolics.com</a>
-              </li>
-              <li>
-                <span>GitHub</span>
-                <a href="https://github.com/luciusmagn" target="_blank" rel="noreferrer">@luciusmagn</a>
-              </li>
-              <li>
-                <span>X</span>
-                <a href="https://x.com/LukasHozda" target="_blank" rel="noreferrer">@LukasHozda</a>
-              </li>
-            </ul>
-          </article>
+          </div>
+          <div>
+            <h3>Contact points</h3>
+            <dl class="property-sheet">
+              <dt>Email</dt>
+              <dd><a href="mailto:contact@lambda-symbolics.com">contact@lambda-symbolics.com</a></dd>
+              <dt>GitHub</dt>
+              <dd><a href="https://github.com/luciusmagn">@luciusmagn</a></dd>
+              <dt>X</dt>
+              <dd><a href="https://x.com/LukasHozda">@LukasHozda</a></dd>
+              <dt>Hiisi</dt>
+              <dd><a href="https://hiisi.app">hiisi.app</a></dd>
+              <dt>ClankerMails</dt>
+              <dd><a href="https://clankermails.com">clankermails.com</a></dd>
+              <dt>Rust course</dt>
+              <dd><a href="/rust-course">lambda-symbolics.com/rust-course</a></dd>
+            </dl>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer page-shell" data-reveal>
-      <div class="site-footer__inner">
-        <p>&copy; <span _="init js return new Date().getFullYear() end put it into me">2026</span> Lambda Symbolics O&Uuml;</p>
-        <p>PROD / static landing / document revision 2026.04</p>
+    <footer class="site-footer">
+      <div class="shell">
+        <p>© 2026 Lambda Symbolics OÜ</p>
+        <p>Revised 4 July 2026</p>
       </div>
     </footer>
   </body>
