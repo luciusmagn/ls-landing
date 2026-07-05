@@ -356,6 +356,11 @@ code {
   padding: 5px 8px;
 }
 
+/* Stacked windows share one vertical rhythm across all Paper apps. */
+.window + .window {
+  margin-top: 32px;
+}
+
 .window-body {
   padding: 12px 14px;
 }
