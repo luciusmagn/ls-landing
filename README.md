@@ -1,6 +1,6 @@
 # Lambda Symbolics Landing
 
-Static landing site for Lambda Symbolics OÜ, set in the Programmable Paper
+Static landing site for Lambda Symbolics OÜ, set in the Interlisp Paper
 design language: Times New Roman, black ink on off-white paper, no flat
 gray, no JavaScript. The full design specification lives in
 `DESIGN.md` in the Hiisi repository.
@@ -17,7 +17,7 @@ gray, no JavaScript. The full design specification lives in
 - `index.html`: company page
 - `rust-course.html`: Rust course page
 - `404.html`: not-found page
-- `paper.css`: Programmable Paper stylesheet
+- `paper.css`: Interlisp Paper stylesheet
 - `tools/make-og.py`: regenerates `og.png` (Pillow + the repo Times New Roman faces)
 
 ## Local preview
