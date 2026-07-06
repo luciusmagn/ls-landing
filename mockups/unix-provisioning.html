@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Coldstart · Disposable Unix machines</title>
+    <meta
+      name="description"
+      content="Programmable Paper design exercise: a landing page for rapid provisioning of virtual Unix environments."
+    >
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>$</text></svg>">
+
+    <link rel="stylesheet" href="../paper.css">
+    <link rel="stylesheet" href="mock.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="#">Coldstart</a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list">
+            <li><a href="#session">Manual</a></li>
+            <li><a href="#images">Images</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#">Sign in</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="hero" aria-label="Introduction">
+        <div class="hero-copy">
+          <h1>A clean Unix machine in eight seconds.</h1>
+          <p class="lede">
+            Coldstart provisions disposable virtual Unix environments from
+            immutable images. SSH in, do the work, throw the machine away.
+            Nothing to babysit, nothing to patch on a Sunday.
+          </p>
+          <div class="actions">
+            <a class="button" href="#">Provision a machine</a>
+            <a class="button" href="#session">Read the manual</a>
+          </div>
+          <p class="motto"><em>Fourteen-day trial. No card. Machines bill by the second.</em></p>
+        </div>
+
+        <div class="window">
+          <div class="window-titlebar">coldstart run · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Image</dt>
+              <dd>debian-13-slim, immutable</dd>
+              <dt>Boot to prompt</dt>
+              <dd>6.8 s median, 9.9 s p99</dd>
+              <dt>Access</dt>
+              <dd><code>ssh dev@run-9d2a.coldstart.example</code></dd>
+              <dt>Lifetime</dt>
+              <dd>expires with its TTL, default 2 hours</dd>
+              <dt>Persistence</dt>
+              <dd>none unless you attach a volume</dd>
+              <dt>Billing</dt>
+              <dd>per second, rounded down</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="session" aria-labelledby="session-title">
+        <div class="duo">
+          <div>
+            <h2 id="session-title">One command, one machine</h2>
+            <p>
+              There is no dashboard to click through and no wizard to
+              survive. You name an image and a time to live; Coldstart hands
+              back a hostname. When the TTL runs out, the machine and its
+              disk cease to exist, which is the point.
+            </p>
+            <ul>
+              <li>Images are immutable and versioned; a machine never drifts from its image.</li>
+              <li>Every machine carries a TTL. Renew it deliberately or let it lapse.</li>
+              <li>Snapshots are explicit: <code>coldstart keep</code>, or it never happened.</li>
+              <li>The CLI is the API. Everything below it is plain JSON over HTTPS.</li>
+            </ul>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Session transcript</div>
+            <div class="window-body">
+              <pre><code>$ <kbd>coldstart new --image debian-13-slim --ttl 2h</kbd>
+run-9d2a created in 6.8 s
+$ <kbd>ssh dev@run-9d2a.coldstart.example</kbd>
+dev@run-9d2a:~$ <kbd>uname -sr</kbd>
+Linux 6.12.9-coldstart
+dev@run-9d2a:~$ <kbd>exit</kbd>
+$ <kbd>coldstart ls</kbd>
+run-9d2a  debian-13-slim  expires in 1 h 54 m
+$ <kbd>coldstart drop run-9d2a</kbd>
+run-9d2a destroyed. billed 312 s</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="images" aria-labelledby="images-title">
+        <h2 id="images-title">Image catalogue</h2>
+        <div class="window window--wide">
+          <div class="window-titlebar">Supported images · July 2026</div>
+          <div class="window-body">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Image</th>
+                  <th scope="col">Base</th>
+                  <th scope="col">Size</th>
+                  <th scope="col">Boot median</th>
+                  <th scope="col">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>debian-13-slim</code></td>
+                  <td>Debian 13, Linux 6.12</td>
+                  <td>318 MiB</td>
+                  <td>6.8 s</td>
+                  <td>The default. Boring on purpose.</td>
+                </tr>
+                <tr>
+                  <td><code>alpine-3.22</code></td>
+                  <td>Alpine 3.22, musl</td>
+                  <td>41 MiB</td>
+                  <td>4.1 s</td>
+                  <td>Fastest boot in the catalogue.</td>
+                </tr>
+                <tr>
+                  <td><code>ubuntu-24.04-lts</code></td>
+                  <td>Ubuntu 24.04 LTS</td>
+                  <td>612 MiB</td>
+                  <td>8.9 s</td>
+                  <td>For software that insists on it.</td>
+                </tr>
+                <tr>
+                  <td><code>freebsd-14.3</code></td>
+                  <td>FreeBSD 14.3</td>
+                  <td>486 MiB</td>
+                  <td>9.4 s</td>
+                  <td>ZFS root, ports tree on request.</td>
+                </tr>
+                <tr>
+                  <td><code>openbsd-7.7-base</code></td>
+                  <td>OpenBSD 7.7</td>
+                  <td>377 MiB</td>
+                  <td>10.2 s</td>
+                  <td>Base sets only. You know who you are.</td>
+                </tr>
+                <tr>
+                  <td><code>nixos-25.11-minimal</code></td>
+                  <td>NixOS 25.11</td>
+                  <td>702 MiB</td>
+                  <td>11.6 s</td>
+                  <td>Bring a flake or leave with defaults.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="pricing" aria-labelledby="pricing-title">
+        <h2 id="pricing-title">Pricing</h2>
+        <div class="duo">
+          <div class="window">
+            <div class="window-titlebar">Metered</div>
+            <div class="window-body">
+              <dl class="property-sheet">
+                <dt>Price</dt>
+                <dd>€0.000012 per vCPU-second</dd>
+                <dt>Memory</dt>
+                <dd>€0.000003 per GiB-second</dd>
+                <dt>Concurrency</dt>
+                <dd>up to 20 machines</dd>
+                <dt>Fits</dt>
+                <dd>CI jobs, experiments, one-off builds</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="window">
+            <div class="window-titlebar">Workshop</div>
+            <div class="window-body">
+              <dl class="property-sheet">
+                <dt>Price</dt>
+                <dd>€18 per month, flat</dd>
+                <dt>Included</dt>
+                <dd>3 concurrent machines, any image</dd>
+                <dt>Volumes</dt>
+                <dd>20 GiB persistent, attachable</dd>
+                <dt>Fits</dt>
+                <dd>a person who works in throwaway machines all day</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <p class="stand-off">
+          Fleet pricing for teams above twenty concurrent machines is a
+          conversation, not a slider: <a href="#">sales@coldstart.example</a>.
+        </p>
+      </section>
+
+      <section class="doc-section" aria-labelledby="close-title">
+        <h2 id="close-title">Start with a machine</h2>
+        <p>
+          The trial gives you the full catalogue and the real boot times.
+          If Coldstart is not obviously useful within fourteen days, let it
+          expire like everything else here.
+        </p>
+        <div class="actions">
+          <a class="button" href="#">Provision a machine</a>
+          <a class="button" href="#session">Read the manual</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Coldstart</p>
+        <p>Programmable Paper exercise · not a real product</p>
+      </div>
+    </footer>
+  </body>
+</html>

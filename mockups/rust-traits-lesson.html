@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Lesson 14: Traits · Rust Course · Lambda Symbolics</title>
+    <meta
+      name="description"
+      content="Programmable Paper design exercise: a course lesson page on Rust traits."
+    >
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>λ</text></svg>">
+
+    <link rel="stylesheet" href="../paper.css">
+    <link rel="stylesheet" href="mock.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="#">Lambda Symbolics</a>
+        <nav class="site-nav" aria-label="Course">
+          <ul class="site-nav-list">
+            <li><a href="#">Course contents</a></li>
+            <li><a href="#">Lesson 13: Error handling</a></li>
+            <li><a href="#">Lesson 15: Generics in depth</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="dateline">Rust course · Module 4: The CPU core · Lesson 14 of 20</p>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="hero" aria-label="Lesson introduction">
+        <div class="hero-copy">
+          <h1 class="page-title">Traits: shared behavior without inheritance</h1>
+          <p class="lede">
+            A trait names a capability. Types opt in by implementing it, the
+            compiler enforces the contract, and nothing inherits anything.
+            This lesson builds the emulator's debug vocabulary with one small
+            trait and follows it from plain calls through generics to trait
+            objects.
+          </p>
+        </div>
+
+        <div class="window">
+          <div class="window-titlebar">Lesson 14 · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Module</dt>
+              <dd>4 · The CPU core</dd>
+              <dt>Session</dt>
+              <dd>2 hours live, plus exercises</dd>
+              <dt>Requires</dt>
+              <dd>Lessons 10 to 13, working decoder from lesson 12</dd>
+              <dt>Project tie-in</dt>
+              <dd>tracing opcodes on the debug console</dd>
+              <dt>Exercises</dt>
+              <dd>4, one graded</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" aria-labelledby="declare-title">
+        <h2 id="declare-title">A trait declares a capability</h2>
+        <p>
+          Our emulator wants to print things on its trace console: opcodes,
+          registers, cartridge headers. The capability is "can describe
+          itself", so that is exactly what we declare. The trait is the
+          contract; the <code>impl</code> block is a type's signature under
+          that contract.
+        </p>
+        <pre><code><span class="hl-comment">/// Anything the debugger can print on the trace console.</span>
+<span class="hl-keyword">pub</span> <span class="hl-keyword">trait</span> Describe {
+    <span class="hl-keyword">fn</span> describe(&amp;self) -&gt; String;
+}
+
+<span class="hl-keyword">pub</span> <span class="hl-keyword">struct</span> Opcode {
+    <span class="hl-keyword">pub</span> byte: u8,
+    <span class="hl-keyword">pub</span> cycles: u8,
+}
+
+<span class="hl-keyword">impl</span> Describe <span class="hl-keyword">for</span> Opcode {
+    <span class="hl-keyword">fn</span> describe(&amp;self) -&gt; String {
+        format!("{:#04x} ({} cycles)", self.byte, self.cycles)
+    }
+}</code></pre>
+        <p>
+          Traits are nominal: a type does not satisfy <code>Describe</code>
+          by accident of having the right method, it satisfies it because an
+          <code>impl</code> says so. You may implement your traits for types
+          you did not write, and foreign traits for your types; the one
+          combination the compiler refuses is a foreign trait for a foreign
+          type. That coherence rule is why two crates can never disagree
+          about what <code>Opcode::describe</code> does.
+        </p>
+      </section>
+
+      <section class="doc-section" aria-labelledby="default-title">
+        <h2 id="default-title">Default methods</h2>
+        <p>
+          A trait may ship method bodies. Implementors get them for free and
+          override only what they must, which keeps the common case silent.
+        </p>
+        <pre><code><span class="hl-keyword">pub</span> <span class="hl-keyword">trait</span> Cartridge {
+    <span class="hl-keyword">fn</span> read(&amp;self, addr: u16) -&gt; u8;
+    <span class="hl-keyword">fn</span> write(&amp;<span class="hl-keyword">mut</span> self, addr: u16, value: u8);
+
+    <span class="hl-comment">/// Most cartridges have exactly one ROM bank; let them say nothing.</span>
+    <span class="hl-keyword">fn</span> bank_count(&amp;self) -&gt; usize {
+        1
+    }
+}</code></pre>
+        <p>
+          In the project, only the banked mappers override
+          <code>bank_count</code>. The ROM-only cartridge from lesson 12
+          implements two methods and is done.
+        </p>
+      </section>
+
+      <section class="doc-section" aria-labelledby="bounds-title">
+        <h2 id="bounds-title">Trait bounds</h2>
+        <p>
+          Generic code names its requirements as bounds. The function below
+          works for any describable type, and the compiler generates a
+          separate, fully concrete copy per type it is used with. That is
+          monomorphization: the abstraction is gone by the time the optimizer
+          sees the code, so a bound costs nothing at run time.
+        </p>
+        <pre><code><span class="hl-keyword">fn</span> trace&lt;T: Describe&gt;(step: u32, item: &amp;T) {
+    eprintln!("[{step:06}] {}", item.describe());
+}
+
+<span class="hl-comment">// The same requirement, spelled with a where clause:</span>
+<span class="hl-keyword">fn</span> trace_all&lt;I&gt;(items: I)
+<span class="hl-keyword">where</span>
+    I: IntoIterator,
+    I::Item: Describe,
+{
+    <span class="hl-keyword">for</span> (step, item) <span class="hl-keyword">in</span> items.into_iter().enumerate() {
+        eprintln!("[{step:06}] {}", item.describe());
+    }
+}</code></pre>
+        <p>
+          Reach for the angle-bracket form while the bounds fit on one line
+          and the <code>where</code> clause the moment they do not. The two
+          mean the same thing; one of them stays readable.
+        </p>
+      </section>
+
+      <section class="doc-section" aria-labelledby="objects-title">
+        <h2 id="objects-title">Trait objects</h2>
+        <p>
+          Sometimes the set of types is only known at run time: the debugger
+          watches a mixed list of opcodes, registers, and mapper state.
+          <code>dyn Describe</code> erases the concrete type behind a
+          pointer and a vtable, trading a call indirection for the ability
+          to mix.
+        </p>
+        <pre><code><span class="hl-keyword">let</span> watchlist: Vec&lt;Box&lt;<span class="hl-keyword">dyn</span> Describe&gt;&gt; = vec![
+    Box::new(Opcode { byte: 0x3e, cycles: 8 }),
+    Box::new(Register16 { name: "HL", value: 0x9fff }),
+];
+
+<span class="hl-keyword">for</span> entry <span class="hl-keyword">in</span> &amp;watchlist {
+    println!("{}", entry.describe());
+}</code></pre>
+        <p>
+          Not every trait can do this: to be dyn-compatible (the rule
+          formerly called object safety), a trait must avoid generic methods
+          and methods returning bare <code>Self</code>, because a vtable
+          cannot answer for a type it no longer knows.
+        </p>
+
+        <div class="window window--wide">
+          <div class="window-titlebar">Choosing a dispatch</div>
+          <div class="window-body">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Question</th>
+                  <th scope="col">Generics, <code>T: Describe</code></th>
+                  <th scope="col">Trait objects, <code>dyn Describe</code></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>When is the method resolved?</td>
+                  <td>Compile time, monomorphized</td>
+                  <td>Run time, through a vtable</td>
+                </tr>
+                <tr>
+                  <td>Call cost</td>
+                  <td>None; inlining applies</td>
+                  <td>One pointer indirection</td>
+                </tr>
+                <tr>
+                  <td>Binary size</td>
+                  <td>One copy of the code per type</td>
+                  <td>One copy total</td>
+                </tr>
+                <tr>
+                  <td>Mixed collections</td>
+                  <td>No, every element is the same type</td>
+                  <td>Yes, <code>Vec&lt;Box&lt;dyn Describe&gt;&gt;</code></td>
+                </tr>
+                <tr>
+                  <td>Trait requirements</td>
+                  <td>Any trait</td>
+                  <td>Dyn-compatible traits only</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" aria-labelledby="exercises-title">
+        <h2 id="exercises-title">Exercises</h2>
+        <div class="duo">
+          <div class="window">
+            <div class="window-titlebar">Exercises · Lesson 14</div>
+            <div class="window-body">
+              <ol>
+                <li>Implement <code>Describe</code> for <code>Register16</code> so the trace prints <code>HL=0x9FFF</code>.</li>
+                <li>Add a default method <code>describe_short</code> to <code>Describe</code> and override it for <code>Opcode</code> only.</li>
+                <li>Write <code>fn dump&lt;T: Describe&gt;(items: &amp;[T])</code> and explain why it cannot accept the mixed watchlist.</li>
+                <li>Graded: make the trace console accept the mixed watchlist.
+                  <pre><code><span class="hl-keyword">impl</span> Describe <span class="hl-keyword">for</span> Instruction {
+    <span class="hl-keyword">fn</span> describe(&amp;self) -&gt; String {
+        <var>your implementation</var>
+    }
+}</code></pre>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div>
+            <h3>Before the next session</h3>
+            <p>
+              Bring the watchlist exercise compiling, even if the output
+              format is ugly. Lesson 15 turns <code>Describe</code> generic
+              over its output and the ugliness becomes the motivation.
+            </p>
+            <div class="actions">
+              <a class="button" href="#">Lesson 13: Error handling</a>
+              <a class="button" href="#">Course contents</a>
+              <a class="button" href="#">Lesson 15: Generics in depth</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Lambda Symbolics OÜ</p>
+        <p>Programmable Paper exercise · course material mockup</p>
+      </div>
+    </footer>
+  </body>
+</html>

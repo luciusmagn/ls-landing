@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>The Morning Ledger</title>
+    <meta
+      name="description"
+      content="Programmable Paper design exercise: a daily newspaper front page."
+    >
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='52' fill='%23000000'>ML</text></svg>">
+
+    <link rel="stylesheet" href="../paper.css">
+    <link rel="stylesheet" href="mock.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="#">The Morning Ledger</a>
+        <nav class="site-nav" aria-label="Sections">
+          <ul class="site-nav-list">
+            <li><a href="#">Front page</a></li>
+            <li><a href="#">Systems</a></li>
+            <li><a href="#">Science</a></li>
+            <li><a href="#markets">Markets</a></li>
+            <li><a href="#">Letters</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="dateline">Monday 7 July 2026 · No. 4,182 · Founded 1978 · Ústí nad Labem</p>
+    </header>
+
+    <main id="main-content" class="shell">
+      <div class="front">
+        <div class="front-lead">
+          <article class="story">
+            <h2 class="page-title">Valley fiber cooperative lights its forty-thousandth home</h2>
+            <p class="byline">By Marta Kolek, infrastructure desk</p>
+            <p>
+              The Elbe Valley fiber cooperative connected its forty-thousandth
+              household on Friday, eleven years after a village meeting voted
+              to trench the first three kilometers of duct itself. The
+              cooperative now passes more premises than the regional
+              incumbent, and it did so without a single tower crane or a
+              national advertising budget.
+            </p>
+            <p>
+              The model is deliberately boring. Members pay a one-time share,
+              the cooperative buys access to municipal duct where it exists
+              and digs where it does not, and every build is published as an
+              itemized ledger, machine time, splice counts, and coffee
+              included. "People forgive a delay they can read about," said
+              board chair Alena Prochová. "They do not forgive a mystery."
+            </p>
+            <p>
+              The milestone connection, a retired schoolteacher's cottage in
+              Třebušín, was spliced by the same two-person crew that lit the
+              cooperative's first customer in 2015. Symmetric gigabit service
+              remains at the founding price.
+            </p>
+          </article>
+
+          <article class="story">
+            <h3>Rail operator opens its timetable feed, and the apps arrive by dinner</h3>
+            <p class="byline">By Ondřej Rys, systems desk</p>
+            <p>
+              The national rail operator switched its long-promised timetable
+              feed to public access at 09:00 on Thursday. By 18:00, volunteers
+              had shipped four departure boards, a delay heatmap, and a
+              command-line client. The operator's own app team says it is
+              "watching with interest," which former employees describe as
+              the department's highest known form of praise.
+            </p>
+            <p>
+              The feed publishes plain, versioned files over HTTP with a
+              documented schema, a decision the operator credits to one
+              stubborn archivist in its data office. No developer portal, no
+              API keys, no quarterly deprecations. Just files, on time, like
+              the trains aspire to be.
+            </p>
+          </article>
+
+          <article class="story">
+            <h3>University lab prints spare parts for a 1984 pen plotter, publishes the whole recipe</h3>
+            <p class="byline">By Jana Šimková, science desk</p>
+            <p>
+              A materials lab has reverse-engineered the sprung carriage of a
+              1984 flatbed plotter after the last known spare cracked during a
+              student demonstration. The lab published measured drawings,
+              tolerances, and failed attempts alongside the final part, on
+              the argument that the failures are the useful literature.
+            </p>
+            <p>
+              The plotter is back on the department's hallway roster, where it
+              draws one visitor's name per day in a steady 0.3 millimeter
+              line. Sign-up is a clipboard.
+            </p>
+          </article>
+        </div>
+
+        <div class="front-side">
+          <div class="window">
+            <div class="window-titlebar">The wire</div>
+            <div class="window-body">
+              <ul class="wire-list">
+                <li><span class="wire-time">08:52</span> Port authority reports a record quarter for inland container barges; rail transfer yard to add a third crane.</li>
+                <li><span class="wire-time">08:31</span> Standards body ratifies the revised archival PDF profile after a four-year comment period.</li>
+                <li><span class="wire-time">07:58</span> City library digitization project passes one million scanned pages; card catalogue to be retired, then framed.</li>
+                <li><span class="wire-time">07:36</span> Weather service upgrades its forecast model; hindcasts show two fewer surprise frosts per spring.</li>
+                <li><span class="wire-time">07:12</span> Municipal print office restores duplex letterpress for civic certificates, citing forgery resistance and, unofficially, pride.</li>
+                <li><span class="wire-time">06:45</span> Night train timetable adds a Tallinn through-coach from December.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Today</div>
+            <div class="window-body">
+              <dl class="property-sheet">
+                <dt>Weather</dt>
+                <dd>Clear morning, cumulus by noon, 24 °C</dd>
+                <dt>Sunrise</dt>
+                <dd>04:59</dd>
+                <dt>Sunset</dt>
+                <dd>21:12</dd>
+                <dt>Print run</dt>
+                <dd>18,400 copies, 32 pages</dd>
+                <dt>On this day</dt>
+                <dd>1928: sliced bread first sold, to immediate acclaim</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="doc-section" id="markets" aria-labelledby="markets-title">
+        <h2 id="markets-title">Markets</h2>
+        <div class="window window--wide">
+          <div class="window-titlebar">Closing figures · Friday 4 July</div>
+          <div class="window-body">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Index</th>
+                  <th scope="col">Close</th>
+                  <th scope="col">Change</th>
+                  <th scope="col">Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ledger industrials</td>
+                  <td>4,182.55</td>
+                  <td>+0.4%</td>
+                  <td>Freight and grid names led; print media flat.</td>
+                </tr>
+                <tr>
+                  <td>Ledger rail &amp; transit</td>
+                  <td>1,077.31</td>
+                  <td>+1.1%</td>
+                  <td>Timetable feed announcement read as competence.</td>
+                </tr>
+                <tr>
+                  <td>Koruna / euro</td>
+                  <td>24.18</td>
+                  <td>−0.1%</td>
+                  <td>Quiet session ahead of the rate decision.</td>
+                </tr>
+                <tr>
+                  <td>Newsprint, per tonne</td>
+                  <td>€612</td>
+                  <td>+0.8%</td>
+                  <td>Second monthly rise; recycling intake steady.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 The Morning Ledger</p>
+        <p>Programmable Paper exercise · not a real publication</p>
+      </div>
+    </footer>
+  </body>
+</html>

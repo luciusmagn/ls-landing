@@ -1,0 +1,237 @@
+/* Mockup layer over Programmable Paper (../paper.css).
+   Shared additions for the unlinked design-exercise pages under /mockups.
+   Same ink, same substrate, no new tone: dither is the only intermediate,
+   accent color appears only as tiny status marks beside text labels. */
+
+/* -- Link signature inside running text -- */
+
+main p a,
+main li a,
+main td a,
+main dd a,
+.entry-head a {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+/* -- Article framing -- */
+
+.page-title {
+  font-size: clamp(38px, 6vw, 64px);
+  margin: 20px 0 12px;
+}
+
+.dateline {
+  font-size: 13px;
+  letter-spacing: 0.015em;
+  margin: 0 0 10px;
+}
+
+.byline {
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: 0.015em;
+  margin: 0 0 18px;
+}
+
+/* -- Code: procedural inserts, Algol-style monochrome highlighting -- */
+
+pre {
+  max-width: 76ch;
+  margin: 0 0 16px;
+  padding: 12px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.42;
+  overflow-x: auto;
+}
+
+pre code {
+  font-size: inherit;
+}
+
+/* Inside a window the frame already bounds the block. */
+.window-body pre {
+  border: 0;
+  margin: 0;
+  padding: 2px 0;
+}
+
+.hl-keyword {
+  font-weight: 700;
+}
+
+.hl-comment {
+  font-style: italic;
+}
+
+pre var,
+.hl-placeholder {
+  font-weight: 700;
+  font-style: italic;
+  font-family: inherit;
+}
+
+/* Typed commands in session transcripts. */
+pre kbd {
+  font-family: inherit;
+  font-weight: 700;
+}
+
+/* -- Status markers: a small colored square beside a text label -- */
+
+.status {
+  white-space: nowrap;
+}
+
+.status::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 7px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.status--ok::before {
+  border-color: #12633a;
+  background: #12633a;
+}
+
+.status--warn::before {
+  border-color: #8a6a00;
+  background: #8a6a00;
+}
+
+.status--bad::before {
+  border-color: #8a1c1c;
+  background: #8a1c1c;
+}
+
+/* -- Quiet tile: borderless light dither for de-emphasis.
+   The label sits on a clean paper strip so text never fights the dots. -- */
+
+.quiet-tile {
+  max-width: 620px;
+  padding: 18px 16px;
+  background-image: var(--bitmap-dither);
+  background-size: 5px 5px;
+}
+
+.quiet-tile p {
+  display: inline-block;
+  margin: 0;
+  padding: 3px 10px;
+  background: var(--paper);
+  font-weight: 700;
+}
+
+/* -- Clearance for plain flow that follows a windowed row -- */
+
+.stand-off {
+  margin-top: 32px;
+}
+
+/* -- Wide windows for tables and figures -- */
+
+.window--wide {
+  max-width: none;
+}
+
+.window--wide table {
+  max-width: none;
+  margin: 0;
+}
+
+/* -- Figures -- */
+
+figure {
+  margin: 0;
+}
+
+figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  font-size: 13px;
+  letter-spacing: 0.015em;
+  padding-top: 8px;
+}
+
+/* -- Newspaper front grid -- */
+
+.front {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 32px 48px;
+  align-items: start;
+  padding-top: 36px;
+}
+
+.front-lead {
+  display: grid;
+  gap: 40px;
+  align-content: start;
+}
+
+.front-side {
+  display: grid;
+  gap: 32px;
+  justify-items: start;
+}
+
+.story {
+  max-width: 68ch;
+}
+
+.story h3 {
+  margin-top: 0;
+}
+
+/* -- Wire briefs -- */
+
+.wire-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+.wire-list li {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.38;
+}
+
+.wire-list li:last-child {
+  margin-bottom: 0;
+}
+
+.wire-time {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* -- Weblog entry dates -- */
+
+.entry-date {
+  font-size: 13px;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+}
+
+/* -- Small screens -- */
+
+@media (max-width: 880px) {
+  .front {
+    grid-template-columns: 1fr;
+  }
+}

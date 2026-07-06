@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Peerwatch · Mesh wg0</title>
+    <meta
+      name="description"
+      content="Programmable Paper design exercise: health monitoring for machines in a WireGuard network."
+    >
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='52' fill='%23000000'>PW</text></svg>">
+
+    <link rel="stylesheet" href="../paper.css">
+    <link rel="stylesheet" href="mock.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="#">Peerwatch</a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list">
+            <li><a href="#">Overview</a></li>
+            <li><a href="#peers">Peers</a></li>
+            <li><a href="#alerts">Alerts</a></li>
+            <li><a href="#">Settings</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="dateline">Mesh wg0 · 24 peers registered, 22 online · collected 7 July 2026, 09:41 UTC</p>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="duo" aria-label="Mesh summary">
+        <div class="window">
+          <div class="window-titlebar">Mesh wg0 · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Interface</dt>
+              <dd>wg0</dd>
+              <dt>Subnet</dt>
+              <dd>10.44.0.0/16</dd>
+              <dt>Peers</dt>
+              <dd>24 registered · 22 online · 1 lagging · 1 unreachable</dd>
+              <dt>Listen port</dt>
+              <dd>51820</dd>
+              <dt>Rendezvous</dt>
+              <dd>vpn.example.net:51820</dd>
+              <dt>Keys rotated</dt>
+              <dd>1 July 2026</dd>
+              <dt>Collector</dt>
+              <dd>peerwatchd 0.9.2, 30 second interval</dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="window">
+          <div class="window-titlebar">Peers online · last 14 days</div>
+          <div class="window-body">
+            <figure>
+              <svg viewBox="0 0 640 200" role="img"
+                   aria-label="Bar chart of peers online per day over the last 14 days. Between 19 and 24 of 24 peers were online; the low point of 19 was on 30 June.">
+                <defs>
+                  <pattern id="dither" patternUnits="userSpaceOnUse" width="3" height="3">
+                    <rect width="3" height="3" fill="#fffefa"/>
+                    <rect width="1" height="1" fill="#000000"/>
+                  </pattern>
+                </defs>
+                <g shape-rendering="crispEdges">
+                  <rect x="36"  y="32" width="30" height="138" fill="url(#dither)" stroke="#000"><title>24 June · 23 of 24 peers online</title></rect>
+                  <rect x="79"  y="26" width="30" height="144" fill="url(#dither)" stroke="#000"><title>25 June · 24 of 24 peers online</title></rect>
+                  <rect x="122" y="26" width="30" height="144" fill="url(#dither)" stroke="#000"><title>26 June · 24 of 24 peers online</title></rect>
+                  <rect x="165" y="32" width="30" height="138" fill="url(#dither)" stroke="#000"><title>27 June · 23 of 24 peers online</title></rect>
+                  <rect x="208" y="26" width="30" height="144" fill="url(#dither)" stroke="#000"><title>28 June · 24 of 24 peers online</title></rect>
+                  <rect x="251" y="26" width="30" height="144" fill="url(#dither)" stroke="#000"><title>29 June · 24 of 24 peers online</title></rect>
+                  <rect x="294" y="56" width="30" height="114" fill="url(#dither)" stroke="#000"><title>30 June · 19 of 24 peers online, switch failure in the Helsinki rack</title></rect>
+                  <rect x="337" y="38" width="30" height="132" fill="url(#dither)" stroke="#000"><title>1 July · 22 of 24 peers online</title></rect>
+                  <rect x="380" y="26" width="30" height="144" fill="url(#dither)" stroke="#000"><title>2 July · 24 of 24 peers online</title></rect>
+                  <rect x="423" y="26" width="30" height="144" fill="url(#dither)" stroke="#000"><title>3 July · 24 of 24 peers online</title></rect>
+                  <rect x="466" y="32" width="30" height="138" fill="url(#dither)" stroke="#000"><title>4 July · 23 of 24 peers online</title></rect>
+                  <rect x="509" y="26" width="30" height="144" fill="url(#dither)" stroke="#000"><title>5 July · 24 of 24 peers online</title></rect>
+                  <rect x="552" y="26" width="30" height="144" fill="url(#dither)" stroke="#000"><title>6 July · 24 of 24 peers online</title></rect>
+                  <rect x="595" y="38" width="30" height="132" fill="url(#dither)" stroke="#000"><title>7 July · 22 of 24 peers online so far</title></rect>
+                  <line x1="34" y1="170" x2="634" y2="170" stroke="#000" stroke-width="1"/>
+                </g>
+                <g font-family="Times New Roman, Times, serif" font-size="12" fill="#000">
+                  <text x="28" y="30" text-anchor="end">24</text>
+                  <text x="28" y="173" text-anchor="end">0</text>
+                  <text x="309" y="50" text-anchor="middle" font-weight="700">19</text>
+                  <text x="610" y="32" text-anchor="middle" font-weight="700">22</text>
+                  <text x="51"  y="186" text-anchor="middle">24 Jun</text>
+                  <text x="137" y="186" text-anchor="middle">26 Jun</text>
+                  <text x="223" y="186" text-anchor="middle">28 Jun</text>
+                  <text x="309" y="186" text-anchor="middle">30 Jun</text>
+                  <text x="395" y="186" text-anchor="middle">2 Jul</text>
+                  <text x="481" y="186" text-anchor="middle">4 Jul</text>
+                  <text x="567" y="186" text-anchor="middle">6 Jul</text>
+                </g>
+              </svg>
+              <figcaption>Daily minimum of peers with a handshake younger than five minutes.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="peers" aria-labelledby="peers-title">
+        <h2 id="peers-title">Peers</h2>
+        <div class="window window--wide">
+          <div class="window-titlebar">Peer table · sorted by last handshake</div>
+          <div class="window-body">
+            <table>
+              <caption>Showing 8 of 24 peers. Lagging means no handshake for two minutes; unreachable means ten.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Host</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Endpoint</th>
+                  <th scope="col">Last handshake</th>
+                  <th scope="col">Transfer rx / tx</th>
+                  <th scope="col">State</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>gateway-prague</td>
+                  <td><code>10.44.0.1</code></td>
+                  <td><code>81.0.212.9:51820</code></td>
+                  <td>8 s ago</td>
+                  <td><code>412 GiB / 388 GiB</code></td>
+                  <td><span class="status status--ok">online</span></td>
+                </tr>
+                <tr>
+                  <td>edge-helsinki-1</td>
+                  <td><code>10.44.1.11</code></td>
+                  <td><code>95.216.44.2:51820</code></td>
+                  <td>14 s ago</td>
+                  <td><code>96 GiB / 121 GiB</code></td>
+                  <td><span class="status status--ok">online</span></td>
+                </tr>
+                <tr>
+                  <td>metrics-vm</td>
+                  <td><code>10.44.2.4</code></td>
+                  <td><code>10.44.0.1:51820 via gateway</code></td>
+                  <td>19 s ago</td>
+                  <td><code>63 GiB / 9 GiB</code></td>
+                  <td><span class="status status--ok">online</span></td>
+                </tr>
+                <tr>
+                  <td>build-runner-1</td>
+                  <td><code>10.44.2.7</code></td>
+                  <td><code>65.21.88.140:51820</code></td>
+                  <td>31 s ago</td>
+                  <td><code>1.8 TiB / 204 GiB</code></td>
+                  <td><span class="status status--ok">online</span></td>
+                </tr>
+                <tr>
+                  <td>dev-laptop-ilona</td>
+                  <td><code>10.44.9.23</code></td>
+                  <td><code>roaming, last 100.72.4.18</code></td>
+                  <td>44 s ago</td>
+                  <td><code>12 GiB / 3 GiB</code></td>
+                  <td><span class="status status--ok">online</span></td>
+                </tr>
+                <tr>
+                  <td>office-ap</td>
+                  <td><code>10.44.3.2</code></td>
+                  <td><code>193.84.116.7:51820</code></td>
+                  <td>52 s ago</td>
+                  <td><code>240 GiB / 631 GiB</code></td>
+                  <td><span class="status status--ok">online</span></td>
+                </tr>
+                <tr>
+                  <td>backup-nas</td>
+                  <td><code>10.44.4.10</code></td>
+                  <td><code>78.108.102.51:51820</code></td>
+                  <td>4.2 min ago</td>
+                  <td><code>3.4 TiB / 88 GiB</code></td>
+                  <td><span class="status status--warn">lagging</span></td>
+                </tr>
+                <tr>
+                  <td>edge-helsinki-2</td>
+                  <td><code>10.44.1.12</code></td>
+                  <td><code>95.216.44.3:51820</code></td>
+                  <td>26 min ago</td>
+                  <td><code>101 GiB / 117 GiB</code></td>
+                  <td><span class="status status--bad">unreachable</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="alerts" aria-labelledby="alerts-title">
+        <h2 id="alerts-title">Alerts</h2>
+        <div class="duo">
+          <div class="window">
+            <div class="window-titlebar">Alert log · last 24 hours</div>
+            <div class="window-body">
+              <ul class="wire-list">
+                <li><span class="wire-time">09:12</span> edge-helsinki-2: handshake overdue by 10 minutes. Acknowledged by T. Ruohonen at 09:14; remote hands ticket filed.</li>
+                <li><span class="wire-time">08:40</span> backup-nas: handshake latency above two minutes during the nightly replication window. Cleared automatically twice, reopened.</li>
+                <li><span class="wire-time">03:05</span> Key rotation reminder: 3 peers rotate on 15 July.</li>
+                <li><span class="wire-time">22:47</span> build-runner-1: transfer burst of 122 GiB in one hour. Within policy, recorded for the weekly report.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="quiet-tile">
+              <p>No unacknowledged alerts. On call this week: T. Ruohonen.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Peerwatch</p>
+        <p>Programmable Paper exercise · not a real product</p>
+      </div>
+    </footer>
+  </body>
+</html>

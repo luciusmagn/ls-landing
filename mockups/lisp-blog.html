@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Tail Position · Notes on Common Lisp</title>
+    <meta
+      name="description"
+      content="Programmable Paper design exercise: a working Common Lisp programmer's weblog."
+    >
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='64' fill='%23000000'>()</text></svg>">
+
+    <link rel="stylesheet" href="../paper.css">
+    <link rel="stylesheet" href="mock.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="#">Tail Position</a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list">
+            <li><a href="#">Posts</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Feed</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="dateline">Notes from a working Common Lisp programmer · Turku, Finland</p>
+    </header>
+
+    <main id="main-content" class="shell">
+      <div class="front">
+        <article class="story">
+          <h1 class="page-title">Restarts are not exceptions</h1>
+          <p class="byline">4 July 2026 · 9 minute read</p>
+          <p>
+            In most languages, signaling a problem and abandoning the work are
+            the same act. <code>throw</code> is a jump: by the time anyone
+            with enough context to decide something useful has caught the
+            exception, the stack that knew how to fix it is gone. The catch
+            site gets a corpse and a stack trace.
+          </p>
+          <p>
+            Common Lisp splits this into three roles. Code that detects a
+            problem <em>signals</em> a condition. Code that knows how to
+            recover publishes <em>restarts</em>, named repairs that remain
+            live on the stack. Code with the authority to decide installs a
+            <em>handler</em>, looks at the menu, and picks one. Nothing
+            unwinds until somebody chooses to unwind.
+          </p>
+          <pre><code><span class="hl-comment">;;; The payment layer knows two sensible repairs.</span>
+(<span class="hl-keyword">define-condition</span> gateway-timeout (error)
+  ((endpoint <span class="hl-keyword">:initarg</span> :endpoint <span class="hl-keyword">:reader</span> endpoint))
+  (<span class="hl-keyword">:report</span> (<span class="hl-keyword">lambda</span> (condition stream)
+             (format stream "Gateway timed out talking to ~A"
+                     (endpoint condition)))))
+
+(<span class="hl-keyword">defun</span> charge (order processor)
+  "Attempt to charge ORDER, offering recovery to whoever is above us."
+  (<span class="hl-keyword">restart-case</span> (submit-payment order processor)
+    (use-backup-processor ()
+      <span class="hl-keyword">:report</span> "Retry the charge through the backup processor."
+      (submit-payment order *backup-processor*))
+    (queue-for-review ()
+      <span class="hl-keyword">:report</span> "Park the order for a human."
+      (queue-order order :reason 'payment-review))))</code></pre>
+          <p>
+            The batch job three frames up is the code with authority. It
+            wants throughput, not heroics, so it picks the backup processor
+            and keeps going. Note what does not happen: the loop does not
+            re-enter the payment layer, no work is redone, and
+            <code>charge</code> never learns who made the call.
+          </p>
+          <pre><code><span class="hl-comment">;; Policy lives at the top; mechanism stays below.</span>
+(<span class="hl-keyword">defun</span> charge-batch (orders)
+  (<span class="hl-keyword">handler-bind</span> ((gateway-timeout
+                   (<span class="hl-keyword">lambda</span> (condition)
+                     (<span class="hl-keyword">declare</span> (ignore condition))
+                     (<span class="hl-keyword">invoke-restart</span> 'use-backup-processor))))
+    (mapcar (<span class="hl-keyword">lambda</span> (order)
+              (charge order *primary-processor*))
+            orders)))</code></pre>
+          <p>
+            And when no handler exists at all, the debugger presents the same
+            restart menu to you, interactively, with the stack still warm.
+            The recovery strategy you prototype at the REPL on Tuesday is the
+            <code>handler-bind</code> you commit on Wednesday. That is the
+            part exceptions never gave us: the error path is a first-class
+            interface, designed where the knowledge lives, chosen where the
+            authority lives.
+          </p>
+        </article>
+
+        <aside class="front-side" aria-label="About this weblog">
+          <div class="window">
+            <div class="window-titlebar">About this weblog</div>
+            <div class="window-body">
+              <dl class="property-sheet">
+                <dt>Author</dt>
+                <dd>Ilmari Ketola</dd>
+                <dt>Written in</dt>
+                <dd>GNU Emacs 31 with SLY</dd>
+                <dt>Served by</dt>
+                <dd>SBCL 2.6.4 behind nginx</dd>
+                <dt>Generated by</dt>
+                <dd>a 212-line Lisp script</dd>
+                <dt>License</dt>
+                <dd>CC BY-SA 4.0</dd>
+                <dt>Feed</dt>
+                <dd><a href="#">feed.xml</a></dd>
+              </dl>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Currently on the workbench</div>
+            <div class="window-body">
+              <p>
+                A Mito schema differ, a CLIM listener theme, and the eternal
+                rewrite of my init.el, which is now older than my dog.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="doc-section" aria-labelledby="earlier-title">
+        <h2 id="earlier-title">Earlier</h2>
+
+        <article class="entry">
+          <header class="entry-head">
+            <h3><a href="#">The loop macro is a language, so write it like one</a></h3>
+            <span class="entry-date">21 June 2026</span>
+          </header>
+          <p>
+            Indent it like prose, keep one clause per line, and stop
+            apologizing to people who would rather read seven nested calls.
+          </p>
+        </article>
+
+        <article class="entry">
+          <header class="entry-head">
+            <h3><a href="#">Packages before projects</a></h3>
+            <span class="entry-date">9 June 2026</span>
+          </header>
+          <p>
+            The package form is the module system, the API review, and the
+            documentation outline, if you write it first instead of last.
+          </p>
+        </article>
+
+        <article class="entry">
+          <header class="entry-head">
+            <h3><a href="#">SBCL's compiler notes are a code review</a></h3>
+            <span class="entry-date">28 May 2026</span>
+          </header>
+          <p>
+            The optimizer tells you exactly where your types went vague. Read
+            the notes the way you would read a colleague's margin comments.
+          </p>
+        </article>
+
+        <article class="entry">
+          <header class="entry-head">
+            <h3><a href="#">CLOS dispatch is the design tool, not the trick</a></h3>
+            <span class="entry-date">16 May 2026</span>
+          </header>
+          <p>
+            Generic functions let the protocol live apart from the classes
+            that satisfy it. Most of my refactors are just admitting that.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Ilmari Ketola</p>
+        <p>Programmable Paper exercise · not a real weblog</p>
+      </div>
+    </footer>
+  </body>
+</html>
