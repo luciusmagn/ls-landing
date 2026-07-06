@@ -39,12 +39,48 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Nimbus Roman Mono";
+  src: url("fonts/nimbus-roman-mono-regular.woff2") format("woff2"),
+       url("fonts/nimbus-roman-mono-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nimbus Roman Mono";
+  src: url("fonts/nimbus-roman-mono-bold.woff2") format("woff2"),
+       url("fonts/nimbus-roman-mono-bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nimbus Roman Mono";
+  src: url("fonts/nimbus-roman-mono-italic.woff2") format("woff2"),
+       url("fonts/nimbus-roman-mono-italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nimbus Roman Mono";
+  src: url("fonts/nimbus-roman-mono-bold-italic.woff2") format("woff2"),
+       url("fonts/nimbus-roman-mono-bold-italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   --ink:   #000000;
   --paper: #fffefa;
 
   --font-serif: "Times New Roman", Times, "Nimbus Roman No9 L", "Liberation Serif", serif;
-  --font-mono:  "Courier New", Courier, "Liberation Mono", monospace;
+  --font-mono:  "Nimbus Roman Mono", "Courier New", Courier, "Liberation Mono", monospace;
 
   --bitmap-dither: radial-gradient(var(--ink) 1px, transparent 1px);
 }
