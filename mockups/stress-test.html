@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Interlisp Paper stress test</title>
+    <meta
+      name="description"
+      content="Interlisp Paper design exercise: every common UI widget, exercising what the language has and recording what it lacks."
+    >
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='52' fill='%23000000'>IP</text></svg>">
+
+    <link rel="stylesheet" href="../paper.css">
+    <link rel="stylesheet" href="mock.css">
+    <link rel="stylesheet" href="stress.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="#">Interlisp Paper</a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list">
+            <li><a href="#objects">Objects</a></li>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#overlays">Overlays</a></li>
+            <li><a href="#gaps">Gaps</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="dateline"><strong>Stress test</strong> · every widget a framework ships, in one language · revised 7 July 2026</p>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="hero" aria-label="Introduction">
+        <div class="hero-copy">
+          <h1>One vocabulary, every widget.</h1>
+          <p class="lede">
+            This sheet renders the inventory a UI framework usually ships:
+            controls, fields, overlays, feedback, navigation, and objects.
+            Where Interlisp Paper already has a voice, the specimen uses it.
+            Where it is silent, the specimen is a proposal and the gap is
+            recorded at the bottom.
+          </p>
+        </div>
+        <div class="window">
+          <div class="window-titlebar">Stress test · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Specimens</dt>
+              <dd>about 50 widgets in 9 sections</dd>
+              <dt>JavaScript</dt>
+              <dd>none; disclosure is native details/dialog</dd>
+              <dt>Palette</dt>
+              <dd>ink, paper, dither; status marks only</dd>
+              <dt>Gaps found</dt>
+              <dd>13, listed at the end</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" aria-labelledby="type-title">
+        <h2 id="type-title">Prose and type</h2>
+        <div class="specimen-grid">
+          <div>
+            <h3>Heading three</h3>
+            <p>
+              Body text at 17px with a <a href="#">running link</a>, some
+              <strong>bold structure</strong>, an <em>italic aside</em>, and
+              inline <code>code</code> plus a keyboard chord,
+              <kbd>Ctrl+P</kbd>. Sentence case everywhere; there is no
+              uppercase register in this language.
+            </p>
+            <blockquote>
+              <p>
+                The best way to predict the future is to invent it, but the
+                second best way is to write the manual for it first.
+              </p>
+              <footer>A margin note, attributed, indented, and barless.</footer>
+            </blockquote>
+          </div>
+          <div>
+            <ul>
+              <li>An unordered item;</li>
+              <li>another, with a <a href="#">link</a>;</li>
+              <li>a third for rhythm.</li>
+            </ul>
+            <ol>
+              <li>First ordered step.</li>
+              <li>Second ordered step.</li>
+            </ol>
+            <p class="specimen-note">
+              Horizontal rules are deliberately absent from this page and
+              this language. Separation is spacing, headings, and windows.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" aria-labelledby="code-title">
+        <h2 id="code-title">Code</h2>
+        <pre><code><span class="hl-comment">;; Algol-style monochrome highlighting in Nimbus Roman Mono.</span>
+(<span class="hl-keyword">defun</span> render (widget stream)
+  (<span class="hl-keyword">let</span> ((frame (widget-frame widget)))
+    (draw-frame frame stream :ink <var>your ink here</var>)))</code></pre>
+        <p class="specimen-note">
+          Bold keywords, italic comments, bold italic placeholders; 15px
+          with tracking at -0.05em to compensate the face.
+        </p>
+      </section>
+
+      <section class="doc-section" aria-labelledby="buttons-title">
+        <h2 id="buttons-title">Buttons and compounds</h2>
+        <div class="specimen-row">
+          <button type="button">Open</button>
+          <button type="button" class="button--primary">Apply</button>
+          <button type="button" class="button--small">Show properties</button>
+          <button type="button" class="button--danger">Delete draft</button>
+          <button type="button" disabled>Print (offline)</button>
+        </div>
+        <div class="compound">
+          <input type="search" aria-label="Search the archive" placeholder="Search the archive">
+          <button type="button">Find</button>
+        </div>
+        <p class="specimen-note">
+          A control acting on its neighbor attaches flush and shares the
+          border; everything else keeps its clearance. Disabled is a dashed
+          border, never a gray wash.
+        </p>
+      </section>
+
+      <section class="doc-section" id="forms" aria-labelledby="forms-title">
+        <h2 id="forms-title">Form fields</h2>
+        <div class="specimen-grid">
+          <div>
+            <label class="field">
+              <span>Document title</span>
+              <input type="text" value="Quarterly print report">
+            </label>
+            <p class="helper-note">Helper text sits under the field at 14px.</p>
+
+            <h3>Invalid input</h3>
+            <div class="field field--error">
+              <label class="field">
+                <span>Copies</span>
+                <input type="number" value="-3" aria-describedby="copies-error">
+              </label>
+              <p class="error-note" id="copies-error"><strong>Error:</strong> the print run cannot be negative.</p>
+            </div>
+
+            <h3>Disabled</h3>
+            <label class="field">
+              <span>Managed by policy</span>
+              <input type="text" value="A4, duplex" disabled>
+            </label>
+          </div>
+
+          <div>
+            <label class="field">
+              <span>Paper stock</span>
+              <select>
+                <option>Bond, 80 g</option>
+                <option selected>Off-white laid, 90 g</option>
+                <option>Card, 200 g</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Delivery note</span>
+              <textarea rows="3">Leave the pallet at the loading dock.</textarea>
+            </label>
+
+            <label class="field">
+              <span>Print date</span>
+              <input type="date" value="2026-07-07">
+            </label>
+          </div>
+
+          <div>
+            <h3>Choices</h3>
+            <label class="field--inline">
+              <input type="checkbox" checked> Collate pages
+            </label>
+            <label class="field--inline">
+              <input type="checkbox"> Punch and bind
+            </label>
+            <fieldset class="field" style="border: 0; padding: 0; margin: 16px 0 0;">
+              <span>Sides</span>
+              <label class="field--inline"><input type="radio" name="sides" checked> Duplex</label>
+              <label class="field--inline"><input type="radio" name="sides"> Simplex</label>
+            </fieldset>
+
+            <label class="field" style="margin-top: 16px;">
+              <span>Contrast threshold</span>
+              <input type="range" min="0" max="100" value="62">
+            </label>
+
+            <label class="field">
+              <span>Attach source scan</span>
+              <input type="file">
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="objects" aria-labelledby="objects-title">
+        <h2 id="objects-title">Objects</h2>
+        <div class="specimen-grid">
+          <div class="window">
+            <div class="window-titlebar">Annual report · Properties</div>
+            <div class="window-body">
+              <dl class="property-sheet">
+                <dt>Kind</dt>
+                <dd>Document</dd>
+                <dt>State</dt>
+                <dd>Draft, revision 12</dd>
+                <dt>Owner</dt>
+                <dd>Research group</dd>
+                <dt>Modified</dt>
+                <dd>7 July 2026, 09:41</dd>
+              </dl>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Print queue</div>
+            <div class="window-body">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Job <span class="sort-mark">▲</span></th>
+                    <th scope="col">Pages</th>
+                    <th scope="col">State</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>annual-report.ps</td>
+                    <td>48</td>
+                    <td><span class="state">queued</span></td>
+                  </tr>
+                  <tr class="row-selected">
+                    <td>traits-lesson.ps</td>
+                    <td>12</td>
+                    <td><span class="state state--primary">printing</span></td>
+                  </tr>
+                  <tr>
+                    <td>wire-briefs.ps</td>
+                    <td>2</td>
+                    <td><span class="state">queued</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">July 2026</div>
+            <div class="window-body">
+              <table class="calendar">
+                <thead>
+                  <tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="calendar-outside">29</td><td class="calendar-outside">30</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+                  <tr><td>6</td><td class="calendar-today">7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr>
+                  <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td></tr>
+                  <tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr>
+                  <tr><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td class="calendar-outside">1</td><td class="calendar-outside">2</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">File drawer · /publications</div>
+            <div class="window-body">
+              <pre><code>publications
+├── reports
+│   ├── annual-2025.tex
+│   └── annual-2026-draft.tex
+├── manuals
+│   └── interlisp-paper.md
+└── covers
+    └── stress-test.svg</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="specimen-grid" style="margin-top: 48px;">
+          <figure>
+            <div class="figure-placeholder" role="img" aria-label="Dithered placeholder for a 1-bit figure"></div>
+            <figcaption>Figure 1. A 1-bit dithered image goes here; gray previews never do.</figcaption>
+          </figure>
+
+          <div>
+            <div class="stat">
+              <span class="stat-value">4,182</span>
+              <span class="stat-label">pages typeset this week</span>
+            </div>
+            <div class="specimen-row" style="margin-top: 24px;">
+              <span class="count-badge">4</span>
+              <span class="count-badge">128</span>
+              <span class="tag">emulator</span>
+              <span class="tag">print-safe</span>
+              <span class="tag">draft</span>
+            </div>
+            <div class="specimen-row">
+              <span class="monogram">IK</span>
+              <span class="monogram monogram--inverse">λ</span>
+              <span class="monogram">@</span>
+            </div>
+            <p class="specimen-note">
+              Identity is a monogram in a square, per the favicon policy;
+              there is no photographic avatar in this language.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="overlays" aria-labelledby="overlays-title">
+        <h2 id="overlays-title">Disclosure and overlays</h2>
+        <div class="specimen-grid">
+          <div>
+            <h3>Menu</h3>
+            <div class="menu-well">
+              <details class="nav-menu" open>
+                <summary>Commands</summary>
+                <div class="nav-menu-sheet">
+                  <a href="#">Open <kbd>Ctrl+O</kbd></a>
+                  <a href="#">Copy <kbd>Ctrl+C</kbd></a>
+                  <a href="#">Show properties <kbd>Ctrl+I</kbd></a>
+                  <a href="#">Print <kbd>Ctrl+P</kbd></a>
+                </div>
+              </details>
+            </div>
+            <p class="specimen-note">
+              Menus carry no shadow; elevation belongs to windows. The open
+              trigger inverts fully.
+            </p>
+
+            <h3>Tooltip</h3>
+            <span class="tooltip-specimen">
+              <span class="tooltip">Rendered 7 July 2026, 09:41</span>
+              <button type="button" class="button--small">Hover target</button>
+            </span>
+            <p class="specimen-note">
+              Static specimen; the idiom (bordered paper tag, no shadow) is a
+              proposal, see the gaps.
+            </p>
+          </div>
+
+          <div>
+            <h3>Accordion</h3>
+            <details class="window" open>
+              <summary class="window-titlebar">Prepress checklist</summary>
+              <div class="window-body">
+                <ul>
+                  <li>Fonts embedded, four faces;</li>
+                  <li>dither at final size, no resampling;</li>
+                  <li>black is black, paper is paper.</li>
+                </ul>
+              </div>
+            </details>
+            <div style="margin-top: 32px;">
+              <details class="window">
+                <summary class="window-titlebar">Shipping manifest (collapsed)</summary>
+                <div class="window-body">
+                  <p>A collapsed accordion is a lone titlebar; opening it makes it a window.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div>
+            <h3>Modal dialog</h3>
+            <div class="backdrop-swatch">
+              <dialog class="window" open>
+                <div class="window-titlebar">Discard draft?</div>
+                <div class="window-body">
+                  <p>Revision 12 has unsaved changes. Discarding cannot be undone.</p>
+                  <div class="dialog-actions">
+                    <button type="button" class="button--small">Cancel</button>
+                    <button type="button" class="button--danger button--small">Discard</button>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+            <p class="specimen-note">
+              The dithered backdrop is the elevation; the modal window carries
+              no shadow band of its own.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" aria-labelledby="feedback-title">
+        <h2 id="feedback-title">Feedback and status</h2>
+        <div class="specimen-grid">
+          <div>
+            <h3>Callouts</h3>
+            <p class="callout callout--ok"><strong>Saved.</strong> Revision 12 written to the archive at 09:41.</p>
+            <p class="callout callout--warn"><strong>Warning:</strong> the print queue is running 20 minutes behind.</p>
+            <p class="callout callout--bad"><strong>Failed:</strong> the platemaker refused page 7; see the log.</p>
+            <p class="specimen-note">
+              Borders stay uniform on all four sides; the semantic mark is
+              the square plus the bold lead word, never a thick left edge.
+            </p>
+          </div>
+
+          <div>
+            <h3>States</h3>
+            <div class="specimen-row">
+              <span class="state">idle</span>
+              <span class="state state--primary">active</span>
+              <span class="state state--success">passed</span>
+              <span class="state state--warning">degraded</span>
+              <span class="state state--danger">failed</span>
+            </div>
+
+            <h3>Meters</h3>
+            <div class="meter" role="meter" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" aria-label="Toner"><div class="meter-fill" style="width: 62%;"></div></div>
+            <p class="helper-note">Solid ink fill at 62 percent.</p>
+            <div class="meter" role="meter" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100" aria-label="Queue"><div class="meter-fill meter-fill--dither" style="width: 34%;"></div></div>
+            <p class="helper-note">Dithered fill where solid ink would shout.</p>
+            <progress max="100" value="78">78 percent</progress>
+          </div>
+
+          <div>
+            <h3>Loading</h3>
+            <div class="skeleton" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="specimen-note">
+              No spinners; loading is dithered placeholder lines and, where
+              text helps, an italic loading note.
+            </p>
+
+            <h3>Nothing to do</h3>
+            <div class="quiet-tile"><p>All jobs printed. Next pickup at 16:00.</p></div>
+            <div class="empty-state" style="margin-top: 32px;">
+              <p>No documents in this drawer yet.</p>
+              <button type="button" class="button--small">Create the first one</button>
+            </div>
+
+            <h3>Toasts</h3>
+            <div class="toast-specimen">
+              <div class="toast"><strong>Copied.</strong> The citation is on the clipboard.</div>
+              <div class="toast"><strong>Queued.</strong> traits-lesson.ps will print after the current job.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" aria-labelledby="nav-title">
+        <h2 id="nav-title">Navigation</h2>
+        <p class="breadcrumbs">
+          <a href="#">Publications</a> / <a href="#">Reports</a> / Annual report, draft 12
+        </p>
+
+        <div class="tab-row" role="tablist" aria-label="Report views">
+          <a class="tab" href="#" role="tab">Manuscript</a>
+          <a class="tab tab--active" href="#" role="tab" aria-selected="true">Figures</a>
+          <a class="tab" href="#" role="tab">Tables</a>
+          <a class="tab" href="#" role="tab">Press notes</a>
+        </div>
+
+        <ol class="stepper">
+          <li class="step-done"><span class="step-number">1</span> <span class="step-label">Manuscript</span></li>
+          <li class="step-done"><span class="step-number">2</span> <span class="step-label">Typesetting</span></li>
+          <li class="step-current"><span class="step-number">3</span> <span class="step-label">Proofing</span></li>
+          <li><span class="step-number">4</span> <span class="step-label">Plates</span></li>
+          <li><span class="step-number">5</span> <span class="step-label">Print run</span></li>
+        </ol>
+
+        <div class="pagination">
+          <button type="button" class="button--small" disabled>Previous</button>
+          <span class="pagination-status">Page 3 of 12</span>
+          <button type="button" class="button--small">Next</button>
+        </div>
+      </section>
+
+      <section class="doc-section" id="gaps" aria-labelledby="gaps-title">
+        <h2 id="gaps-title">Gaps discovered</h2>
+        <div class="window window--wide">
+          <div class="window-titlebar">What the language lacks · 7 July 2026</div>
+          <div class="window-body">
+            <ol>
+              <li><strong>Form fields have no canon vocabulary.</strong> Inputs, selects, textareas, labels, and helper text exist only in Hiisi's app layer; this page had to restate them. The canon should absorb one field spec.</li>
+              <li><strong>Button variants are app-layer only.</strong> The canon knows a single button; primary, small, danger, and the dashed disabled treatment live in Hiisi. They belong in the canon.</li>
+              <li><strong>No validation idiom.</strong> Proposed here: a uniform semantic border on the field, and a black message with a bold lead word and a status square. Accent is never a font color, so red error text is off the table.</li>
+              <li><strong>No switch or toggle.</strong> Proposal: there is none; a checkbox already says it. A switch is a checkbox with marketing.</li>
+              <li><strong>No tooltip idiom.</strong> Proposed as a bordered paper tag with no shadow, like a menu. Needs a ruling on hover-only versus always-visible annotation.</li>
+              <li><strong>No tabs idiom.</strong> Proposed as a flush compound row with the active tab fully inverted.</li>
+              <li><strong>No breadcrumb, pagination, or stepper idioms.</strong> Proposed: an italic-link trail with plain separators; small buttons plus a written page status; a flush numbered row with the current step inverted and finished steps dithered.</li>
+              <li><strong>Toasts, state chips, and meters are Hiisi-only.</strong> The canon is silent on all three; the vocabulary is worth promoting.</li>
+              <li><strong>Native controls can only be half-claimed.</strong> <code>accent-color: var(--ink)</code> covers checkboxes, radios, ranges, and progress; the date picker popup and the file button remain browser chrome.</li>
+              <li><strong>No blockquote treatment.</strong> Proposed: indented, no size change, attributed in italic, and never a vertical bar, since asymmetric edges are banned.</li>
+              <li><strong>No tree view.</strong> Box-drawing characters in mono inside a window work for static trees; an interactive tree with disclosure is undefined.</li>
+              <li><strong>Loading skeletons are Hiisi-only, and Hiisi's still use opacity.</strong> The dithered-lines idiom shown here needs canonizing, and the app layer's <code>opacity: 0.4</code> variant now violates the gray rule.</li>
+              <li><strong>No sortable-table affordance.</strong> The plain triangle shown here is a placeholder; sort direction, keyboard operation, and the active column need a spec.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Lambda Symbolics OÜ</p>
+        <p>Interlisp Paper exercise · stress test sheet</p>
+      </div>
+    </footer>
+  </body>
+</html>

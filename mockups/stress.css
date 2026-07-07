@@ -1,0 +1,686 @@
+/* Stress-test specimens: widget vocabulary over Interlisp Paper.
+   Everything here is a candidate idiom. Where the canon already has a
+   voice we reuse it; where it is silent, the specimen is a proposal and
+   the gap is listed on the page. */
+
+/* -- Native control baseline (canon gap: fields live only in Hiisi's layer) -- */
+
+input,
+select,
+textarea {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 8px 10px;
+  min-height: 42px;
+  width: 100%;
+  accent-color: var(--ink);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  min-height: 0;
+  accent-color: var(--ink);
+}
+
+input[type="range"] {
+  border: 0;
+  padding: 0;
+  accent-color: var(--ink);
+}
+
+input[type="file"] {
+  border-style: dashed;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  border-style: dashed;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+  max-width: 44ch;
+}
+
+.field > span {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.field--inline {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 400;
+  max-width: none;
+}
+
+.helper-note {
+  font-size: 14px;
+  margin: 2px 0 0;
+}
+
+/* Error idiom: black text, bold lead, tiny status square; the field
+   carries a uniform semantic border on all four sides. */
+.field--error input,
+.field--error textarea {
+  border: 1px solid #8a1c1c;
+}
+
+.error-note {
+  font-size: 14px;
+  margin: 2px 0 0;
+}
+
+.error-note::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 7px;
+  background: #8a1c1c;
+}
+
+/* -- Buttons (canon has one variant; these mirror the Hiisi layer) -- */
+
+button {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 9px 16px;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.button--primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.button--primary:hover,
+.button--primary:focus-visible {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.button--small {
+  font-size: 14px;
+  padding: 4px 10px;
+}
+
+.button--danger {
+  border-color: #8a1c1c;
+  color: #8a1c1c;
+}
+
+.button--danger:hover,
+.button--danger:focus-visible {
+  background: #8a1c1c;
+  color: var(--paper);
+}
+
+button:disabled,
+.button:disabled {
+  cursor: default;
+  border-style: dashed;
+}
+
+button:disabled:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* -- Compound controls: flush attachment -- */
+
+.compound {
+  display: flex;
+  max-width: 44ch;
+}
+
+.compound input {
+  flex: 1;
+  min-width: 0;
+  border-right: 0;
+}
+
+.compound button {
+  flex: 0 0 auto;
+}
+
+/* -- Specimen layout scaffolding -- */
+
+.specimen-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 0 16px;
+}
+
+.specimen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 32px 48px;
+  align-items: start;
+}
+
+.specimen-note {
+  font-size: 14px;
+  font-style: italic;
+  max-width: 68ch;
+}
+
+/* -- Blockquote (canon gap; proposal: indented, no bar) -- */
+
+blockquote {
+  margin: 0 0 16px 3ch;
+  max-width: 60ch;
+  font-size: 17px;
+}
+
+blockquote footer {
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* -- Callout with a status mark instead of the banned left edge -- */
+
+.callout {
+  border: 1px solid var(--ink);
+  padding: 10px 12px;
+  margin: 0 0 16px;
+  font-size: 15px;
+  max-width: 68ch;
+}
+
+.callout strong::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 7px;
+}
+
+.callout--ok strong::before {
+  background: #12633a;
+}
+
+.callout--warn strong::before {
+  background: #8a6a00;
+}
+
+.callout--bad strong::before {
+  background: #8a1c1c;
+}
+
+/* -- State registers and badges -- */
+
+.state {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  padding: 0 0.45em;
+  font-size: 13px;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.state--primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.state--success {
+  border-color: #12633a;
+  color: #12633a;
+}
+
+.state--warning {
+  font-weight: 700;
+  border-color: #8a6a00;
+  color: #8a6a00;
+}
+
+.state--danger {
+  font-weight: 700;
+  border-color: #8a1c1c;
+  color: #8a1c1c;
+}
+
+.count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2ch;
+  padding: 0 7px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  padding: 1px 8px;
+  font-size: 13px;
+}
+
+.monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--ink);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.monogram--inverse {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* -- Meters, progress, loading -- */
+
+.meter {
+  width: min(100%, 44ch);
+  height: 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  background: var(--ink);
+}
+
+.meter-fill--dither {
+  background: var(--paper);
+  background-image: var(--bitmap-dither);
+  background-size: 2px 2px;
+}
+
+progress {
+  width: min(100%, 44ch);
+  height: 12px;
+  accent-color: var(--ink);
+}
+
+.skeleton {
+  display: grid;
+  gap: 8px;
+  max-width: 44ch;
+}
+
+.skeleton span {
+  display: block;
+  height: 0.8em;
+  background-image: var(--bitmap-dither);
+  background-size: 4px 4px;
+}
+
+.skeleton span:nth-child(1) {
+  width: 40%;
+}
+
+.skeleton span:nth-child(3) {
+  width: 78%;
+}
+
+/* -- Quiet tile and empty state -- */
+
+.quiet-tile {
+  max-width: 44ch;
+  padding: 18px 16px;
+  background-image: var(--bitmap-dither);
+  background-size: 5px 5px;
+}
+
+.quiet-tile p {
+  display: inline-block;
+  margin: 0;
+  padding: 3px 10px;
+  background: var(--paper);
+  font-weight: 700;
+}
+
+.empty-state {
+  max-width: 44ch;
+  padding: 32px 24px;
+  border: 1px dashed var(--ink);
+  text-align: center;
+}
+
+.empty-state p {
+  margin: 0 0 12px;
+}
+
+/* -- Stat tile -- */
+
+.stat {
+  display: grid;
+  gap: 2px;
+}
+
+.stat-value {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  font-size: 15px;
+}
+
+/* -- Toast and tooltip specimens (rendered statically) -- */
+
+.toast-specimen {
+  display: grid;
+  gap: 8px;
+  max-width: 360px;
+}
+
+.toast {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 10px 12px;
+  font-size: 15px;
+}
+
+.tooltip-specimen {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 6px);
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 3px 8px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* -- Dialog specimen on a backdrop swatch -- */
+
+.backdrop-swatch {
+  background-image: var(--bitmap-dither);
+  background-size: 3px 3px;
+  padding: 32px 24px;
+  max-width: 620px;
+}
+
+.backdrop-swatch dialog {
+  position: static;
+  display: block;
+  width: min(100%, 420px);
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.backdrop-swatch dialog::after {
+  content: none;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 12px;
+}
+
+/* -- Accordion as window -- */
+
+details.window > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+details.window > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* -- Menu (details, CSS only) -- */
+
+.nav-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-menu > summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 12px;
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nav-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-menu[open] > summary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.nav-menu-sheet {
+  position: absolute;
+  left: 0;
+  z-index: 20;
+  min-width: 220px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  display: grid;
+}
+
+.nav-menu-sheet a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 5px 12px;
+  min-height: 34px;
+  font-size: 15px;
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* Reserve room under an open specimen menu so the sheet overlaps nothing. */
+.menu-well {
+  min-height: 250px;
+}
+
+.nav-menu-sheet a:hover,
+.nav-menu-sheet a:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* -- Tabs: a flush compound row, active fully inverted -- */
+
+.tab-row {
+  display: flex;
+  overflow-x: auto;
+  margin: 0 0 16px;
+}
+
+.tab {
+  flex: 0 0 auto;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 6px 14px;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.tab + .tab {
+  border-left: 0;
+}
+
+.tab--active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.tab:hover,
+.tab:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* -- Breadcrumbs, pagination, stepper -- */
+
+.breadcrumbs {
+  font-size: 15px;
+  margin: 0 0 16px;
+}
+
+.breadcrumbs a {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.pagination-status {
+  font-size: 15px;
+}
+
+.stepper {
+  list-style: none;
+  display: flex;
+  gap: 0;
+  padding: 0;
+  margin: 0 0 16px;
+  max-width: none;
+  overflow-x: auto;
+}
+
+.stepper li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  border: 1px solid var(--ink);
+  padding: 6px 14px;
+  font-size: 15px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.stepper li + li {
+  border-left: 0;
+}
+
+.stepper .step-number {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+}
+
+.stepper .step-current {
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.stepper .step-done {
+  background-image: var(--bitmap-dither);
+  background-size: 5px 5px;
+}
+
+.stepper .step-done .step-label {
+  background: var(--paper);
+  padding: 0 4px;
+}
+
+/* -- Calendar -- */
+
+.calendar {
+  max-width: 360px;
+}
+
+.calendar th,
+.calendar td {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  padding: 4px 6px;
+}
+
+.calendar .calendar-today {
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.calendar .calendar-outside {
+  background-image: var(--bitmap-dither);
+  background-size: 5px 5px;
+}
+
+/* -- Table extras -- */
+
+.row-selected td {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Inversion is atomic: objects inside an inverted row flip with it. */
+.row-selected .state {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.sort-mark {
+  font-size: 13px;
+}
+
+/* -- Figure placeholder image (1-bit) -- */
+
+.figure-placeholder {
+  width: 100%;
+  height: 180px;
+  border: 1px solid var(--ink);
+  background-image: var(--bitmap-dither);
+  background-size: 3px 3px;
+}
