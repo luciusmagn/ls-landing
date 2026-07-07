@@ -237,9 +237,18 @@ a {
   text-underline-offset: 2px;
 }
 
-code {
+/* Nimbus Roman Mono runs optically small and loose at a given size:
+   set it slightly larger than Courier would need and track it tighter. */
+code,
+kbd,
+samp {
   font-family: var(--font-mono);
-  font-size: 0.88em;
+  font-size: 0.94em;
+  letter-spacing: -0.05em;
+}
+
+pre {
+  letter-spacing: -0.05em;
 }
 
 .doc-section {
