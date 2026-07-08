@@ -57,7 +57,7 @@
               <dt>Palette</dt>
               <dd>ink, paper, dither; status marks only</dd>
               <dt>Gaps found</dt>
-              <dd>13, listed at the end</dd>
+              <dd>13 listed at the end · 3 resolved the same day</dd>
             </dl>
           </div>
         </div>
@@ -193,6 +193,17 @@
               <label class="field--inline"><input type="radio" name="sides" checked> Duplex</label>
               <label class="field--inline"><input type="radio" name="sides"> Simplex</label>
             </fieldset>
+
+            <h3>Switches</h3>
+            <label class="field--switch">
+              <input type="checkbox" class="switch" checked> Nightly backup
+            </label>
+            <label class="field--switch">
+              <input type="checkbox" class="switch"> Verbose logging
+            </label>
+            <label class="field--switch">
+              <input type="checkbox" class="switch" checked disabled> Managed by policy
+            </label>
 
             <label class="field" style="margin-top: 16px;">
               <span>Contrast threshold</span>
@@ -490,15 +501,15 @@
           <div class="window-titlebar">What the language lacks · 7 July 2026</div>
           <div class="window-body">
             <ol>
-              <li><strong>Form fields have no canon vocabulary.</strong> Inputs, selects, textareas, labels, and helper text exist only in Hiisi's app layer; this page had to restate them. The canon should absorb one field spec.</li>
+              <li><strong>Resolved: form fields absorbed into the canon.</strong> Inputs, selects, textareas, labels, helper and error notes, and the file-selector button now live in paper.css; this page dropped its local copies the same day.</li>
               <li><strong>Button variants are app-layer only.</strong> The canon knows a single button; primary, small, danger, and the dashed disabled treatment live in Hiisi. They belong in the canon.</li>
-              <li><strong>No validation idiom.</strong> Proposed here: a uniform semantic border on the field, and a black message with a bold lead word and a status square. Accent is never a font color, so red error text is off the table.</li>
-              <li><strong>No switch or toggle.</strong> Proposal: there is none; a checkbox already says it. A switch is a checkbox with marketing.</li>
+              <li><strong>No validation idiom.</strong> Proposed here and now canonized: a uniform semantic border on the field, and a black message with a bold lead word and a status square. Accent is never a font color, so red error text is off the table.</li>
+              <li><strong>Resolved: the switch exists.</strong> A checkbox wearing its state: rectangular track, square knob, no pill; on inverts track and knob together, disabled is a dashed track. In the canon as <code>input.switch</code>.</li>
               <li><strong>No tooltip idiom.</strong> Proposed as a bordered paper tag with no shadow, like a menu. Needs a ruling on hover-only versus always-visible annotation.</li>
               <li><strong>No tabs idiom.</strong> Proposed as a flush compound row with the active tab fully inverted.</li>
               <li><strong>No breadcrumb, pagination, or stepper idioms.</strong> Proposed: an italic-link trail with plain separators; small buttons plus a written page status; a flush numbered row with the current step inverted and finished steps dithered.</li>
               <li><strong>Toasts, state chips, and meters are Hiisi-only.</strong> The canon is silent on all three; the vocabulary is worth promoting.</li>
-              <li><strong>Native controls can only be half-claimed.</strong> <code>accent-color: var(--ink)</code> covers checkboxes, radios, ranges, and progress; the date picker popup and the file button remain browser chrome.</li>
+              <li><strong>Mostly resolved: native controls.</strong> <code>accent-color: var(--ink)</code> covers checkboxes, radios, ranges, and progress, and the file-selector button is now styled through <code>::file-selector-button</code>. Only the date picker popup remains browser chrome.</li>
               <li><strong>No blockquote treatment.</strong> Proposed: indented, no size change, attributed in italic, and never a vertical bar, since asymmetric edges are banned.</li>
               <li><strong>No tree view.</strong> Box-drawing characters in mono inside a window work for static trees; an interactive tree with disclosure is undefined.</li>
               <li><strong>Loading skeletons are Hiisi-only, and Hiisi's still use opacity.</strong> The dithered-lines idiom shown here needs canonizing, and the app layer's <code>opacity: 0.4</code> variant now violates the gray rule.</li>

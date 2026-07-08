@@ -98,18 +98,18 @@ pre kbd {
 }
 
 .status--ok::before {
-  border-color: #12633a;
-  background: #12633a;
+  border-color: var(--accent-green);
+  background: var(--accent-green);
 }
 
 .status--warn::before {
-  border-color: #8a6a00;
-  background: #8a6a00;
+  border-color: var(--accent-yellow);
+  background: var(--accent-yellow);
 }
 
 .status--bad::before {
-  border-color: #8a1c1c;
-  background: #8a1c1c;
+  border-color: var(--accent-red);
+  background: var(--accent-red);
 }
 
 /* -- Quiet tile: borderless light dither for de-emphasis.

@@ -79,6 +79,12 @@
   --ink:   #000000;
   --paper: #fffefa;
 
+  /* Semantic accents: tiny flare and rare semantic controls only. */
+  --accent-blue:   #003a70;
+  --accent-red:    #8a1c1c;
+  --accent-green:  #12633a;
+  --accent-yellow: #8a6a00;
+
   --font-serif: "Times New Roman", Times, "Nimbus Roman No9 L", "Liberation Serif", serif;
   --font-mono:  "Nimbus Roman Mono", "Courier New", Courier, "Liberation Mono", monospace;
 
@@ -306,6 +312,212 @@ pre {
 .button:active {
   background: var(--ink);
   color: var(--paper);
+}
+
+/* -- Fields -- */
+
+input,
+select,
+textarea {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 8px 10px;
+  min-height: 42px;
+  width: 100%;
+  accent-color: var(--ink);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  min-height: 0;
+}
+
+/* Ranges and progress are fully claimed; native tracks render gray. */
+input[type="range"] {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  height: 24px;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--ink);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 2px;
+  background: var(--ink);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 20px;
+  margin-top: -9px;
+  background: var(--ink);
+  border: 0;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 20px;
+  background: var(--ink);
+  border: 0;
+  border-radius: 0;
+}
+
+progress {
+  appearance: none;
+  height: 12px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+progress::-webkit-progress-bar {
+  background: var(--paper);
+}
+
+progress::-webkit-progress-value {
+  background: var(--ink);
+}
+
+progress::-moz-progress-bar {
+  background: var(--ink);
+}
+
+input[type="file"] {
+  padding: 6px;
+}
+
+::file-selector-button {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 4px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+input[type="file"]:hover::file-selector-button {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  border-style: dashed;
+}
+
+label {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field > span {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.field--inline {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.field--switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+}
+
+.helper-note {
+  font-size: 14px;
+  margin: 2px 0 0;
+}
+
+.field--error input,
+.field--error select,
+.field--error textarea {
+  border: 1px solid var(--accent-red);
+}
+
+.error-note {
+  font-size: 14px;
+  margin: 2px 0 0;
+}
+
+.error-note::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 7px;
+  background: var(--accent-red);
+}
+
+/* -- Switch: a checkbox wearing its state.
+   Square knob, no pill; on = track and knob invert together. -- */
+
+input[type="checkbox"].switch {
+  appearance: none;
+  position: relative;
+  width: 46px;
+  height: 24px;
+  min-height: 0;
+  padding: 0;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+input[type="checkbox"].switch::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: var(--ink);
+}
+
+input[type="checkbox"].switch:checked {
+  background: var(--ink);
+}
+
+input[type="checkbox"].switch:checked::before {
+  left: auto;
+  right: 3px;
+  background: var(--paper);
+}
+
+/* Disabled keeps position as the state signal: dashed track, dithered knob. */
+input[type="checkbox"].switch:disabled {
+  cursor: default;
+  border-style: dashed;
+  background: var(--paper);
+}
+
+input[type="checkbox"].switch:disabled::before {
+  background: var(--paper);
+  background-image: var(--bitmap-dither);
+  background-size: 3px 3px;
 }
 
 /* -- Catalogue entries -- */
