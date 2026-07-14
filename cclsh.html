@@ -83,7 +83,7 @@
             <a class="button" href="https://github.com/luciusmagn/cclsh">Explore CCLSH on GitHub</a>
             <a class="button" href="#install">Install with Nix</a>
           </div>
-          <p class="motto"><em>Not a POSIX shell. Quite intentionally.</em></p>
+          <p class="motto"><em>Not a POSIX shell. Quite intentionally. Thanks, Sphere.</em></p>
         </div>
 
         <div class="window">
@@ -96,14 +96,10 @@
               <dd>Unix commands and Common Lisp</dd>
               <dt>Line editor</dt>
               <dd>Clinedi</dd>
-              <dt>Process control</dt>
-              <dd>foreground groups, jobs, <code>fg</code>, <code>bg</code></dd>
-              <dt>Scripts</dt>
-              <dd>shebang entry point and literal <code>*argv*</code></dd>
               <dt>Package</dt>
               <dd>reproducible Nix flake for Linux x86-64</dd>
               <dt>Repository</dt>
-              <dd><a href="https://github.com/luciusmagn/cclsh">github.com/luciusmagn/cclsh</a></dd>
+              <dd><a href="https://github.com/luciusmagn/cclsh">luciusmagn/cclsh</a></dd>
             </dl>
           </div>
         </div>
@@ -112,18 +108,18 @@
       <section class="doc-section" id="idea" aria-labelledby="idea-title">
         <div class="duo">
           <div>
-            <h2 id="idea-title">One prompt, two languages</h2>
+            <h2 id="idea-title">Hybrid language composition</h2>
             <p>
-              Familiar commands and live Lisp share the same session. A line
-              beginning with a parenthesis is evaluated as Common Lisp.
+              CCLSH is a shell that extends provides a new REPL for Clozure CL extended with shell facilities.  
+              A line. beginning with a parenthesis is evaluated as Common Lisp.
               Everything else resolves as a builtin or a program in
               <code>PATH</code>. Lisp values can become command arguments, and
               command output can come back to Lisp as data.
             </p>
             <p>
-              The boundary stays visible. CCLSH does not pretend that shell
+              Note that CCLSH does not pretend that shell
               punctuation is a programming language; process composition is
-              written as ordinary, inspectable Lisp.
+              written as ordinary, beautiful, inspectable Lisp.
             </p>
           </div>
 
@@ -192,7 +188,7 @@ gs
               <tbody>
                 <tr>
                   <th scope="row">Line editing</th>
-                  <td>Unicode grapheme movement, completion, highlighting, persistent history, and inline suggestions through Clinedi.</td>
+                  <td>Unicode grapheme movement, completion, highlighting, persistent history, and inline suggestions through the grace of Clinedi.</td>
                 </tr>
                 <tr>
                   <th scope="row">Terminal work</th>
@@ -200,15 +196,11 @@ gs
                 </tr>
                 <tr>
                   <th scope="row">Navigation</th>
-                  <td>Type an explicit directory path such as <code>..</code>, <code>./src</code>, or <code>~/work</code> to enter it directly.</td>
+                  <td>Type an explicit directory path such as <code>..</code>, <code>./src</code>, or <code>~/work</code> to enter it directly. Shamelessly stolen from Fish shell.</td>
                 </tr>
                 <tr>
                   <th scope="row">Customization</th>
-                  <td><code>startup.lisp</code> can define commands, environment policy, directory hooks, and an entirely custom prompt.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Scripting</th>
-                  <td>Shebang scripts receive literal <code>*argv*</code>; plain command mode and scripts skip user startup state.</td>
+                  <td><code>startup.lisp</code> can define commands, environment policy, directory hooks, custom prompt or redefine anything about the shell, with some elbow grease.</td>
                 </tr>
                 <tr>
                   <th scope="row">Lisp systems</th>
@@ -230,11 +222,9 @@ gs
               directly, or put it in your Nix profile.
             </p>
             <p class="caveat">
-              CCLSH is its own command language, not a replacement parser for
-              existing <code>sh</code> scripts. The Nix package installs an
-              ordinary user command; it does not edit <code>/etc/shells</code>
-              or change your login shell. Try it from your current shell and
-              make it yours first.
+                Btw, CCLSH is its own command language, not a replacement for <code>sh</code> scripts.
+                The Nix package install does not edit <code>/etc/shells</code>
+                or change your login shell. Play with it first!
             </p>
           </div>
 
@@ -247,7 +237,7 @@ $ <kbd>nix run github:luciusmagn/cclsh</kbd>
 <span class="code-label">Install into your profile</span>
 $ <kbd>nix profile install github:luciusmagn/cclsh</kbd>
 
-<span class="code-label">Inspect the exact source</span>
+<span class="code-label">Source code here:</span>
 $ <kbd>git clone https://github.com/luciusmagn/cclsh</kbd></code></pre>
             </div>
           </div>
@@ -263,7 +253,7 @@ $ <kbd>git clone https://github.com/luciusmagn/cclsh</kbd></code></pre>
     <footer class="shell">
       <div class="colophon">
         <p>© 2026 Lambda Symbolics OÜ</p>
-        <p>CCLSH field manual · Revised 14 July 2026</p>
+        <p>CCLSH · Revised 14 July 2026</p>
       </div>
     </footer>
   </body>
