@@ -154,7 +154,8 @@ body {
 }
 
 .wordmark {
-  font-size: 62px;
+  font-size: clamp(38px, 12vw, 62px);
+  line-height: 0.95;
   letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;
@@ -243,6 +244,14 @@ a {
   text-underline-offset: 2px;
 }
 
+main p a:not(.button),
+main li a,
+main td a,
+main dd a {
+  text-decoration: underline;
+  font-style: italic;
+}
+
 /* Nimbus Roman Mono runs optically small and loose at a given size:
    set it slightly larger than Courier would need and track it tighter. */
 code,
@@ -254,7 +263,31 @@ samp {
 }
 
 pre {
+  max-width: 100%;
+  margin: 0 0 16px;
+  padding: 12px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 15px;
   letter-spacing: -0.05em;
+  line-height: 1.42;
+  overflow-x: auto;
+}
+
+pre code {
+  font-size: inherit;
+}
+
+pre kbd {
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.window-body pre {
+  border: 0;
+  margin: 0;
+  padding: 2px 0;
 }
 
 .doc-section {
@@ -272,6 +305,11 @@ pre {
   margin-top: 24px;
 }
 
+.section-intro {
+  font-size: 19px;
+  max-width: 62ch;
+}
+
 /* -- Two-column hero with a document specimen -- */
 
 .hero {
@@ -280,6 +318,11 @@ pre {
   gap: 32px 48px;
   align-items: start;
   padding-top: 56px;
+}
+
+.hero > *,
+.duo > * {
+  min-width: 0;
 }
 
 .hero-copy h1 {
@@ -587,9 +630,15 @@ input[type="checkbox"].switch:disabled::before {
 
 .window {
   position: relative;
+  width: 100%;
+  min-width: 0;
   background: var(--paper);
   border: 1px solid var(--ink);
   max-width: 620px;
+}
+
+.window--wide {
+  max-width: none;
 }
 
 .window::after {
@@ -634,6 +683,7 @@ input[type="checkbox"].switch:disabled::before {
 
 .property-sheet dd {
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .window .property-sheet {
@@ -672,6 +722,14 @@ th {
   font-weight: 700;
 }
 
+.table-scroll {
+  overflow-x: auto;
+}
+
+.table-scroll table {
+  margin-bottom: 0;
+}
+
 /* -- Two-column groups -- */
 
 .duo {
@@ -684,6 +742,29 @@ th {
 
 .duo h3 {
   margin-top: 0;
+}
+
+.specimen-row {
+  margin-top: 32px;
+}
+
+.code-label {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 2px;
+}
+
+.caveat {
+  border-block: 3px double var(--ink);
+  padding-block: 12px;
+  margin-top: 28px;
+}
+
+.closing-actions {
+  margin-top: 40px;
 }
 
 /* -- Syllabus -- */
@@ -741,6 +822,10 @@ th {
 @media (max-width: 480px) {
   .shell {
     padding-inline: 20px;
+  }
+
+  .wordmark {
+    font-size: clamp(34px, 11vw, 42px);
   }
 
   .property-sheet {

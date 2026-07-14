@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCLSH: a shell for the alien age · Lambda Symbolics OÜ</title>
+    <meta
+      name="description"
+      content="CCLSH is a system shell running inside a live Clozure Common Lisp image. Run Unix programs and Common Lisp from one prompt."
+    >
+    <link rel="canonical" href="https://lambda-symbolics.com/cclsh">
+
+    <meta property="og:title" content="CCLSH: a shell for the alien age">
+    <meta
+      property="og:description"
+      content="Unix commands and live Common Lisp share one prompt, with readable process composition and a Unicode-aware line editor."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lambda-symbolics.com/cclsh">
+    <meta property="og:image" content="https://lambda-symbolics.com/og.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Lambda Symbolics OÜ">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@LukasHozda">
+    <meta name="twitter:title" content="CCLSH: a shell for the alien age">
+    <meta
+      name="twitter:description"
+      content="Unix commands and live Common Lisp share one prompt, with readable process composition and a Unicode-aware line editor."
+    >
+    <meta name="twitter:image" content="https://lambda-symbolics.com/og.png">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>%CE%BB</text></svg>">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "CCLSH",
+      "description": "A system shell running inside a live Clozure Common Lisp image.",
+      "url": "https://lambda-symbolics.com/cclsh",
+      "codeRepository": "https://github.com/luciusmagn/cclsh",
+      "programmingLanguage": "Common Lisp",
+      "runtimePlatform": "Clozure Common Lisp 1.13",
+      "operatingSystem": "Linux x86-64",
+      "author": {
+        "@type": "Person",
+        "name": "Lukáš Hozda",
+        "url": "https://github.com/luciusmagn"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="paper.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="/">Lambda Symbolics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list">
+            <li><a href="#idea">Idea</a></li>
+            <li><a href="#examples">Examples</a></li>
+            <li><a href="#install">Install</a></li>
+            <li><a href="https://github.com/luciusmagn/cclsh">GitHub</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="hero" aria-label="CCLSH">
+        <div class="hero-copy">
+          <h1>CCLSH: a shell for the alien age</h1>
+          <p class="lede">
+            A system shell running inside a live Clozure Common Lisp image.
+            Run ordinary Unix programs, evaluate Lisp at the same prompt, and
+            reach for Lisp when a command string stops being the right tool.
+          </p>
+          <div class="actions">
+            <a class="button" href="https://github.com/luciusmagn/cclsh">Explore CCLSH on GitHub</a>
+            <a class="button" href="#install">Install with Nix</a>
+          </div>
+          <p class="motto"><em>Not a POSIX shell. Quite intentionally.</em></p>
+        </div>
+
+        <div class="window">
+          <div class="window-titlebar">CCLSH · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Runtime</dt>
+              <dd>Clozure Common Lisp 1.13</dd>
+              <dt>Interface</dt>
+              <dd>Unix commands and Common Lisp</dd>
+              <dt>Line editor</dt>
+              <dd>Clinedi</dd>
+              <dt>Process control</dt>
+              <dd>foreground groups, jobs, <code>fg</code>, <code>bg</code></dd>
+              <dt>Scripts</dt>
+              <dd>shebang entry point and literal <code>*argv*</code></dd>
+              <dt>Package</dt>
+              <dd>reproducible Nix flake for Linux x86-64</dd>
+              <dt>Repository</dt>
+              <dd><a href="https://github.com/luciusmagn/cclsh">github.com/luciusmagn/cclsh</a></dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="idea" aria-labelledby="idea-title">
+        <div class="duo">
+          <div>
+            <h2 id="idea-title">One prompt, two languages</h2>
+            <p>
+              Familiar commands and live Lisp share the same session. A line
+              beginning with a parenthesis is evaluated as Common Lisp.
+              Everything else resolves as a builtin or a program in
+              <code>PATH</code>. Lisp values can become command arguments, and
+              command output can come back to Lisp as data.
+            </p>
+            <p>
+              The boundary stays visible. CCLSH does not pretend that shell
+              punctuation is a programming language; process composition is
+              written as ordinary, inspectable Lisp.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">A live session</div>
+            <div class="window-body">
+              <pre aria-label="Example CCLSH session"><code>magnusi@lho-thinkpad (CCLSH-USER) ~/work $ <kbd>git status --short</kbd>
+ M source/prompt.lisp
+magnusi@lho-thinkpad (CCLSH-USER) ~/work $ <kbd>(+ 20 22)</kbd>
+42
+magnusi@lho-thinkpad (CCLSH-USER) ~/work $ <kbd>echo branch: (capture (git "branch" "--show-current"))</kbd>
+branch: master
+magnusi@lho-thinkpad (CCLSH-USER) ~/work $ <kbd>../</kbd>
+magnusi@lho-thinkpad (CCLSH-USER) ~ $</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="examples" aria-labelledby="examples-title">
+        <h2 id="examples-title">Process composition you can read</h2>
+        <p class="section-intro">
+          Pipelines, redirection, sequencing, and conditional execution are
+          Lisp forms. A command defined in Lisp works from the command line and
+          as a function in the same image.
+        </p>
+
+        <div class="duo specimen-row">
+          <div class="window">
+            <div class="window-titlebar">Pipelines and status</div>
+            <div class="window-body">
+              <pre><code>(pipe (from "access.log")
+      (grep "500")
+      (wc "-l"))
+
+(all (make "test")
+     (make "install"))
+
+(capture
+  (git "rev-parse" "--short" "HEAD"))</code></pre>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">A command that is also a function</div>
+            <div class="window-body">
+              <pre><code>(defcommand gs (&amp;rest arguments)
+  "Show a concise Git status."
+  (apply #'run
+         "git" "status" "--short"
+         arguments))
+
+gs
+(gs)</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" aria-labelledby="field-notes-title">
+        <h2 id="field-notes-title">Field notes</h2>
+        <div class="window window--wide">
+          <div class="window-titlebar">Interactive systems · Included surfaces</div>
+          <div class="window-body table-scroll">
+            <table>
+              <tbody>
+                <tr>
+                  <th scope="row">Line editing</th>
+                  <td>Unicode grapheme movement, completion, highlighting, persistent history, and inline suggestions through Clinedi.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Terminal work</th>
+                  <td>External commands and pipelines get foreground process groups, Ctrl-C, Ctrl-Z, and the usual <code>jobs</code>, <code>fg</code>, and <code>bg</code> controls.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Navigation</th>
+                  <td>Type an explicit directory path such as <code>..</code>, <code>./src</code>, or <code>~/work</code> to enter it directly.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Customization</th>
+                  <td><code>startup.lisp</code> can define commands, environment policy, directory hooks, and an entirely custom prompt.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Scripting</th>
+                  <td>Shebang scripts receive literal <code>*argv*</code>; plain command mode and scripts skip user startup state.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Lisp systems</th>
+                  <td>The saved image includes Quicklisp and the pinned Clinedi revision, with writable package state outside the Nix store.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="install" aria-labelledby="install-title">
+        <div class="duo">
+          <div>
+            <h2 id="install-title">Try it with Nix</h2>
+            <p>
+              The packaged target supports Linux x86-64 and pins CCL,
+              Clinedi, Quicklisp, and the required CCL kernel patches. Run it
+              directly, or put it in your Nix profile.
+            </p>
+            <p class="caveat">
+              CCLSH is its own command language, not a replacement parser for
+              existing <code>sh</code> scripts. The Nix package installs an
+              ordinary user command; it does not edit <code>/etc/shells</code>
+              or change your login shell. Try it from your current shell and
+              make it yours first.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Installation · Nix flakes</div>
+            <div class="window-body">
+              <pre><code><span class="code-label">Run without installing</span>
+$ <kbd>nix run github:luciusmagn/cclsh</kbd>
+
+<span class="code-label">Install into your profile</span>
+$ <kbd>nix profile install github:luciusmagn/cclsh</kbd>
+
+<span class="code-label">Inspect the exact source</span>
+$ <kbd>git clone https://github.com/luciusmagn/cclsh</kbd></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions closing-actions">
+          <a class="button" href="https://github.com/luciusmagn/cclsh">Read the code and manual</a>
+          <a class="button" href="/">Company index</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Lambda Symbolics OÜ</p>
+        <p>CCLSH field manual · Revised 14 July 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -2,8 +2,8 @@
 
 Static landing site for Lambda Symbolics OÜ, set in the Interlisp Paper
 design language: Times New Roman, black ink on off-white paper, no flat
-gray, no JavaScript. The full design specification lives in
-`DESIGN.md` in the Hiisi repository.
+gray, no JavaScript. The durable design context lives in `.impeccable.md`;
+`paper.css` is the implementation canon.
 
 ## Stack
 
@@ -15,6 +15,7 @@ gray, no JavaScript. The full design specification lives in
 ## Files
 
 - `index.html`: company page
+- `cclsh.html`: CCLSH product page
 - `rust-course.html`: Rust course page
 - `404.html`: not-found page
 - `paper.css`: Interlisp Paper stylesheet
