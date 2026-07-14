@@ -290,6 +290,35 @@ pre kbd {
   padding: 2px 0;
 }
 
+/* Algol-style monochrome syntax marking: bold for keywords, italic for
+   comments, bold italic for placeholders. No color; ink stays black. */
+.hl-keyword {
+  font-weight: 700;
+}
+
+.hl-comment {
+  font-style: italic;
+}
+
+pre var,
+.hl-placeholder {
+  font-weight: 700;
+  font-style: italic;
+  font-family: inherit;
+}
+
+/* PS1 transcript prompts: the package tag is bold, echoing the rule that a
+   leading parenthesis means Lisp; the working directory is italic, a
+   contextual aside rather than language. User@host and the sigil stay
+   plain roman, since they carry no CCLSH-specific meaning. */
+.hl-package {
+  font-weight: 700;
+}
+
+.hl-path {
+  font-style: italic;
+}
+
 .doc-section {
   margin-top: 96px;
 }

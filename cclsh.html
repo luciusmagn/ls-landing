@@ -126,14 +126,14 @@
           <div class="window">
             <div class="window-titlebar">A live session</div>
             <div class="window-body">
-              <pre aria-label="Example CCLSH session"><code>magnusi@lho-thinkpad (CCLSH-USER) ~/work $ <kbd>git status --short</kbd>
+              <pre aria-label="Example CCLSH session"><code>magnusi@lho-thinkpad <span class="hl-package">(CCLSH-USER)</span> <span class="hl-path">~/work</span> $ <kbd>git status --short</kbd>
  M source/prompt.lisp
-magnusi@lho-thinkpad (CCLSH-USER) ~/work $ <kbd>(+ 20 22)</kbd>
+magnusi@lho-thinkpad <span class="hl-package">(CCLSH-USER)</span> <span class="hl-path">~/work</span> $ <kbd>(+ 20 22)</kbd>
 42
-magnusi@lho-thinkpad (CCLSH-USER) ~/work $ <kbd>echo branch: (capture (git "branch" "--show-current"))</kbd>
+magnusi@lho-thinkpad <span class="hl-package">(CCLSH-USER)</span> <span class="hl-path">~/work</span> $ <kbd>echo branch: (capture (git "branch" "--show-current"))</kbd>
 branch: master
-magnusi@lho-thinkpad (CCLSH-USER) ~/work $ <kbd>../</kbd>
-magnusi@lho-thinkpad (CCLSH-USER) ~ $</code></pre>
+magnusi@lho-thinkpad <span class="hl-package">(CCLSH-USER)</span> <span class="hl-path">~/work</span> $ <kbd>../</kbd>
+magnusi@lho-thinkpad <span class="hl-package">(CCLSH-USER)</span> <span class="hl-path">~</span> $</code></pre>
             </div>
           </div>
         </div>
@@ -151,29 +151,29 @@ magnusi@lho-thinkpad (CCLSH-USER) ~ $</code></pre>
           <div class="window">
             <div class="window-titlebar">Pipelines and status</div>
             <div class="window-body">
-              <pre><code>(pipe (from "access.log")
-      (grep "500")
-      (wc "-l"))
+              <pre><code>(<span class="hl-keyword">pipe</span> (<span class="hl-keyword">from</span> "access.log")
+      (<span class="hl-keyword">grep</span> "500")
+      (<span class="hl-keyword">wc</span> "-l"))
 
-(all (make "test")
-     (make "install"))
+(<span class="hl-keyword">all</span> (<span class="hl-keyword">make</span> "test")
+     (<span class="hl-keyword">make</span> "install"))
 
-(capture
-  (git "rev-parse" "--short" "HEAD"))</code></pre>
+(<span class="hl-keyword">capture</span>
+  (<span class="hl-keyword">git</span> "rev-parse" "--short" "HEAD"))</code></pre>
             </div>
           </div>
 
           <div class="window">
             <div class="window-titlebar">A command that is also a function</div>
             <div class="window-body">
-              <pre><code>(defcommand gs (&amp;rest arguments)
+              <pre><code>(<span class="hl-keyword">defcommand</span> gs (<span class="hl-keyword">&amp;rest</span> arguments)
   "Show a concise Git status."
-  (apply #'run
+  (<span class="hl-keyword">apply</span> #'run
          "git" "status" "--short"
          arguments))
 
 gs
-(gs)</code></pre>
+(<span class="hl-keyword">gs</span>)</code></pre>
             </div>
           </div>
         </div>
