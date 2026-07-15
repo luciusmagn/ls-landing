@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autolith: a live, self-modifying Common Lisp agent · Lambda Symbolics OÜ</title>
+    <meta
+      name="description"
+      content="Autolith is a terminal coding agent running inside a live SBCL image, with its own tools, memory, self-modification, checkpoints, and recovery."
+    >
+    <link rel="canonical" href="https://lambda-symbolics.com/autolith">
+
+    <meta property="og:title" content="Autolith: a live Common Lisp agent">
+    <meta
+      property="og:description"
+      content="A terminal coding agent that can inspect, redefine, test, persist, checkpoint, and recover its own running Lisp image."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lambda-symbolics.com/autolith">
+    <meta property="og:image" content="https://lambda-symbolics.com/autolith.png">
+    <meta property="og:image:width" content="998">
+    <meta property="og:image:height" content="897">
+    <meta property="og:image:alt" content="The Autolith mascot in black ink and bitmap dither">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Lambda Symbolics OÜ">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@LukasHozda">
+    <meta name="twitter:title" content="Autolith: a live Common Lisp agent">
+    <meta
+      name="twitter:description"
+      content="A terminal coding agent that can inspect, redefine, test, persist, checkpoint, and recover its own running Lisp image."
+    >
+    <meta name="twitter:image" content="https://lambda-symbolics.com/autolith.png">
+    <meta name="twitter:image:alt" content="The Autolith mascot in black ink and bitmap dither">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>%CE%BB</text></svg>">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "Autolith",
+      "description": "A live, self-modifying Common Lisp terminal agent.",
+      "url": "https://lambda-symbolics.com/autolith",
+      "codeRepository": "https://github.com/luciusmagn/autolith",
+      "programmingLanguage": "Common Lisp",
+      "runtimePlatform": "SBCL 2.6.4",
+      "operatingSystem": "Linux x86-64",
+      "softwareVersion": "0.11.0",
+      "author": {
+        "@type": "Person",
+        "name": "Lukáš Hozda",
+        "url": "https://github.com/luciusmagn"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="paper.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="/">Lambda Symbolics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list">
+            <li><a href="#system">System</a></li>
+            <li><a href="#mutation">Live mutation</a></li>
+            <li><a href="#persistence">Persistence</a></li>
+            <li><a href="#install">Run it</a></li>
+            <li><a href="https://github.com/luciusmagn/autolith">GitHub</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="hero" aria-label="Autolith">
+        <div class="hero-copy">
+          <h1>Autolith: the agent is a live Lisp image</h1>
+          <p class="lede">
+            A terminal coding agent written in Common Lisp and running inside
+            SBCL. It owns its model loop, tools, conversations, memory,
+            self-modification, checkpoints, and recovery while the conversation
+            continues.
+          </p>
+          <div class="actions">
+            <a class="button" href="https://github.com/luciusmagn/autolith">Explore Autolith on GitHub</a>
+            <a class="button" href="#install">Run the pinned build</a>
+          </div>
+          <p class="motto"><em>Source remains authoritative. The image remains alive.</em></p>
+        </div>
+
+        <figure class="window mascot-window">
+          <figcaption class="window-titlebar">Autolith · Resident agent</figcaption>
+          <div class="window-body">
+            <img
+              class="mascot-image"
+              src="autolith.png"
+              width="998"
+              height="897"
+              alt="The Autolith mascot, rendered in black ink and bitmap dither on paper"
+            >
+          </div>
+        </figure>
+      </section>
+
+      <section class="doc-section" id="system" aria-labelledby="system-title">
+        <div class="duo">
+          <div>
+            <h2 id="system-title">One agent owns the whole loop</h2>
+            <p>
+              Autolith is not a wrapper around another coding-agent process. Its
+              Common Lisp image contains the provider client, terminal interface,
+              tool registry, conversation state, persistent memories, workspace
+              agenda, and the code that decides what happens next.
+            </p>
+            <p>
+              It talks directly to the ChatGPT Codex subscription service. The
+              Codex CLI is neither launched nor bundled. Filesystem, shell,
+              search, memory, and Lisp operations remain explicit tools with
+              visible results.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Autolith 0.11.0 · Properties</div>
+            <div class="window-body">
+              <dl class="property-sheet">
+                <dt>Runtime</dt>
+                <dd>SBCL 2.6.4</dd>
+                <dt>Platform</dt>
+                <dd>Linux x86-64</dd>
+                <dt>Interface</dt>
+                <dd>responsive terminal with editable queued input</dd>
+                <dt>Provider</dt>
+                <dd>direct ChatGPT Codex subscription transport</dd>
+                <dt>Language</dt>
+                <dd>Common Lisp</dd>
+                <dt>Repository</dt>
+                <dd><a href="https://github.com/luciusmagn/autolith">luciusmagn/autolith</a></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="duo specimen-row">
+          <div class="window">
+            <div class="window-titlebar">The active image · self.*</div>
+            <div class="window-body">
+              <pre><code><span class="hl-keyword">self.inspect</span>             active bindings and docs
+<span class="hl-keyword">self.source</span>              complete tracked definitions
+<span class="hl-keyword">self.eval</span>                immediate active-image probes
+<span class="hl-keyword">self.redefine</span>            install one definition live
+<span class="hl-keyword">self.persist-definition</span> install, check, and retain
+<span class="hl-keyword">self.checkpoint</span>          save a working generation</code></pre>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Disposable Lisp workers · lisp.*</div>
+            <div class="window-body">
+              <pre><code><span class="hl-keyword">lisp.start</span>       named pristine or saved REPL
+<span class="hl-keyword">lisp.eval</span>        exploratory Common Lisp
+<span class="hl-keyword">lisp.source</span>      matching hash-verified SBCL source
+<span class="hl-keyword">lisp.run-tests</span>   ASDF tests outside the agent heap
+<span class="hl-keyword">lisp.save-image</span>  immutable instrumented worker</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="mutation" aria-labelledby="mutation-title">
+        <div class="duo">
+          <div>
+            <h2 id="mutation-title">Change a definition without ending the conversation</h2>
+            <p>
+              Autolith can inspect and replace complete functions, methods,
+              classes, macros, conditions, and global settings in its running
+              image. An exploratory change takes effect immediately and is
+              recorded in an append-only mutation journal.
+            </p>
+            <p>
+              A useful change can then become a private image commit. The commit
+              contains a manifest and a complete executable Lisp replay script,
+              retained in a separate private Git history. It changes the active
+              agent without quietly patching the tracked source repository.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">A representative mutation transaction</div>
+            <div class="window-body">
+              <pre><code>→ <span class="hl-keyword">self.source</span> APPLICATION-TOOL-CALL-ENTRY
+← complete tracked <span class="hl-keyword">DEFMETHOD</span>
+
+→ <span class="hl-keyword">self.redefine</span>
+  (<span class="hl-keyword">defmethod</span> application-tool-call-entry ...)
+← compiled and installed in the active image
+
+→ <span class="hl-keyword">self.diff</span>
+← one reconstructible live mutation
+
+→ <span class="hl-keyword">self.commit</span> "Improve tool-call presentation"
+← private image commit <var>commit-id</var>
+  complete reconstruct.lisp retained in private Git</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="persistence" aria-labelledby="persistence-title">
+        <h2 id="persistence-title">A working state has several kinds of memory</h2>
+        <p class="section-intro">
+          Source, conversations, useful facts, live mutations, exact heaps, and
+          disposable experiments have different lifetimes. Autolith keeps them
+          separate instead of pretending that one database or one saved core is
+          everything.
+        </p>
+
+        <div class="window window--wide specimen-row">
+          <div class="window-titlebar">Persistent surfaces · Reconstruction evidence</div>
+          <div class="window-body table-scroll">
+            <table>
+              <tbody>
+                <tr>
+                  <th scope="row">Conversations</th>
+                  <td>Append-only portable S-expressions with exact resume commands and crash-tail repair.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Memories</th>
+                  <td>Workspace or global facts, preferences, and decisions with bounded prompt recall.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Agendas</th>
+                  <td>Short workspace tasks and notes, available in full on every request.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Private image commits</th>
+                  <td>Complete replay scripts for durable user-specific definitions and settings, retained in private Git.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Generations</th>
+                  <td>A saved active core, exact tracked source commit, reconstruction script, manifest, and journal position.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Worker images</th>
+                  <td>Immutable experimental SBCL cores with parentage and durable notes, never selected as the active agent.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Recovery</th>
+                  <td>A separately built pristine image that can inspect a crash and select a known-working generation without loading the damaged core.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" aria-labelledby="field-notes-title">
+        <h2 id="field-notes-title">Field notes</h2>
+        <div class="window window--wide">
+          <div class="window-titlebar">Everyday work · Included surfaces</div>
+          <div class="window-body table-scroll">
+            <table>
+              <tbody>
+                <tr>
+                  <th scope="row">Terminal</th>
+                  <td>Multiline editing, completion, ordinary scrollback, and drafts that remain editable while tools and model responses run.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Workspace search</th>
+                  <td>Warm in-process path, glob, plain, regular-expression, fuzzy, and multi-pattern search through fff.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Implementation work</th>
+                  <td>Hash-verified matching SBCL source, named isolated REPLs, and side-by-side pristine and instrumented worker images.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Source boundary</th>
+                  <td>Autolith can develop its own repository when deliberately run there; private live mutations never masquerade as tracked source commits.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Immutable mode</th>
+                  <td>An optional startup mode keeps self-inspection while withholding active-image mutation tools.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="install" aria-labelledby="install-title">
+        <div class="duo">
+          <div>
+            <h2 id="install-title">Run the pinned Linux build</h2>
+            <p>
+              Autolith currently targets Linux x86-64 and pins SBCL, every Lisp
+              dependency, and its native helper sources. Nix can build and run
+              the package directly, or the repository bootstrap can materialize
+              the same locked project setup.
+            </p>
+            <p class="caveat">
+              Autolith executes model-generated code with your user privileges.
+              Its process boundaries protect reliability, not against hostile
+              code. Use it as a development agent, not as a security sandbox.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Quick start · Nix or source</div>
+            <div class="window-body">
+              <pre><code><span class="code-label">Run the flake</span>
+$ <kbd>nix run github:luciusmagn/autolith -- --auth</kbd>
+$ <kbd>nix run github:luciusmagn/autolith</kbd>
+
+<span class="code-label">Build from the repository</span>
+$ <kbd>git clone https://github.com/luciusmagn/autolith</kbd>
+$ <kbd>cd autolith</kbd>
+$ <kbd>./script/bootstrap</kbd>
+$ <kbd>./script/check</kbd>
+$ <kbd>./bin/autolith --auth</kbd>
+$ <kbd>./bin/autolith</kbd></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions closing-actions">
+          <a class="button" href="https://github.com/luciusmagn/autolith">Read the source and guide</a>
+          <a class="button" href="/">Company index</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Lambda Symbolics OÜ</p>
+        <p>Autolith · Revised 15 July 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>

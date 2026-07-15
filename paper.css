@@ -358,6 +358,23 @@ pre var,
   font-size: clamp(42px, 7vw, 72px);
 }
 
+.mascot-window {
+  max-width: 520px;
+  margin: 0;
+  justify-self: end;
+}
+
+.mascot-window .window-body {
+  padding: 0;
+}
+
+.mascot-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--paper);
+}
+
 /* -- Actions -- */
 
 .actions {

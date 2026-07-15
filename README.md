@@ -16,6 +16,8 @@ gray, no JavaScript. The durable design context lives in `.impeccable.md`;
 
 - `index.html`: company page
 - `cclsh.html`: CCLSH product page
+- `autolith.html`: Autolith product page
+- `autolith.png`: paper-colored, 1-bit dithered Autolith mascot
 - `rust-course.html`: Rust course page
 - `404.html`: not-found page
 - `paper.css`: Interlisp Paper stylesheet
