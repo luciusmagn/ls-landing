@@ -264,10 +264,14 @@
           <div>
             <h2 id="install-title">Install and run Autolith</h2>
             <p>
-              Autolith currently targets Linux x86-64 and pins SBCL, every Lisp
-              dependency, and its native helper sources. Nix can build and run
-              the package directly, or the repository bootstrap can materialize
-              the same locked project setup.
+              Autolith targets Linux x86-64. Nix is the recommended route and
+              pins the complete build. The binary release carries its own SBCL,
+              Lisp dependencies, and native helpers; it checks for newer tagged
+              releases and asks before updating.
+            </p>
+            <p class="caveat">
+              Yes, piping a URL into a shell is evil. Read the installer before
+              running it. Nix is the better installation path.
             </p>
             <p class="caveat">
               Autolith executes model-generated code with your user privileges.
@@ -277,11 +281,16 @@
           </div>
 
           <div class="window">
-            <div class="window-titlebar">Quick start · Nix or source</div>
+            <div class="window-titlebar">Quick start · Nix, binary, or source</div>
             <div class="window-body">
-              <pre><code><span class="code-label">Run the flake</span>
+              <pre><code><span class="code-label">Recommended · Nix</span>
 $ <kbd>nix run github:luciusmagn/autolith -- --auth</kbd>
 $ <kbd>nix run github:luciusmagn/autolith</kbd>
+
+<span class="code-label">Convenient · binary release</span>
+$ <kbd>curl -fsSL https://sh.lambda-symbolics.com/autolith | sh</kbd>
+$ <kbd>autolith --auth</kbd>
+$ <kbd>autolith</kbd>
 
 <span class="code-label">Build from the repository</span>
 $ <kbd>git clone https://github.com/luciusmagn/autolith</kbd>
