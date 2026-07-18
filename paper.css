@@ -292,14 +292,25 @@ pre kbd {
 
 /* The product demo uses one captured terminal run. Reveal its rows in order
    instead of replacing them with a fictional chat transcript. */
+.demo-transcript {
+  max-height: 360px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
 .demo-transcript code {
   display: block;
   white-space: normal;
 }
 
+.demo-transcript br {
+  display: none;
+}
+
 .demo-line {
   display: block;
-  min-height: 1.42em;
+  max-height: 0;
+  overflow: hidden;
   white-space: pre;
   opacity: 0;
   animation: demo-reveal 0.16s linear forwards;
@@ -307,7 +318,7 @@ pre kbd {
 }
 
 .demo-blank {
-  min-height: 0.71em;
+  max-height: 0;
 }
 
 .demo-status {
@@ -315,8 +326,14 @@ pre kbd {
 }
 
 @keyframes demo-reveal {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 1.42em;
+    opacity: 1;
+  }
 }
 
 /* Algol-style monochrome syntax marking: bold for keywords, italic for
@@ -931,6 +948,8 @@ th {
 
   .demo-line {
     opacity: 1;
+    max-height: none;
+    overflow: visible;
     animation: none;
   }
 }
@@ -947,6 +966,8 @@ th {
 
   .demo-line {
     opacity: 1;
+    max-height: none;
+    overflow: visible;
     animation: none;
   }
 }

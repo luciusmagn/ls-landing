@@ -2,13 +2,13 @@
 
 Static landing site for Lambda Symbolics OÜ, set in the Interlisp Paper
 design language: Times New Roman, black ink on off-white paper, no flat
-gray, no JavaScript. The durable design context lives in `.impeccable.md`;
+gray, and only a small inline script for the Autolith demo. The durable design context lives in `.impeccable.md`;
 `paper.css` is the implementation canon.
 
 ## Stack
 
 - Hand-written HTML and one stylesheet (`paper.css`)
-- No JavaScript, no build step
+- No build step; the Autolith demo has a small inline playback script
 - Local self-hosted "Times New Roman" fonts included in `fonts/`
 - Vercel static hosting (`vercel.json`)
 
