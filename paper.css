@@ -290,6 +290,35 @@ pre kbd {
   padding: 2px 0;
 }
 
+/* The product demo uses one captured terminal run. Reveal its rows in order
+   instead of replacing them with a fictional chat transcript. */
+.demo-transcript code {
+  display: block;
+  white-space: normal;
+}
+
+.demo-line {
+  display: block;
+  min-height: 1.42em;
+  white-space: pre;
+  opacity: 0;
+  animation: demo-reveal 0.16s linear forwards;
+  animation-delay: var(--demo-delay, 0s);
+}
+
+.demo-blank {
+  min-height: 0.71em;
+}
+
+.demo-status {
+  font-style: italic;
+}
+
+@keyframes demo-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Algol-style monochrome syntax marking: bold for keywords, italic for
    comments, bold italic for placeholders. No color; ink stays black. */
 .hl-keyword {
@@ -899,6 +928,11 @@ th {
   .doc-section {
     margin-top: 48px;
   }
+
+  .demo-line {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -909,5 +943,10 @@ th {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .demo-line {
+    opacity: 1;
+    animation: none;
   }
 }

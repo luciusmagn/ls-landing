@@ -115,111 +115,60 @@
       </section>
 
       <section class="doc-section" id="demo" aria-labelledby="demo-title">
-          <div class="duo">
-            <div>
-              <h2 id="demo-title">A session starts with a concrete request</h2>
-              <p>
-                Autolith accepts ordinary coding requests in a terminal. It explains
-                its plan, calls explicit tools, and reports what changed and what
-                passed.
-              </p>
-              <p>
-                This representative transcript shows the normal loop: inspect first,
-                make a small change, then verify it. The exact files and output depend
-                on the workspace.
-              </p>
-            </div>
-
-            <figure class="window demo-window">
-              <figcaption class="window-titlebar">Representative interaction · terminal</figcaption>
-              <div class="window-body">
-                <pre><code><span class="hl-keyword">you&gt;</span> Find the parser test, explain the failure, and fix it
-  without changing the public API.
-
-<span class="hl-keyword">autolith&gt;</span> I’ll inspect the repository and run the relevant
-  tests before changing anything.
-
-<span class="hl-comment">→ search.content  parser  (src/ tests/)</span>
-<span class="hl-comment">← found parser.lisp and parser-tests.lisp</span>
-<span class="hl-comment">→ lisp.run-tests  parser-system</span>
-<span class="hl-comment">← one failing test</span>
-
-<span class="hl-keyword">autolith&gt;</span> The failure is in the parser boundary check. I’ll
-  make the smallest change and rerun the test.
-
-<span class="hl-comment">→ fs.edit  src/parser.lisp</span>
-<span class="hl-comment">→ lisp.run-tests  parser-system</span>
-<span class="hl-comment">← pass</span>
-
-<span class="hl-keyword">autolith&gt;</span> Fixed. The public API is unchanged.</code></pre>
-              </div>
-            </figure>
-          </div>
-        </section>
-
-        <section class="doc-section" id="system" aria-labelledby="system-title">
         <div class="duo">
           <div>
-            <h2 id="system-title">The agent and its tools run in one process</h2>
+            <h2 id="demo-title">A session starts with a concrete request</h2>
             <p>
-              Autolith is a terminal coding agent, not a wrapper around another coding-agent process. Its
-              Common Lisp image contains the provider client, terminal interface,
-              tool registry, conversation state, persistent memories, workspace
-              agenda, and the code that decides what happens next.
+              This is a captured read-only session from <code>autolith --immutable</code>.
+              The prompt asks for one repository listing; the tool output is shortened
+              only by Autolith's normal terminal limit.
             </p>
             <p>
-              It talks directly to the ChatGPT Codex subscription service. The
-              Codex CLI is neither launched nor bundled. Filesystem, shell,
-              search, memory, and Lisp operations remain explicit tools with
-              visible results.
+              The transcript reveals itself in order: request, tool call, bounded
+              result, then the assistant's answer. It is the terminal's actual
+              formatting, not a simulated chat window.
             </p>
           </div>
 
-          <div class="window">
-            <div class="window-titlebar">Autolith 0.11.0 · Properties</div>
+          <figure class="window demo-window">
+            <figcaption class="window-titlebar">Captured session · immutable mode</figcaption>
             <div class="window-body">
-              <dl class="property-sheet">
-                <dt>Runtime</dt>
-                <dd>SBCL 2.6.4</dd>
-                <dt>Platform</dt>
-                <dd>Linux x86-64</dd>
-                <dt>Interface</dt>
-                <dd>responsive terminal with editable queued input</dd>
-                <dt>Provider</dt>
-                <dd>direct ChatGPT Codex subscription transport</dd>
-                <dt>Language</dt>
-                <dd>Common Lisp</dd>
-                <dt>Repository</dt>
-                <dd><a href="https://github.com/luciusmagn/autolith">luciusmagn/autolith</a></dd>
-              </dl>
+              <pre class="demo-transcript" aria-label="Captured Autolith terminal session"><code><span class="demo-line" style="--demo-delay: 0s"><span class="hl-keyword">❯ you</span></span><span class="demo-line" style="--demo-delay: 0.18s">  Inspect this repository without changing files. Use one tool to list the</span><span class="demo-line" style="--demo-delay: 0.36s">  top-level files, then summarize what you found in one sentence.</span><span class="demo-line demo-blank" style="--demo-delay: 0.52s">&nbsp;</span><span class="demo-line" style="--demo-delay: 0.72s"><span class="hl-keyword">◇ reasoning summary</span></span><span class="demo-line" style="--demo-delay: 0.90s">  │ Listing top-level files</span><span class="demo-line" style="--demo-delay: 1.08s"><span class="hl-keyword">▸ fs.list</span></span><span class="demo-line" style="--demo-delay: 1.26s">  /root/common-lisp/frob</span><span class="demo-line demo-status" style="--demo-delay: 1.44s">READ ∙ running fs.list · 00:00</span><span class="demo-line demo-blank" style="--demo-delay: 1.70s">&nbsp;</span><span class="demo-line" style="--demo-delay: 1.84s"><span class="hl-keyword">✓ fs.list</span>  cpu 0.001s · real 0.002s</span><span class="demo-line" style="--demo-delay: 2.02s">  │ /root/common-lisp/frob</span><span class="demo-line" style="--demo-delay: 2.20s">  │ d           .git/</span><span class="demo-line" style="--demo-delay: 2.38s">  │ d           .github/</span><span class="demo-line" style="--demo-delay: 2.56s">  │ d           .qlot/</span><span class="demo-line" style="--demo-delay: 2.74s">  │ d           bin/</span><span class="demo-line" style="--demo-delay: 2.92s">  │ d           dist/</span><span class="demo-line" style="--demo-delay: 3.10s">  │ d           docs/</span><span class="demo-line" style="--demo-delay: 3.28s">  │ d           native/</span><span class="demo-line" style="--demo-delay: 3.46s">  │ d           nix/</span><span class="demo-line" style="--demo-delay: 3.64s">  │ d           recovery/</span><span class="demo-line" style="--demo-delay: 3.82s">  │ d           script/</span><span class="demo-line" style="--demo-delay: 4.00s">  │ d           src/</span><span class="demo-line" style="--demo-delay: 4.18s">  │ … +13 more lines</span><span class="demo-line demo-blank" style="--demo-delay: 4.34s">&nbsp;</span><span class="demo-line" style="--demo-delay: 4.52s"><span class="hl-keyword">● autolith</span></span><span class="demo-line" style="--demo-delay: 4.70s">  The repository is a Common Lisp project with source, tests, recovery tooling,</span><span class="demo-line" style="--demo-delay: 4.88s">  documentation, build configuration, native assets, and GitHub/Nix/Quicklisp</span><span class="demo-line" style="--demo-delay: 5.06s">  support.</span></code></pre>
             </div>
-          </div>
+          </figure>
         </div>
+      </section>
 
-        <div class="duo specimen-row">
-          <div class="window">
-            <div class="window-titlebar">The active image · self.*</div>
-            <div class="window-body">
-              <pre><code><span class="hl-keyword">self.inspect</span>             active bindings and docs
-<span class="hl-keyword">self.source</span>              complete tracked definitions
-<span class="hl-keyword">self.eval</span>                immediate active-image probes
-<span class="hl-keyword">self.redefine</span>            install one definition live
-<span class="hl-keyword">self.persist-definition</span> install, check, and retain
-<span class="hl-keyword">self.checkpoint</span>          save a working generation</code></pre>
-            </div>
-          </div>
+      <section class="doc-section" id="system" aria-labelledby="system-title">
+        <h2 id="system-title">The agent and its tools run in one process</h2>
+        <p>
+          Autolith is a terminal coding agent, not a wrapper around another
+          coding-agent process. Its Common Lisp image contains the provider
+          client, terminal interface, tool registry, conversation state,
+          persistent memories, workspace agenda, and the code that decides what
+          happens next.
+        </p>
+        <p>
+          It talks directly to the ChatGPT Codex subscription service. The Codex
+          CLI is neither launched nor bundled. Filesystem, shell, search,
+          memory, and Lisp operations remain explicit tools with visible results.
+        </p>
+      </section>
 
-          <div class="window">
-            <div class="window-titlebar">Disposable Lisp workers · lisp.*</div>
-            <div class="window-body">
-              <pre><code><span class="hl-keyword">lisp.start</span>       named pristine or saved REPL
-<span class="hl-keyword">lisp.eval</span>        exploratory Common Lisp
-<span class="hl-keyword">lisp.source</span>      matching hash-verified SBCL source
-<span class="hl-keyword">lisp.run-tests</span>   ASDF tests outside the agent heap
-<span class="hl-keyword">lisp.save-image</span>  immutable instrumented worker</code></pre>
-            </div>
-          </div>
-        </div>
+      <section class="doc-section" aria-labelledby="performance-title">
+        <h2 id="performance-title">Fast search, optional immutable mode</h2>
+        <p>
+          Workspace search runs in-process through
+          <a href="https://github.com/dmtrKovalenko/fff">fff</a>, a fast Rust
+          search library. Autolith keeps the index warm instead of starting a
+          new search process for every query.
+        </p>
+        <p>
+          If you want inspection without active-image changes, start it with
+          <code>--immutable</code>. The mode retains read-only inspection and
+          recovery information while withholding evaluation, mutation,
+          persistence, checkpoint, and rollback tools.
+        </p>
       </section>
 
       <section class="doc-section" id="mutation" aria-labelledby="mutation-title">
@@ -303,39 +252,6 @@
                 <tr>
                   <th scope="row">Recovery</th>
                   <td>A separately built pristine image that can inspect a crash and select a known-working generation without loading the damaged core.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section class="doc-section" aria-labelledby="field-notes-title">
-        <h2 id="field-notes-title">Included tools and operating modes</h2>
-        <div class="window window--wide">
-          <div class="window-titlebar">Everyday work · Included capabilities</div>
-          <div class="window-body table-scroll">
-            <table>
-              <tbody>
-                <tr>
-                  <th scope="row">Terminal</th>
-                  <td>Multiline editing, completion, ordinary scrollback, and drafts that remain editable while tools and model responses run.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Workspace search</th>
-                  <td>Warm in-process path, glob, plain, regular-expression, fuzzy, and multi-pattern search through fff.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Implementation work</th>
-                  <td>Hash-verified matching SBCL source, named isolated REPLs, and side-by-side pristine and instrumented worker images.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Source boundary</th>
-                  <td>Autolith can develop its own repository when deliberately run there; private live mutations never masquerade as tracked source commits.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Immutable mode</th>
-                  <td>An optional startup mode keeps self-inspection while withholding active-image mutation tools.</td>
                 </tr>
               </tbody>
             </table>
