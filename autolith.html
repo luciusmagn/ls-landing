@@ -3,33 +3,34 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autolith: a Common Lisp coding agent · Lambda Symbolics OÜ</title>
+    <title>Autolith: a Common Lisp programming agent · Lambda Symbolics OÜ</title>
     <meta
       name="description"
-      content="Autolith is a terminal coding agent for Linux that works in your repository, keeps project context, and runs inside a live SBCL image."
+      content="Autolith is a terminal programming agent for Linux that works in your repository, keeps project context, and runs inside a live SBCL image."
     >
     <link rel="canonical" href="https://lambda-symbolics.com/autolith">
 
-    <meta property="og:title" content="Autolith: a Common Lisp coding agent">
+    <meta property="og:title" content="Autolith: a Common Lisp programming agent">
     <meta
       property="og:description"
-      content="A terminal coding agent that works in your repository, keeps project context, and can inspect and extend its running Lisp image."
+      content="A terminal programming agent that works in your repository, keeps project context, and can inspect and extend its running Lisp image."
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lambda-symbolics.com/autolith">
     <meta property="og:image" content="https://lambda-symbolics.com/autolith.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="998">
     <meta property="og:image:height" content="897">
     <meta property="og:image:alt" content="The Autolith mascot in black ink and bitmap dither">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Lambda Symbolics OÜ">
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@LukasHozda">
-    <meta name="twitter:title" content="Autolith: a Common Lisp coding agent">
+    <meta name="twitter:title" content="Autolith: a Common Lisp programming agent">
     <meta
       name="twitter:description"
-      content="A terminal coding agent that works in your repository, keeps project context, and can inspect and extend its running Lisp image."
+      content="A terminal programming agent that works in your repository, keeps project context, and can inspect and extend its running Lisp image."
     >
     <meta name="twitter:image" content="https://lambda-symbolics.com/autolith.png">
     <meta name="twitter:image:alt" content="The Autolith mascot in black ink and bitmap dither">
@@ -41,7 +42,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareSourceCode",
       "name": "Autolith",
-      "description": "A terminal coding agent for Linux, written in Common Lisp and running inside a live SBCL image.",
+      "description": "A terminal programming agent for Linux, written in Common Lisp and running inside a live SBCL image.",
       "url": "https://lambda-symbolics.com/autolith",
       "codeRepository": "https://github.com/luciusmagn/autolith",
       "programmingLanguage": "Common Lisp",
@@ -80,7 +81,7 @@
     <main id="main-content" class="shell">
       <section class="hero" aria-label="Autolith">
         <div class="hero-copy">
-          <h1>Autolith: a coding agent with a live runtime</h1>
+          <h1>Autolith: a programming agent with a live runtime</h1>
           <p class="lede">
             Autolith runs in a terminal and works directly in your repository.
             It can read and edit files, search the workspace, run commands and
@@ -115,9 +116,13 @@
       </section>
 
       <section class="doc-section install-section" id="install" aria-labelledby="install-title">
+        <div class="install-banner">
+          <h2 id="install-title">Install Autolith</h2>
+          <p class="install-command"><code>curl -fsSL https://sh.lambda-symbolics.com/autolith | sh</code></p>
+        </div>
+
         <div class="duo">
           <div>
-            <h2 id="install-title">Install Autolith</h2>
             <p>
               Autolith targets Linux x86-64. The binary release carries its own
               SBCL, Lisp dependencies, and native helpers; it checks for newer
@@ -136,10 +141,9 @@
           </div>
 
           <div class="window install-window">
-            <div class="window-titlebar">Quick start · Binary, Nix, or source</div>
+            <div class="window-titlebar">Start Autolith · Binary, Nix, or source</div>
             <div class="window-body">
-              <pre><code><span class="code-label">One-line binary installer</span>
-$ <kbd>curl -fsSL https://sh.lambda-symbolics.com/autolith | sh</kbd>
+              <pre><code><span class="code-label">After the binary installer</span>
 $ <kbd>autolith --auth</kbd>
 $ <kbd>autolith</kbd>
 
@@ -192,8 +196,8 @@ $ <kbd>./bin/autolith</kbd></code></pre>
       <section class="doc-section" id="system" aria-labelledby="system-title">
         <h2 id="system-title">The agent and its tools run in one process</h2>
         <p>
-          Autolith is a terminal coding agent, not a wrapper around another
-          coding-agent process. Its Common Lisp image contains the provider
+          Autolith is a terminal programming agent, not a wrapper around another
+          agent process. Its Common Lisp image contains the provider
           client, terminal interface, tool registry, conversation state,
           persistent memories, workspace agenda, and the code that decides what
           happens next.
@@ -209,13 +213,13 @@ $ <kbd>./bin/autolith</kbd></code></pre>
         <h2 id="performance-title">Fast search, optional immutable mode</h2>
         <p>
           Workspace search runs in-process through
-          <a href="https://github.com/dmtrKovalenko/fff">fff</a>, a fast Rust
+          <strong><a href="https://github.com/dmtrKovalenko/fff">fff</a></strong>, a fast Rust
           search library. Autolith keeps the index warm instead of starting a
           new search process for every query.
         </p>
         <p>
           If you want inspection without active-image changes, start it with
-          <code>--immutable</code>. The mode retains read-only inspection and
+          <strong><code>--immutable</code></strong>. The mode retains read-only inspection and
           recovery information while withholding evaluation, mutation,
           persistence, checkpoint, and rollback tools.
         </p>

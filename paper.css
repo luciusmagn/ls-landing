@@ -371,8 +371,40 @@ pre var,
 
 .install-section {
   margin-top: clamp(48px, 7vw, 72px);
-  padding-top: clamp(28px, 4vw, 40px);
-  border-top: 3px double var(--ink);
+}
+
+.install-banner {
+  margin-bottom: 40px;
+  padding: clamp(28px, 5vw, 52px) clamp(18px, 4vw, 40px);
+  color: var(--paper);
+  background: var(--ink);
+  text-align: center;
+}
+
+.install-banner h2 {
+  margin-bottom: 18px;
+  padding: 0;
+  color: inherit;
+}
+
+.install-command {
+  max-width: none;
+  margin: 0;
+}
+
+.install-command code {
+  display: inline-block;
+  max-width: 100%;
+  color: inherit;
+  font-size: clamp(16px, 2.5vw, 28px);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.install-section .caveat {
+  padding: 0 0 0 14px;
+  border-block: 0;
+  border-left: 3px double var(--ink);
 }
 
 .install-window {
