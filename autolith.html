@@ -199,36 +199,40 @@ $ <kbd>./bin/autolith</kbd></code></pre>
         </div>
       </section>
 
-      <section class="doc-section" id="system" aria-labelledby="system-title">
-        <h2 id="system-title">The agent and its tools run in one process</h2>
-        <p>
-          Autolith is a terminal programming agent, not a wrapper around another
-          agent process. Its Common Lisp image contains the provider
-          client, terminal interface, tool registry, conversation state,
-          persistent memories, workspace agenda, and the code that decides what
-          happens next.
-        </p>
-        <p>
-          It talks directly to the ChatGPT Codex subscription service. The Codex
-          CLI is neither launched nor bundled. Filesystem, shell, search,
-          memory, and Lisp operations remain explicit tools with visible results.
-        </p>
-      </section>
+      <section class="doc-section" id="system" aria-labelledby="system-title performance-title">
+        <div class="duo">
+          <div>
+            <h2 id="system-title">The agent and its tools run in one process</h2>
+            <p>
+              Autolith is a terminal programming agent, not a wrapper around another
+              agent process. Its Common Lisp image contains the provider
+              client, terminal interface, tool registry, conversation state,
+              persistent memories, workspace agenda, and the code that decides what
+              happens next.
+            </p>
+            <p>
+              It talks directly to the ChatGPT Codex subscription service. The Codex
+              CLI is neither launched nor bundled. Filesystem, shell, search,
+              memory, and Lisp operations remain explicit tools with visible results.
+            </p>
+          </div>
 
-      <section class="doc-section" aria-labelledby="performance-title">
-        <h2 id="performance-title">Fast search, optional immutable mode</h2>
-        <p>
-          Workspace search runs in-process through
-          <strong><a href="https://github.com/dmtrKovalenko/fff">fff</a></strong>, a fast Rust
-          search library. Autolith keeps the index warm instead of starting a
-          new search process for every query.
-        </p>
-        <p>
-          If you want inspection without active-image changes, start it with
-          <strong><code>--immutable</code></strong>. The mode retains read-only inspection and
-          recovery information while withholding evaluation, mutation,
-          persistence, checkpoint, and rollback tools.
-        </p>
+          <div>
+            <h2 id="performance-title">Fast search, optional immutable mode</h2>
+            <p>
+              Workspace search runs in-process through
+              <strong><a href="https://github.com/dmtrKovalenko/fff">fff</a></strong>, a fast Rust
+              search library. Autolith keeps the index warm instead of starting a
+              new search process for every query.
+            </p>
+            <p>
+              If you want inspection without active-image changes, start it with
+              <strong><code>--immutable</code></strong>. The mode retains read-only inspection and
+              recovery information while withholding evaluation, mutation,
+              persistence, checkpoint, and rollback tools.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section class="doc-section" id="mutation" aria-labelledby="mutation-title">
