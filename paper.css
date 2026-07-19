@@ -376,23 +376,23 @@ pre var,
 .install-banner {
   margin-bottom: 40px;
   padding: clamp(28px, 5vw, 52px) clamp(18px, 4vw, 40px);
-  color: var(--paper);
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--paper);
   text-align: center;
 }
 
-.install-banner h2 {
-  margin-bottom: 18px;
-  padding: 0;
-  color: inherit;
-}
-
-.install-command {
-  max-width: none;
+.install-copy {
+  appearance: none;
+  max-width: 100%;
   margin: 0;
+  padding: 0;
+  color: var(--ink);
+  background: var(--paper);
+  border: 0;
+  cursor: copy;
 }
 
-.install-command code {
+.install-copy code {
   display: inline-block;
   max-width: 100%;
   color: inherit;
@@ -401,10 +401,22 @@ pre var,
   overflow-wrap: anywhere;
 }
 
+.install-copy:hover code {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.install-note {
+  max-width: none;
+  margin: 12px 0 0;
+  font-size: 15px;
+  font-style: italic;
+}
+
 .install-section .caveat {
-  padding: 0 0 0 14px;
-  border-block: 0;
-  border-left: 3px double var(--ink);
+  padding: 0;
+  border: 0;
+  font-style: italic;
 }
 
 .install-window {

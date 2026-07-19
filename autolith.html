@@ -117,27 +117,33 @@
 
       <section class="doc-section install-section" id="install" aria-labelledby="install-title">
         <div class="install-banner">
-          <h2 id="install-title">Install Autolith</h2>
-          <p class="install-command"><code>curl -fsSL https://sh.lambda-symbolics.com/autolith | sh</code></p>
+          <button
+            class="install-copy"
+            type="button"
+            data-copy="curl -fsSL https://sh.lambda-symbolics.com/autolith | sh"
+            aria-describedby="install-copy-note"
+          ><code>curl -fsSL https://sh.lambda-symbolics.com/autolith | sh</code></button>
+          <p class="install-note" id="install-copy-note" aria-live="polite"><em>click to copy, or, better yet, install via Nix</em></p>
         </div>
 
         <div class="duo">
           <div>
+            <h2 id="install-title">Install Autolith</h2>
             <p>
               Autolith targets Linux x86-64. The binary release carries its own
               SBCL, Lisp dependencies, and native helpers; it checks for newer
               tagged releases and asks before updating. Nix is the recommended
               route when you want the complete build pinned from the start.
             </p>
-            <p class="caveat">
+            <p class="caveat"><em>
               Yes, piping a URL into a shell is evil. Read the installer before
               running it. Nix is the better installation path.
-            </p>
-            <p class="caveat">
+            </em></p>
+            <p class="caveat"><strong><em>
               Autolith executes model-generated code with your user privileges.
               Its process boundaries protect reliability, not against hostile
               code. Use it as a development agent, not as a security sandbox.
-            </p>
+            </em></strong></p>
           </div>
 
           <div class="window install-window">
@@ -318,15 +324,50 @@ $ <kbd>./bin/autolith</kbd></code></pre>
     <script>
       (() => {
         const transcript = document.querySelector(".demo-transcript");
-        if (!transcript) return;
+        if (transcript) {
+          const followTranscript = () => {
+            transcript.scrollTop = transcript.scrollHeight;
+          };
 
-        const followTranscript = () => {
-          transcript.scrollTop = transcript.scrollHeight;
-        };
+          transcript.addEventListener("animationstart", followTranscript);
+          transcript.addEventListener("animationend", followTranscript);
+          followTranscript();
+        }
 
-        transcript.addEventListener("animationstart", followTranscript);
-        transcript.addEventListener("animationend", followTranscript);
-        followTranscript();
+        const copyButton = document.querySelector(".install-copy");
+        const copyNote = document.querySelector(".install-note");
+        if (copyButton && copyNote) {
+          const idleNote = "click to copy, or, better yet, install via Nix";
+          const copyText = async (text) => {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(text);
+              return;
+            }
+
+            const field = document.createElement("textarea");
+            field.value = text;
+            field.setAttribute("readonly", "");
+            field.style.position = "fixed";
+            field.style.opacity = "0";
+            document.body.append(field);
+            field.select();
+            const copied = document.execCommand("copy");
+            field.remove();
+            if (!copied) throw new Error("copy failed");
+          };
+
+          copyButton.addEventListener("click", async () => {
+            try {
+              await copyText(copyButton.dataset.copy);
+              copyNote.textContent = "copied. Nix is still better.";
+              window.setTimeout(() => {
+                copyNote.textContent = idleNote;
+              }, 1600);
+            } catch {
+              copyNote.textContent = "copy failed; select the command instead.";
+            }
+          });
+        }
       })();
     </script>
 
