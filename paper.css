@@ -987,17 +987,31 @@ th {
 /* -- Print -- */
 
 @media print {
+  html {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .shell {
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  .letterhead {
+    padding-top: 0;
+  }
+
   .skip-link,
   .site-nav {
     display: none;
   }
 
-  .window::after {
-    display: none;
-  }
-
   .doc-section {
     margin-top: 48px;
+  }
+
+  .colophon {
+    padding-bottom: 0;
   }
 
   .demo-line {
