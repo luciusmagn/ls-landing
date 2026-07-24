@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A sheet of bookmarks · Lambda Symbolics OÜ</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>%CE%BB</text></svg>">
+
+    <link rel="stylesheet" href="paper.css">
+    <style>
+      /* @page cannot be scoped to one page from the shared stylesheet. */
+      @page {
+        size: A4 portrait;
+        margin: 12mm;
+      }
+    </style>
+  </head>
+  <body class="bookmark-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="/">Lambda Symbolics</a>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="hero sheet-intro" aria-label="Introduction">
+        <div class="hero-copy">
+          <h1>A sheet of bookmarks</h1>
+          <p class="lede">
+            Three bookmarks in black ink on warm paper: one for the company,
+            one for the resident agent, and one for the act of reading itself.
+            This page is linked from nowhere. You found it, or someone wanted
+            you to.
+          </p>
+          <div class="actions">
+            <button class="button" type="button" data-print>Print the sheet</button>
+          </div>
+          <p class="motto"><em>Paper remembers what screens forget.</em></p>
+        </div>
+
+        <div class="window">
+          <div class="window-titlebar">Print job · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Paper</dt>
+              <dd>A4, portrait</dd>
+              <dt>Scale</dt>
+              <dd>100%. Refuse any offer to fit the page.</dd>
+              <dt>Ink</dt>
+              <dd>Black only</dd>
+              <dt>Backgrounds</dt>
+              <dd>Enable background graphics, or the titlebars and dither stay on screen</dd>
+              <dt>Yield</dt>
+              <dd>Three bookmarks, 50 × 150 mm each</dd>
+              <dt>Finishing</dt>
+              <dd>Cut along the outer rules</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section sheet-section" aria-labelledby="sheet-title">
+        <header class="sheet-legend">
+          <h2 id="sheet-title">The sheet</h2>
+          <p class="section-intro">
+            What you see is what prints. Each piece measures exactly
+            50 × 150 mm; the dithered band marks the foot.
+          </p>
+        </header>
+
+        <div class="bookmark-sheet">
+          <article class="bookmark" aria-label="Autolith bookmark">
+            <div class="bookmark-titlebar">Autolith · Resident agent</div>
+            <img
+              class="bookmark-mascot"
+              src="autolith.png"
+              width="998"
+              height="897"
+              alt="The Autolith mascot, rendered in black ink and bitmap dither on paper"
+            >
+            <div class="bookmark-body">
+              <p class="bookmark-name">Autolith</p>
+              <p class="bookmark-line">A programming agent with a live runtime.</p>
+              <ul class="bookmark-points bookmark-push bookmark-rule">
+                <li><strong>Repository work.</strong> Files, shell, search.</li>
+                <li><strong>Continuity.</strong> Memory, checkpoints, recovery.</li>
+                <li><strong>Live Lisp.</strong> Inspect, test, extend.</li>
+              </ul>
+            </div>
+            <div class="bookmark-foot">
+              <p class="bookmark-command"><code>nix run github:luciusmagn/autolith</code></p>
+              <p class="bookmark-url">lambda-symbolics.com/autolith</p>
+            </div>
+            <div class="bookmark-dither"></div>
+          </article>
+
+          <article class="bookmark" aria-label="Lambda Symbolics bookmark">
+            <div class="bookmark-body">
+              <p class="bookmark-glyph">λ</p>
+              <p class="bookmark-wordmark">Lambda<br>Symbolics</p>
+              <div class="bookmark-push bookmark-rule">
+                <p class="bookmark-line">Education and computer science.</p>
+                <p class="bookmark-motto"><em>Per aspera ad astra.</em></p>
+              </div>
+            </div>
+            <div class="bookmark-foot">
+              <p class="bookmark-url">lambda-symbolics.com</p>
+            </div>
+            <div class="bookmark-dither"></div>
+          </article>
+
+          <article class="bookmark" aria-label="Reader's bookmark">
+            <div class="bookmark-titlebar">Bookmark · Properties</div>
+            <div class="bookmark-body">
+              <dl class="bookmark-props">
+                <dt>Function</dt>
+                <dd>Holds your place.</dd>
+                <dt>State</dt>
+                <dd>One page, mutable.</dd>
+                <dt>Dependencies</dt>
+                <dd>None.</dd>
+                <dt>Side effects</dt>
+                <dd>None observed.</dd>
+              </dl>
+              <div class="bookmark-push bookmark-rule">
+                <pre><code><span class="hl-comment">;; a closure over the place</span>
+<span class="hl-comment">;; you stopped reading</span>
+(<span class="hl-keyword">defun</span> bookmark (book page)
+  (<span class="hl-keyword">declare</span> (<span class="hl-keyword">ignore</span> book))
+  (<span class="hl-keyword">lambda</span> () page))</code></pre>
+                <p class="bookmark-line"><em>Apply to resume.</em></p>
+              </div>
+            </div>
+            <div class="bookmark-foot">
+              <p class="bookmark-url">lambda-symbolics.com</p>
+            </div>
+            <div class="bookmark-dither"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        const printButton = document.querySelector("[data-print]");
+        if (printButton) {
+          printButton.addEventListener("click", () => window.print());
+        }
+      })();
+    </script>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Lambda Symbolics OÜ</p>
+        <p>Bookmarks · Unlisted · Revised 24 July 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>

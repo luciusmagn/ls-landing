@@ -984,6 +984,226 @@ th {
   }
 }
 
+/* -- Bookmark sheet (unlinked printable) --
+   Each bookmark is a physical print object of exactly 50 mm × 150 mm and
+   must never scale. On screen the pieces sit on the paper with the usual
+   dither shadow; in print only the sheet itself remains. */
+
+button.button {
+  font-family: var(--font-serif);
+  cursor: pointer;
+}
+
+.bookmark-sheet {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 44px 40px;
+  margin-top: 44px;
+}
+
+.bookmark {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: 50mm;
+  height: 150mm;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.bookmark::after {
+  content: "";
+  position: absolute;
+  inset: 12px -12px -12px 12px;
+  background-image: var(--bitmap-dither);
+  background-size: 3px 3px;
+  z-index: -1;
+}
+
+.bookmark p {
+  margin: 0;
+  max-width: none;
+}
+
+.bookmark-titlebar {
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.15;
+  padding: 4px 7px;
+}
+
+.bookmark-mascot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.bookmark-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 10px;
+}
+
+.bookmark-rule {
+  border-top: 1px solid var(--ink);
+  margin-top: 12px;
+  padding-top: 10px;
+}
+
+.bookmark-push {
+  margin-top: auto;
+}
+
+.bookmark-name {
+  font-size: 27px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.bookmark-line {
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+.bookmark-name + .bookmark-line {
+  margin-top: 6px;
+}
+
+.bookmark-glyph {
+  font-size: 150px;
+  line-height: 1;
+  font-weight: 700;
+  margin-left: -4px;
+}
+
+.bookmark-wordmark {
+  font-size: 29px;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.bookmark-motto {
+  font-size: 11.5px;
+  margin-top: 8px;
+}
+
+.bookmark-points {
+  list-style: none;
+  max-width: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.bookmark-points li {
+  margin-bottom: 7px;
+}
+
+.bookmark-points li:last-child {
+  margin-bottom: 0;
+}
+
+.bookmark-props {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 5px 10px;
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.bookmark-props dt {
+  font-weight: 700;
+}
+
+.bookmark-props dd {
+  margin: 0;
+}
+
+.bookmark pre {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  line-height: 1.5;
+  overflow: visible;
+}
+
+.bookmark pre + .bookmark-line {
+  margin-top: 8px;
+}
+
+.bookmark-foot {
+  border-top: 3px double var(--ink);
+  padding: 8px 10px 10px;
+}
+
+.bookmark-command {
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.bookmark-command code {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.bookmark-url {
+  font-size: 11px;
+  font-style: italic;
+}
+
+.bookmark-command + .bookmark-url {
+  margin-top: 5px;
+}
+
+.bookmark-dither {
+  flex: 0 0 auto;
+  height: 8mm;
+  border-top: 1px solid var(--ink);
+  background-image: var(--bitmap-dither);
+  background-size: 3px 3px;
+}
+
+@media print {
+  .bookmark-page .letterhead,
+  .bookmark-page .sheet-intro,
+  .bookmark-page .sheet-legend,
+  .bookmark-page .colophon {
+    display: none;
+  }
+
+  .bookmark-page .sheet-section {
+    margin-top: 0;
+  }
+
+  .bookmark-sheet {
+    flex-wrap: nowrap;
+    gap: 8mm;
+    margin-top: 0;
+  }
+
+  .bookmark {
+    break-inside: avoid;
+  }
+
+  .bookmark::after {
+    display: none;
+  }
+}
+
 /* -- Print -- */
 
 @media print {
