@@ -984,15 +984,32 @@ th {
   }
 }
 
-/* -- Bookmark sheet (unlinked printable) --
-   Each bookmark is a physical print object of exactly 50 mm × 150 mm and
-   must never scale. On screen the pieces sit on the paper with the usual
-   dither shadow; in print only the sheet itself remains. */
+/* -- Unlinked printable sheets (shared chrome) --
+   Pages whose body carries .sheet-page present physical print objects.
+   On screen they keep the letterhead and instructions; in print only the
+   sheet itself remains. */
 
 button.button {
   font-family: var(--font-serif);
   cursor: pointer;
 }
+
+@media print {
+  .sheet-page .letterhead,
+  .sheet-page .sheet-intro,
+  .sheet-page .sheet-legend,
+  .sheet-page .colophon {
+    display: none;
+  }
+
+  .sheet-page .sheet-section {
+    margin-top: 0;
+  }
+}
+
+/* -- Bookmark sheet (unlinked printable) --
+   Each bookmark is a physical print object of exactly 50 mm × 150 mm and
+   must never scale. */
 
 .bookmark-sheet {
   display: flex;
@@ -1178,17 +1195,6 @@ button.button {
 }
 
 @media print {
-  .bookmark-page .letterhead,
-  .bookmark-page .sheet-intro,
-  .bookmark-page .sheet-legend,
-  .bookmark-page .colophon {
-    display: none;
-  }
-
-  .bookmark-page .sheet-section {
-    margin-top: 0;
-  }
-
   .bookmark-sheet {
     flex-wrap: nowrap;
     gap: 8mm;
@@ -1200,6 +1206,149 @@ button.button {
   }
 
   .bookmark::after {
+    display: none;
+  }
+}
+
+
+/* -- Business card sheet (unlinked printable) --
+   Each card is a physical print object of exactly 85 mm × 55 mm, the
+   European standard, and must never scale. */
+
+.card-sheet {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px 36px;
+  margin-top: 44px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: 85mm;
+  height: 55mm;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 10px -10px -10px 10px;
+  background-image: var(--bitmap-dither);
+  background-size: 3px 3px;
+  z-index: -1;
+}
+
+.card p {
+  margin: 0;
+  max-width: none;
+}
+
+.card--letterhead {
+  flex-direction: row;
+}
+
+.card-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 11px 12px;
+}
+
+.card-glyph {
+  position: absolute;
+  top: 6px;
+  right: 11px;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.card-name {
+  font-size: 25px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.card-role {
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.card-contact {
+  border-top: 1px solid var(--ink);
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.card-edge {
+  flex: 0 0 auto;
+  width: 6mm;
+  border-left: 1px solid var(--ink);
+  background-image: var(--bitmap-dither);
+  background-size: 3px 3px;
+}
+
+.card-titlebar {
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.15;
+  padding: 4px 7px;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 9px 12px;
+}
+
+.card-props {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 3px 12px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.card-props dt {
+  font-weight: 700;
+}
+
+.card-props dd {
+  margin: 0;
+}
+
+.card-dither {
+  flex: 0 0 auto;
+  height: 4mm;
+  border-top: 1px solid var(--ink);
+  background-image: var(--bitmap-dither);
+  background-size: 3px 3px;
+}
+
+@media print {
+  .card-sheet {
+    gap: 6mm;
+    margin-top: 0;
+  }
+
+  .card {
+    break-inside: avoid;
+  }
+
+  .card::after {
     display: none;
   }
 }

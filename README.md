@@ -20,6 +20,7 @@ gray, and only a small inline script for the Autolith demo. The durable design c
 - `autolith.png`: paper-colored, 1-bit dithered Autolith mascot
 - `rust-course.html`: Rust course page
 - `bookmark.html`: unlinked printable bookmark sheet (`/bookmark`; not in the sitemap, noindex)
+- `cards.html`: unlinked printable business card sheet (`/cards`; not in the sitemap, noindex)
 - `404.html`: not-found page
 - `paper.css`: Interlisp Paper stylesheet
 - `tools/make-og.py`: regenerates `og.png` (Pillow + the repo Times New Roman faces)
