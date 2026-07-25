@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Lisp libraries · Lambda Symbolics OÜ</title>
+    <meta
+      name="description"
+      content="Eight small Common Lisp libraries extracted from building Autolith and CCLSH. Each does one job, and each is ISC-licensed."
+    >
+    <link rel="canonical" href="https://lambda-symbolics.com/libraries">
+
+    <meta property="og:title" content="Common Lisp libraries">
+    <meta
+      property="og:description"
+      content="Eight small Common Lisp libraries extracted from building Autolith and CCLSH. Each does one job, and each is ISC-licensed."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lambda-symbolics.com/libraries">
+    <meta property="og:image" content="https://lambda-symbolics.com/og.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Lambda Symbolics OÜ">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@LukasHozda">
+    <meta name="twitter:title" content="Common Lisp libraries">
+    <meta
+      name="twitter:description"
+      content="Eight small Common Lisp libraries extracted from building Autolith and CCLSH. Each does one job, and each is ISC-licensed."
+    >
+    <meta name="twitter:image" content="https://lambda-symbolics.com/og.png">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>%CE%BB</text></svg>">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Lambda Symbolics Common Lisp libraries",
+      "url": "https://lambda-symbolics.com/libraries",
+      "itemListElement": [
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 1,
+          "name": "cl-colorist",
+          "description": "Small, capability-aware ANSI text styling.",
+          "codeRepository": "https://github.com/luciusmagn/cl-colorist",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/isc-license-txt"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 2,
+          "name": "cl-exec-sandbox",
+          "description": "Policy-driven external process sandboxing for Common Lisp.",
+          "codeRepository": "https://github.com/luciusmagn/cl-exec-sandbox",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/isc-license-txt"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 3,
+          "name": "clifff",
+          "description": "Common Lisp bindings and a supervised worker for the fff search library.",
+          "codeRepository": "https://github.com/luciusmagn/clifff",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/isc-license-txt"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 4,
+          "name": "clinedi",
+          "description": "A portable, Unicode-aware terminal line editor.",
+          "codeRepository": "https://github.com/luciusmagn/clinedi",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/isc-license-txt"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 5,
+          "name": "colorlisp",
+          "description": "Style-neutral syntax highlighting for Common Lisp applications.",
+          "codeRepository": "https://github.com/luciusmagn/colorlisp",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/isc-license-txt"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 6,
+          "name": "mcparen",
+          "description": "A small Model Context Protocol client for Common Lisp.",
+          "codeRepository": "https://github.com/luciusmagn/mcparen",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/isc-license-txt"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 7,
+          "name": "sbcl-workers",
+          "description": "Persistent isolated SBCL workers and immutable heap images.",
+          "codeRepository": "https://github.com/luciusmagn/sbcl-workers",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/isc-license-txt"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 8,
+          "name": "sexp-store",
+          "description": "Crash-tolerant readable Common Lisp state files.",
+          "codeRepository": "https://github.com/luciusmagn/sexp-store",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/isc-license-txt"
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="paper.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="/">Lambda Symbolics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list">
+            <li><a href="#shelf">The shelf</a></li>
+            <li><a href="/autolith">Autolith</a></li>
+            <li><a href="/cclsh">CCLSH</a></li>
+            <li><a href="https://github.com/luciusmagn">GitHub</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="hero" aria-label="Common Lisp libraries">
+        <div class="hero-copy">
+          <h1>Eight small libraries.</h1>
+          <p class="lede">
+            Building Autolith and CCLSH kept producing parts too useful to
+            leave buried in an application. These are those parts, extracted:
+            focused Common Lisp libraries that each do one job, ship their own
+            tests, and carry an ISC license. Take what you need.
+          </p>
+          <div class="actions">
+            <a class="button" href="#shelf">Browse the shelf</a>
+            <a class="button" href="https://github.com/luciusmagn">All repositories</a>
+          </div>
+          <p class="motto"><em>Small parts, loosely joined — by parentheses.</em></p>
+        </div>
+
+        <div class="window">
+          <div class="window-titlebar">Library shelf · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Libraries</dt>
+              <dd>Eight</dd>
+              <dt>Language</dt>
+              <dd>Common Lisp</dd>
+              <dt>License</dt>
+              <dd>ISC, © 2026 Lambda Symbolics OÜ</dd>
+              <dt>Extracted from</dt>
+              <dd><a href="/autolith">Autolith</a> and <a href="/cclsh">CCLSH</a></dd>
+              <dt>Source</dt>
+              <dd><a href="https://github.com/luciusmagn">github.com/luciusmagn</a></dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="shelf" aria-labelledby="shelf-title">
+        <h2 id="shelf-title">The shelf</h2>
+        <p class="section-intro">
+          In alphabetical order. Every library builds with ASDF, runs its
+          test suite from a fresh image, and works without the applications
+          it came from.
+        </p>
+
+        <div class="duo">
+          <article class="product">
+            <header class="product-head">
+              <h3>cl-colorist</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/cl-colorist">luciusmagn/cl-colorist</a>
+            </header>
+            <p>
+              Small, dependency-free ANSI text styling. It asks what the
+              terminal can actually render and degrades gracefully, so styled
+              output survives dumb terminals, pipes, and logs.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>cl-exec-sandbox</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/cl-exec-sandbox">luciusmagn/cl-exec-sandbox</a>
+            </header>
+            <p>
+              Policy-driven sandboxing for external processes. A declared
+              policy decides what a child process may read, write, and reach;
+              a Bubblewrap helper provides the filesystem and namespace
+              isolation.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>clifff</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/clifff">luciusmagn/clifff</a>
+            </header>
+            <p>
+              Bindings and a supervised worker for the fff search library.
+              The parent process restarts a dead helper and resets its
+              databases, so fast native search never takes the Lisp image
+              down with it.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>clinedi</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/clinedi">luciusmagn/clinedi</a>
+            </header>
+            <p>
+              A portable, Unicode-aware terminal line editor: grapheme-cluster
+              movement, completion, highlighting, persistent history, and
+              inline suggestions. The prompt under both CCLSH and Autolith.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>colorlisp</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/colorlisp">luciusmagn/colorlisp</a>
+            </header>
+            <p>
+              Style-neutral syntax highlighting for Common Lisp applications.
+              One native library, many languages; you decide the colors, it
+              decides where they go.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>mcparen</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/mcparen">luciusmagn/mcparen</a>
+            </header>
+            <p>
+              A small Model Context Protocol client. Speaks MCP to tool
+              servers over stdio and HTTP with readable, inspectable protocol
+              exchanges.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>sbcl-workers</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/sbcl-workers">luciusmagn/sbcl-workers</a>
+            </header>
+            <p>
+              Persistent, isolated SBCL worker processes and immutable heap
+              images. Long-lived helpers that survive their work and can be
+              rebuilt from a known-good image at any time.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>sexp-store</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/sexp-store">luciusmagn/sexp-store</a>
+            </header>
+            <p>
+              Crash-tolerant state files you can read with your own eyes.
+              State is persisted as s-expressions, appended safely, and
+              replayed after a crash — no opaque database required.
+            </p>
+          </article>
+        </div>
+
+        <div class="actions closing-actions">
+          <a class="button" href="/autolith">Autolith system notes</a>
+          <a class="button" href="/cclsh">CCLSH field manual</a>
+          <a class="button" href="/">Company index</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Lambda Symbolics OÜ</p>
+        <p>Libraries · Revised 25 July 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>
