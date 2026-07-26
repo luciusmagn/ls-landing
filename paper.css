@@ -489,6 +489,25 @@ pre var,
   background: var(--paper);
 }
 
+/* Product banners may break the paper palette on purpose when the
+   artifact is the product's own mark rather than site chrome. */
+.product-banner {
+  display: block;
+  width: 100%;
+  max-width: 1180px;
+  margin: 40px 0 0;
+  border: 1px solid var(--ink);
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.product-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
 /* -- Actions -- */
 
 .actions {

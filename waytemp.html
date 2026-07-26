@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waytemp · Lambda Symbolics OÜ</title>
+    <meta
+      name="description"
+      content="Waytemp is a Wayland color temperature control daemon written in Common Lisp. Adjust blue-light filtering from scripts, keybindings, or a keyboard knob."
+    >
+    <link rel="canonical" href="https://lambda-symbolics.com/waytemp">
+
+    <meta property="og:title" content="Waytemp">
+    <meta
+      property="og:description"
+      content="A Wayland color temperature control daemon written in Common Lisp. Daemon and client architecture with persistent Lisp configuration."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lambda-symbolics.com/waytemp">
+    <meta property="og:image" content="https://lambda-symbolics.com/waytemp-banner.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Lambda Symbolics OÜ">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@LukasHozda">
+    <meta name="twitter:title" content="Waytemp">
+    <meta
+      name="twitter:description"
+      content="A Wayland color temperature control daemon written in Common Lisp. Daemon and client architecture with persistent Lisp configuration."
+    >
+    <meta name="twitter:image" content="https://lambda-symbolics.com/waytemp-banner.png">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>%CE%BB</text></svg>">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "Waytemp",
+      "description": "A Wayland color temperature control daemon written in Common Lisp.",
+      "url": "https://lambda-symbolics.com/waytemp",
+      "codeRepository": "https://github.com/luciusmagn/waytemp",
+      "programmingLanguage": "Common Lisp",
+      "runtimePlatform": "SBCL",
+      "operatingSystem": "Linux",
+      "license": "https://github.com/luciusmagn/waytemp/blob/master/LICENSE.lisp",
+      "author": {
+        "@type": "Person",
+        "name": "Lukáš Hozda",
+        "url": "https://github.com/luciusmagn"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="paper.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="/">Lambda Symbolics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list">
+            <li><a href="#install">Install</a></li>
+            <li><a href="#usage">Usage</a></li>
+            <li><a href="#config">Config</a></li>
+            <li><a href="https://github.com/luciusmagn/waytemp">GitHub</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="hero" aria-label="Waytemp">
+        <div class="hero-copy">
+          <h1>Waytemp</h1>
+          <p class="lede">
+            A Wayland color temperature control daemon written in Common Lisp.
+            Set, raise, and lower the blue-light filter from a script, a window
+            manager binding, or a keyboard knob.
+          </p>
+          <div class="actions">
+            <a class="button" href="https://github.com/luciusmagn/waytemp">GitHub repository</a>
+            <a class="button" href="#install">Install</a>
+          </div>
+        </div>
+
+        <div class="window">
+          <div class="window-titlebar">Waytemp · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Language</dt>
+              <dd>Common Lisp · C core for gamma control</dd>
+              <dt>Platform</dt>
+              <dd>Wayland (niri, Hyprland, and peers with gamma control)</dd>
+              <dt>Architecture</dt>
+              <dd>Daemon and client over a local socket</dd>
+              <dt>Temperature</dt>
+              <dd>1000–25000&nbsp;K, with gamma correction</dd>
+              <dt>Config</dt>
+              <dd>Readable Lisp at <code>~/.config/waytemp/config.lisp</code></dd>
+              <dt>License</dt>
+              <dd>COLL</dd>
+              <dt>Repository</dt>
+              <dd><a href="https://github.com/luciusmagn/waytemp">luciusmagn/waytemp</a></dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <figure class="product-banner" aria-label="Waytemp banner">
+        <picture>
+          <source srcset="waytemp-banner.webp" type="image/webp">
+          <img
+            src="waytemp-banner.png"
+            width="1600"
+            height="384"
+            alt="Waytemp banner: logo and wordmark on a blue-to-orange gradient field"
+          >
+        </picture>
+      </figure>
+
+      <section class="doc-section" id="overview" aria-labelledby="overview-title">
+        <h2 id="overview-title">What it does</h2>
+        <p class="section-intro">
+          Waytemp is inspired by <a href="https://git.sr.ht/~leon_plickat/wl-sunset">wl-sunset</a>,
+          focused on direct control rather than astronomical schedules. A
+          long-running daemon owns the Wayland gamma connection; short client
+          commands change temperature and gamma without reconnecting each time.
+        </p>
+        <div class="duo">
+          <div>
+            <h3>Control surface</h3>
+            <ul>
+              <li>Absolute set and relative increase or decrease</li>
+              <li>Gamma adjustment alongside temperature</li>
+              <li>Persistent configuration loaded on daemon start</li>
+              <li>Automatic retry when the compositor drops the connection</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Limits</h3>
+            <p>
+              There are no sunrise or sunset calculations yet. If you want
+              schedule-driven transitions, the daemon is the right place to
+              attach them — contributions welcome on
+              <a href="https://github.com/luciusmagn/waytemp">GitHub</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section install-section" id="install" aria-labelledby="install-title">
+        <h2 id="install-title">Install</h2>
+        <p class="section-intro">
+          Requires a Common Lisp implementation (SBCL recommended), Quicklisp, a
+          C compiler, and Wayland development packages
+          (<code>wayland-devel</code>, <code>wayland-protocols-devel</code>,
+          <code>pkg-config</code>).
+        </p>
+
+        <div class="duo specimen-row">
+          <div class="window">
+            <div class="window-titlebar">From source</div>
+            <div class="window-body">
+              <pre aria-label="Install waytemp from source"><code><kbd>git clone git@github.com:luciusmagn/waytemp.git</kbd>
+<kbd>cd waytemp</kbd>
+<kbd>make install</kbd></code></pre>
+            </div>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Nix flake</div>
+            <div class="window-body">
+              <pre aria-label="Build waytemp with Nix"><code><kbd>nix build .#waytemp-distrib</kbd>
+<span class="hl-comment"># binaries land in ./result</span></code></pre>
+              <p class="helper-note">
+                The <code>waytemp-distrib</code> derivation produces a portable
+                binary tree.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="usage" aria-labelledby="usage-title">
+        <h2 id="usage-title">Usage</h2>
+        <p class="section-intro">
+          Start the daemon once, then issue client commands from your shell,
+          scripts, or window manager.
+        </p>
+
+        <div class="window window--wide">
+          <div class="window-titlebar">Commands</div>
+          <div class="window-body">
+            <pre aria-label="Waytemp command examples"><code><kbd>waytemp daemon</kbd>          <span class="hl-comment"># start the daemon</span>
+<kbd>waytemp get</kbd>             <span class="hl-comment"># current temperature</span>
+<kbd>waytemp set 3500</kbd>        <span class="hl-comment"># absolute Kelvin</span>
+<kbd>waytemp inc 1000</kbd>        <span class="hl-comment"># raise by 1000K</span>
+<kbd>waytemp dec</kbd>             <span class="hl-comment"># lower by 100K</span>
+<kbd>waytemp gamma 1.2</kbd>       <span class="hl-comment"># set gamma</span>
+<kbd>waytemp save-config</kbd>     <span class="hl-comment"># persist current values</span>
+<kbd>waytemp quit</kbd>            <span class="hl-comment"># stop the daemon</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="config" aria-labelledby="config-title">
+        <div class="duo">
+          <div>
+            <h2 id="config-title">Configuration</h2>
+            <p>
+              State is stored at
+              <code>~/.config/waytemp/config.lisp</code> and loaded when the
+              daemon starts. The file is ordinary Common Lisp evaluated in the
+              <code>WAYTEMP</code> package, so you can call and override
+              functions as needed. The last form must evaluate to an instance of
+              <code>waytemp:config</code>.
+            </p>
+            <p>
+              License: <strong>COLL</strong> (Configurable Open Lisp License).
+              See
+              <a href="https://github.com/luciusmagn/waytemp/blob/master/LICENSE.lisp">LICENSE.lisp</a>
+              in the repository.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">~/.config/waytemp/config.lisp</div>
+            <div class="window-body">
+              <pre aria-label="Example waytemp configuration"><code><span class="hl-comment">;; evaluated in package WAYTEMP</span>
+(<span class="hl-keyword">make-instance</span> <span class="hl-keyword">'config</span>
+  <span class="hl-keyword">:temperature</span> 4500
+  <span class="hl-keyword">:gamma</span> 1.0d0)</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Lambda Symbolics OÜ</p>
+        <p>Waytemp · Revised 26 July 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>
