@@ -439,6 +439,20 @@ pre var,
   max-width: 62ch;
 }
 
+/* -- Single-column page opening (registry and similar indexes) -- */
+
+.page-open {
+  padding-top: 56px;
+}
+
+.page-open h1 {
+  font-size: clamp(42px, 7vw, 72px);
+}
+
+.registry-section {
+  margin-top: 64px;
+}
+
 /* -- Two-column hero with a document specimen -- */
 
 .hero {
