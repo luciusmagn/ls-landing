@@ -40,36 +40,36 @@
 }
 
 @font-face {
-  font-family: "Nimbus Roman Mono";
-  src: url("fonts/nimbus-roman-mono-regular.woff2") format("woff2"),
-       url("fonts/nimbus-roman-mono-regular.ttf") format("truetype");
+  font-family: "CMU Typewriter Text";
+  src: url("fonts/cmu-typewriter-regular.woff2") format("woff2"),
+       url("fonts/cmu-typewriter-regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Nimbus Roman Mono";
-  src: url("fonts/nimbus-roman-mono-bold.woff2") format("woff2"),
-       url("fonts/nimbus-roman-mono-bold.ttf") format("truetype");
+  font-family: "CMU Typewriter Text";
+  src: url("fonts/cmu-typewriter-bold.woff2") format("woff2"),
+       url("fonts/cmu-typewriter-bold.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Nimbus Roman Mono";
-  src: url("fonts/nimbus-roman-mono-italic.woff2") format("woff2"),
-       url("fonts/nimbus-roman-mono-italic.ttf") format("truetype");
+  font-family: "CMU Typewriter Text";
+  src: url("fonts/cmu-typewriter-italic.woff2") format("woff2"),
+       url("fonts/cmu-typewriter-italic.ttf") format("truetype");
   font-style: italic;
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Nimbus Roman Mono";
-  src: url("fonts/nimbus-roman-mono-bold-italic.woff2") format("woff2"),
-       url("fonts/nimbus-roman-mono-bold-italic.ttf") format("truetype");
+  font-family: "CMU Typewriter Text";
+  src: url("fonts/cmu-typewriter-bold-italic.woff2") format("woff2"),
+       url("fonts/cmu-typewriter-bold-italic.ttf") format("truetype");
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -86,7 +86,7 @@
   --accent-yellow: #8a6a00;
 
   --font-serif: "Times New Roman", Times, "Nimbus Roman No9 L", "Liberation Serif", serif;
-  --font-mono:  "Nimbus Roman Mono", "Courier New", Courier, "Liberation Mono", monospace;
+  --font-mono:  "CMU Typewriter Text", "Courier New", Courier, "Liberation Mono", monospace;
 
   --bitmap-dither: radial-gradient(var(--ink) 1px, transparent 1px);
 }
@@ -252,14 +252,14 @@ main dd a {
   font-style: italic;
 }
 
-/* Nimbus Roman Mono runs optically small and loose at a given size:
-   set it slightly larger than Courier would need and track it tighter. */
+/* CMU Typewriter Text is a classic TeX mono: keep size close to body
+   and avoid the aggressive negative tracking Nimbus needed. */
 code,
 kbd,
 samp {
   font-family: var(--font-mono);
-  font-size: 0.94em;
-  letter-spacing: -0.05em;
+  font-size: 0.92em;
+  letter-spacing: 0;
 }
 
 pre {
@@ -270,7 +270,7 @@ pre {
   background: var(--paper);
   font-family: var(--font-mono);
   font-size: 15px;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
   line-height: 1.42;
   overflow-x: auto;
 }
