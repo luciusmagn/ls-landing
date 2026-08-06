@@ -78,6 +78,15 @@
         {
           "@type": "SoftwareSourceCode",
           "position": 5,
+          "name": "COLL",
+          "description": "A configurable software-license family expressed as a Common Lisp association list.",
+          "codeRepository": "https://github.com/luciusmagn/COLL",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://github.com/luciusmagn/COLL"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 6,
           "name": "colorlisp",
           "description": "Style-neutral syntax highlighting for Common Lisp applications.",
           "codeRepository": "https://github.com/luciusmagn/colorlisp",
@@ -86,7 +95,34 @@
         },
         {
           "@type": "SoftwareSourceCode",
-          "position": 6,
+          "position": 7,
+          "name": "lightfast",
+          "description": "Common Lisp bindings for FLTK 1.4 with a deterministic flex layout engine.",
+          "codeRepository": "https://github.com/luciusmagn/lightfast",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/mit"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 8,
+          "name": "lispolar",
+          "description": "A Common Lisp client for Polar.sh checkouts, customer portals, and webhooks.",
+          "codeRepository": "https://github.com/luciusmagn/lispolar",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://opensource.org/license/isc-license-txt"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 9,
+          "name": "ls-compat",
+          "description": "A portability facade for Common Lisp across SBCL, Clozure CL, and ECL.",
+          "codeRepository": "https://github.com/luciusmagn/ls-compat",
+          "programmingLanguage": "Common Lisp",
+          "license": "https://github.com/luciusmagn/COLL"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "position": 10,
           "name": "mcparen",
           "description": "A Model Context Protocol client for Common Lisp.",
           "codeRepository": "https://github.com/luciusmagn/mcparen",
@@ -95,7 +131,7 @@
         },
         {
           "@type": "SoftwareSourceCode",
-          "position": 7,
+          "position": 11,
           "name": "sbcl-workers",
           "description": "Persistent isolated SBCL workers and immutable heap images.",
           "codeRepository": "https://github.com/luciusmagn/sbcl-workers",
@@ -104,7 +140,7 @@
         },
         {
           "@type": "SoftwareSourceCode",
-          "position": 8,
+          "position": 12,
           "name": "sexp-store",
           "description": "Crash-tolerant readable Common Lisp state files.",
           "codeRepository": "https://github.com/luciusmagn/sexp-store",
@@ -198,6 +234,21 @@
 
           <article class="product">
             <header class="product-head">
+              <h3>COLL</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/COLL">luciusmagn/COLL</a>
+            </header>
+            <p>
+              A configurable software-license family whose operative terms
+              are a Common Lisp association list in <code>LICENSE.lisp</code>;
+              the data structure is the legal instrument, not commentary
+              about one. Named variants such as COLL-Attribution,
+              COLL-Copyleft, and COLL-ShareAlike name closed combinations of
+              permissions, conditions, and limitations.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
               <h3>colorlisp</h3>
               <a class="service-link" href="https://github.com/luciusmagn/colorlisp">luciusmagn/colorlisp</a>
             </header>
@@ -205,6 +256,48 @@
               Style-neutral syntax highlighting for Common Lisp applications.
               One native library across many languages; the host supplies
               colors, the library supplies spans.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>lightfast</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/lightfast">luciusmagn/lightfast</a>
+            </header>
+            <p>
+              Small, direct Common Lisp bindings for FLTK 1.4, plus a
+              deterministic flex-style layout engine for nested rows and
+              columns. Layout calculation stays pure and separate from
+              applying it to widgets; used by <a href="/orfeus">Orfeus</a>'s
+              GUI frontend.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>lispolar</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/lispolar">luciusmagn/lispolar</a>
+            </header>
+            <p>
+              A Common Lisp client for Polar.sh: checkout sessions,
+              checkout-link URLs, customer portal sessions, and Standard
+              Webhooks signature verification. Built to absorb
+              <a href="https://hiisi.app">Hiisi</a>'s Polar integration so
+              application code can stay free of payment-provider glue.
+            </p>
+          </article>
+
+          <article class="product">
+            <header class="product-head">
+              <h3>ls-compat</h3>
+              <a class="service-link" href="https://github.com/luciusmagn/ls-compat">luciusmagn/ls-compat</a>
+            </header>
+            <p>
+              A portability facade for Common Lisp applications that need to
+              run on SBCL and Clozure CL, with ECL kept loadable where
+              practical. Deliberately narrow: it covers UTF-8 octets,
+              timeouts, and optional POSIX and TCP primitives, leaving paths,
+              processes, and threads to uiop and Bordeaux Threads.
             </p>
           </article>
 
@@ -250,7 +343,7 @@
     <footer class="shell">
       <div class="colophon">
         <p>© 2026 Lambda Symbolics OÜ</p>
-        <p>Libraries · Revised 26 July 2026</p>
+        <p>Libraries · Revised 6 August 2026</p>
       </div>
     </footer>
   </body>

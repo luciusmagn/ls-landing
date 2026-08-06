@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orfeus: a Common Lisp RAW processor · Lambda Symbolics OÜ</title>
+    <meta
+      name="description"
+      content="Orfeus is a fast Common Lisp RAW processor for Olympus PEN-F and OM-1 files. A shared processing core drives a command-line tool and an FLTK GUI with DaVinci-style node grading."
+    >
+    <link rel="canonical" href="https://lambda-symbolics.com/orfeus">
+
+    <meta property="og:title" content="Orfeus: a Common Lisp RAW processor">
+    <meta
+      property="og:description"
+      content="A fast Common Lisp RAW processor for Olympus PEN-F and OM-1 files, with a shared core, a CLI, an FLTK GUI, and DaVinci-style node grading."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lambda-symbolics.com/orfeus">
+    <meta property="og:image" content="https://lambda-symbolics.com/og.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Lambda Symbolics OÜ">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@LukasHozda">
+    <meta name="twitter:title" content="Orfeus: a Common Lisp RAW processor">
+    <meta
+      name="twitter:description"
+      content="A fast Common Lisp RAW processor for Olympus PEN-F and OM-1 files, with a shared core, a CLI, an FLTK GUI, and DaVinci-style node grading."
+    >
+    <meta name="twitter:image" content="https://lambda-symbolics.com/og.png">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23FFFEFA'/><text x='50' y='54' dominant-baseline='central' text-anchor='middle' font-family='Times New Roman, Times, serif' font-weight='700' font-size='84' fill='%23000000'>%CE%BB</text></svg>">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": "Orfeus",
+      "description": "A fast Common Lisp RAW processor for Olympus PEN-F and OM-1 files, sharing one processing core between a command-line tool and an FLTK GUI.",
+      "url": "https://lambda-symbolics.com/orfeus",
+      "codeRepository": "https://github.com/luciusmagn/orfeus",
+      "programmingLanguage": "Common Lisp",
+      "runtimePlatform": "SBCL",
+      "operatingSystem": "Linux x86-64",
+      "softwareVersion": "0.1.0",
+      "license": "https://github.com/luciusmagn/orfeus/blob/master/LICENSE.lisp",
+      "author": {
+        "@type": "Person",
+        "name": "Lukáš Hozda",
+        "url": "https://github.com/luciusmagn"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="paper.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="shell">
+      <div class="letterhead">
+        <a class="wordmark" href="/">Lambda Symbolics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list">
+            <li><a href="#idea">Idea</a></li>
+            <li><a href="#grading">Grading</a></li>
+            <li><a href="#optics">Optics and film</a></li>
+            <li><a href="#install">Build</a></li>
+            <li><a href="https://github.com/luciusmagn/orfeus">GitHub</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="hero" aria-label="Orfeus">
+        <div class="hero-copy">
+          <h1>Orfeus: a RAW processor for Olympus PEN-F and OM-1</h1>
+          <p class="lede">
+            A fast Common Lisp RAW processor for Olympus PEN-F and OM-1
+            files. The same processing core drives a command-line tool and
+            an FLTK GUI, so a batch export and an interactive grade always
+            render identically.
+          </p>
+          <div class="actions">
+            <a class="button" href="https://github.com/luciusmagn/orfeus">Explore Orfeus on GitHub</a>
+            <a class="button" href="#install">Build it</a>
+          </div>
+          <p class="motto"><em>Grading as a node graph, not a slider panel you hope you remember.</em></p>
+        </div>
+
+        <div class="window">
+          <div class="window-titlebar">Orfeus · Properties</div>
+          <div class="window-body">
+            <dl class="property-sheet">
+              <dt>Cameras</dt>
+              <dd>Olympus PEN-F and OM-1 ORF, embedded in DNG</dd>
+              <dt>Frontends</dt>
+              <dd>CLI and FLTK GUI over one processing core</dd>
+              <dt>Batch format</dt>
+              <dd>Readable, editable S-expression projects</dd>
+              <dt>Grading</dt>
+              <dd>DaVinci-style node graph, scene-linear blends</dd>
+              <dt>GPU path</dt>
+              <dd>Optional Vulkan compute, CPU fallback on failure</dd>
+              <dt>License</dt>
+              <dd>COLL-Attribution</dd>
+              <dt>Repository</dt>
+              <dd><a href="https://github.com/luciusmagn/orfeus">luciusmagn/orfeus</a></dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="idea" aria-labelledby="idea-title">
+        <div class="duo">
+          <div>
+            <h2 id="idea-title">One core, two frontends</h2>
+            <p>
+              The command line and the GUI call the same Common Lisp
+              processing core, so a photo renders identically whether it
+              came from an interactive grade or an unattended batch run. A
+              native Rust bridge handles RAW decode and pixel work; Orfeus
+              orchestrates it and owns every decision about what happens to
+              a photo.
+            </p>
+            <p>
+              Olympus stores the original ORF embedded inside the DNG its
+              own tools produce. Orfeus can inspect or pull that original
+              back out before it does anything else with a photograph.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Command line</div>
+            <div class="window-body">
+              <pre aria-label="Orfeus command examples"><code>$ <kbd>orfeus info photograph.dng</kbd>
+$ <kbd>orfeus extract photograph.dng photograph.orf</kbd>
+$ <kbd>orfeus preview photograph.orf preview.jpg</kbd>
+$ <kbd>orfeus render photograph.orf export.tiff</kbd>
+$ <kbd>orfeus init project.sexp exports/ first.orf second.orf</kbd>
+$ <kbd>orfeus batch project.sexp</kbd></code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="grading" aria-labelledby="grading-title">
+        <h2 id="grading-title">Grading as a node graph</h2>
+        <p class="section-intro">
+          A photo's grade is an explicit, piped node graph, not a single
+          flat settings panel. Node kinds carry one adjustment category
+          each, including repeated kinds, so two <code>+2 EV</code>
+          exposure nodes make <code>+4</code>. Nodes are reorderable and
+          individually bypassable, and maskless blend nodes mix two
+          scene-linear branches by opacity.
+        </p>
+
+        <div class="duo specimen-row">
+          <div>
+            <p>
+              A dedicated <code>:color-subtract</code> node inverts a film
+              negative by subtracting the picked base color from each
+              pixel in scene-linear space, with palette and eyedropper
+              pickers in the GUI. Crop nodes carry a resolution-independent
+              oriented rectangle, so one graph fits both a fast preview and
+              a full-resolution export, and a negative-autocrop mode
+              detects the frame and film-base color on its own.
+            </p>
+            <p>
+              Photographs without a graph keep the flat, five-stage
+              pipeline unchanged; both paths render through the same batch
+              runner. The GUI grabs auto-named stills into a thumbnail
+              gallery, and right-clicking one applies its whole node graph
+              to the current selection, optionally without its lens
+              profile or white balance.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">One photo's node graph</div>
+            <div class="window-body">
+              <pre><code><span class="hl-comment">;; excerpt: the :graph value inside one :photos entry</span>
+(<span class="hl-keyword">:graph</span>
+ (<span class="hl-keyword">:nodes</span> ((<span class="hl-keyword">:id</span> 1 <span class="hl-keyword">:kind</span> :exposure
+        <span class="hl-keyword">:inputs</span> (0) <span class="hl-keyword">:params</span> (:exposure 2.0))
+       (<span class="hl-keyword">:id</span> 2 <span class="hl-keyword">:kind</span> :exposure
+        <span class="hl-keyword">:inputs</span> (1) <span class="hl-keyword">:params</span> (:exposure 2.0))
+       (<span class="hl-keyword">:id</span> 3 <span class="hl-keyword">:kind</span> :color-subtract
+        <span class="hl-keyword">:inputs</span> (2)
+        <span class="hl-keyword">:params</span> (:red 0.92 :green 0.85 :blue 0.71)))
+  <span class="hl-keyword">:output</span> 3))</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="optics" aria-labelledby="optics-title">
+        <div class="duo">
+          <div>
+            <h2 id="optics-title">Optics and film</h2>
+            <p>
+              Lens correction matches Lensfun profiles from a photo's own
+              EXIF automatically. Adapted manual lenses can be mapped to an
+              exact Lensfun profile with a focal reducer ratio and crop
+              factor, so a speed-boosted vintage lens still gets correct
+              geometry and vignetting instead of no correction at all.
+            </p>
+            <p>
+              The bundled film-emulation LUT library ships Agfa APX,
+              Precisa, and Ultra Color looks alongside Kodachrome 25, 64,
+              64 Generic, and 200, with provenance and checksums recorded
+              in the repository's <code>THIRD-PARTY.md</code>.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar"><code>lenses.sexp</code> · adapted manual lens</div>
+            <div class="window-body">
+              <pre><code>(("Ultron 0.7x"
+  <span class="hl-keyword">:lensfun-model</span> "Voigtlander Ultron 40mm f/2 SLII Aspherical"
+  <span class="hl-keyword">:focal-reducer</span> 0.71
+  <span class="hl-keyword">:crop-factor</span> 2.0))</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <p class="section-intro">
+          Batch projects are read with <code>*read-eval*</code> disabled,
+          so opening someone else's project file cannot run arbitrary
+          code. An optional Vulkan compute backend fuses display tone and
+          the sRGB transfer curve; it stays opt-in behind
+          <code>ORFEUS_GPU=1</code> because one-shot Vulkan initialization
+          is expensive, and any initialization, dispatch, or readback
+          failure falls back to the CPU result automatically.
+        </p>
+      </section>
+
+      <section class="doc-section install-section" id="install" aria-labelledby="install-title">
+        <div class="duo">
+          <div>
+            <h2 id="install-title">Build from source</h2>
+            <p>
+              Orfeus targets Linux and has no packaged binary yet. The Nix
+              flake provides SBCL, Rust, the LibRaw and Lensfun native
+              dependencies, ExifTool, JPEG and TIFF support, and FLTK. Keep
+              a sibling <a href="/libraries"><code>lightfast</code></a>
+              checkout available when building the GUI.
+            </p>
+            <p class="caveat">
+              There is no <code>nix build</code> package output yet, only
+              a development shell. Enter it, then build the native bridge,
+              the GUI, and the Lisp system in order.
+            </p>
+          </div>
+
+          <div class="window">
+            <div class="window-titlebar">Build · Nix development shell</div>
+            <div class="window-body">
+              <pre><code><span class="code-label">Enter the environment</span>
+$ <kbd>nix develop</kbd>
+
+<span class="code-label">Build the native bridge and GUI</span>
+$ <kbd>cargo build --release --manifest-path native/Cargo.toml</kbd>
+$ <kbd>make gui-native</kbd>
+
+<span class="code-label">Build the CLI</span>
+$ <kbd>sbcl --no-userinit --non-interactive \
+    --eval '(require :asdf)' \
+    --eval '(asdf:load-asd (truename "orfeus.asd"))' \
+    --eval '(asdf:make "orfeus/cli")'</kbd>
+
+<span class="code-label">Run it</span>
+$ <kbd>./orfeus info photograph.dng</kbd>
+$ <kbd>./orfeus-gui</kbd></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions closing-actions">
+          <a class="button" href="https://github.com/luciusmagn/orfeus">Read the source and documentation</a>
+          <a class="button" href="/">Company index</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="colophon">
+        <p>© 2026 Lambda Symbolics OÜ</p>
+        <p>Orfeus · Revised 6 August 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>
