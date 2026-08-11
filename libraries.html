@@ -194,8 +194,8 @@
               <a class="service-link" href="https://github.com/luciusmagn/cl-colorist">luciusmagn/cl-colorist</a>
             </header>
             <p>
-              Dependency-free ANSI text styling. Queries terminal capability
-              and degrades cleanly on dumb terminals, pipes, and logs.
+              Dependency-free ANSI text styling which automatically detects terminal capability
+              and gracefully degrades graphics.
             </p>
           </article>
 
@@ -205,9 +205,8 @@
               <a class="service-link" href="https://github.com/luciusmagn/cl-exec-sandbox">luciusmagn/cl-exec-sandbox</a>
             </header>
             <p>
-              Policy-driven sandboxing for external processes. A declared
-              policy controls what a child may read, write, and reach; a
-              Bubblewrap helper supplies filesystem and namespace isolation.
+                Policy-driven sandboxing for external processes. Policies control what children can
+                read, write, and reach.
             </p>
           </article>
 
@@ -217,9 +216,8 @@
               <a class="service-link" href="https://github.com/luciusmagn/clifff">luciusmagn/clifff</a>
             </header>
             <p>
-              Bindings and a supervised worker for the <a href="https://github.com/dvdesolve/fff">fff</a> search library.
-              The parent restarts a dead helper and resets its databases so
-              native search cannot take down the Lisp image.
+                Bindings and a supervised worker for the <a href="https://github.com/dmtrKovalenko/fff">fff</a> search library.
+                The supervised worker can be automatically restarted in case of (rare) fff failure.
             </p>
           </article>
 
@@ -231,7 +229,7 @@
             <p>
               Portable, Unicode-aware terminal line editor: grapheme-cluster
               movement, completion, highlighting, persistent history, and
-              inline suggestions. Used by <a href="/cclsh">CCLSH</a> and <a href="/autolith">Autolith</a>.
+              inline suggestions.
             </p>
           </article>
 
@@ -241,12 +239,9 @@
               <a class="service-link" href="https://github.com/luciusmagn/COLL">luciusmagn/COLL</a>
             </header>
             <p>
-              A configurable software-license family whose operative terms
-              are a Common Lisp association list in <code>LICENSE.lisp</code>;
-              the data structure is the legal instrument, not commentary
-              about one. Named variants such as COLL-Attribution,
-              COLL-Copyleft, and COLL-ShareAlike name closed combinations of
-              permissions, conditions, and limitations.
+              A configurable license family whose operative terms
+              are in Common Lisp. Select terms to produce variants
+              ranging from FOSS to proprietary.
             </p>
           </article>
 
@@ -270,9 +265,7 @@
             <p>
               Small, direct Common Lisp bindings for FLTK 1.4, plus a
               deterministic flex-style layout engine for nested rows and
-              columns. Layout calculation stays pure and separate from
-              applying it to widgets; used by <a href="/orfeus">Orfeus</a>'s
-              GUI frontend.
+              columns. Adds optional layout calculation separate from widgets.
             </p>
           </article>
 
@@ -284,9 +277,7 @@
             <p>
               A Common Lisp client for Polar.sh: checkout sessions,
               checkout-link URLs, customer portal sessions, and Standard
-              Webhooks signature verification. Built to absorb
-              <a href="https://hiisi.app">Hiisi</a>'s Polar integration so
-              application code can stay free of payment-provider glue.
+              Webhooks signature verification.
             </p>
           </article>
 
@@ -296,11 +287,8 @@
               <a class="service-link" href="https://github.com/luciusmagn/ls-compat">luciusmagn/ls-compat</a>
             </header>
             <p>
-              A portability facade for Common Lisp applications that need to
-              run on SBCL and Clozure CL, with ECL kept loadable where
-              practical. Deliberately narrow: it covers UTF-8 octets,
-              timeouts, and optional POSIX and TCP primitives, leaving paths,
-              processes, and threads to uiop and Bordeaux Threads.
+              A portability facade for Common Lisp applications to make projects portable across
+              SBCL, CCL, and usually ECL. Honestly a mixed bag, a number of La-Sy libs depend on it  
             </p>
           </article>
 
@@ -310,8 +298,7 @@
               <a class="service-link" href="https://github.com/luciusmagn/mcparen">luciusmagn/mcparen</a>
             </header>
             <p>
-              Model Context Protocol client. Speaks MCP to tool servers over
-              stdio and HTTP with readable, inspectable protocol exchanges.
+              A reasonably comprehensive Model Context Protocol client implemented in Common Lisp.
             </p>
           </article>
 
@@ -334,8 +321,7 @@
             </header>
             <p>
               Crash-tolerant state files stored as readable s-expressions.
-              Appends safely and replays after interruption; no opaque
-              database required.
+              Useful to create s-expression ledgers of actions taken by, say, a clanker.
             </p>
           </article>
         </div>
@@ -346,7 +332,7 @@
     <footer class="shell">
       <div class="colophon">
         <p>© 2026 Lambda Symbolics OÜ</p>
-        <p>Libraries · Revised 6 August 2026</p>
+        <p>Libraries · Revised 11 August 2026</p>
       </div>
     </footer>
   </body>
