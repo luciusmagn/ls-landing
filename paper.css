@@ -290,52 +290,6 @@ pre kbd {
   padding: 2px 0;
 }
 
-/* The product demo uses one captured terminal run. Reveal its rows in order
-   instead of replacing them with a fictional chat transcript. */
-.demo-transcript {
-  max-height: 360px;
-  overflow: auto;
-  overscroll-behavior: contain;
-}
-
-.demo-transcript code {
-  display: block;
-  white-space: normal;
-}
-
-.demo-transcript br {
-  display: none;
-}
-
-.demo-line {
-  display: block;
-  max-height: 0;
-  overflow: hidden;
-  white-space: pre;
-  opacity: 0;
-  animation: demo-reveal 0.16s linear forwards;
-  animation-delay: var(--demo-delay, 0s);
-}
-
-.demo-blank {
-  max-height: 0;
-}
-
-.demo-status {
-  font-style: italic;
-}
-
-@keyframes demo-reveal {
-  from {
-    max-height: 0;
-    opacity: 0;
-  }
-  to {
-    max-height: 1.42em;
-    opacity: 1;
-  }
-}
-
 /* Algol-style monochrome syntax marking: bold for keywords, italic for
    comments, bold italic for placeholders. No color; ink stays black. */
 .hl-keyword {
@@ -1402,12 +1356,6 @@ button.button {
     padding-bottom: 0;
   }
 
-  .demo-line {
-    opacity: 1;
-    max-height: none;
-    overflow: visible;
-    animation: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1420,10 +1368,119 @@ button.button {
     transition-duration: 0.01ms !important;
   }
 
-  .demo-line {
-    opacity: 1;
-    max-height: none;
-    overflow: visible;
-    animation: none;
-  }
+}
+
+/* -- Captured terminal sessions -- */
+/* Real asciinema recordings. The screen is one inverted object: black
+   ground, paper phosphor, inside a titled window. The player chrome
+   follows the canon; the recording's pixels are the captured artifact. */
+
+.demo-cast {
+  background: #000000;
+  border-bottom: 1px solid var(--ink);
+}
+
+.demo-cast .ap-wrapper,
+.demo-cast .ap-player,
+.demo-cast .ap-player div,
+.demo-cast .ap-control-bar,
+.demo-cast .ap-control-bar * {
+  border-radius: 0 !important;
+}
+
+.asciinema-player-theme-paper {
+  --term-color-foreground: #fffefa;
+  --term-color-background: #000000;
+  --term-color-0: hsl(0, 0%, 0%);
+  --term-color-1: hsl(343, 70%, 55%);
+  --term-color-2: hsl(103, 70%, 44%);
+  --term-color-3: hsl(43, 70%, 55%);
+  --term-color-4: hsl(193, 70%, 49.5%);
+  --term-color-5: hsl(283, 70%, 60.5%);
+  --term-color-6: hsl(163, 70%, 60.5%);
+  --term-color-7: hsl(0, 0%, 85%);
+  --term-color-8: hsl(0, 0%, 30%);
+  --term-color-9: hsl(343, 70%, 55%);
+  --term-color-10: hsl(103, 70%, 44%);
+  --term-color-11: hsl(43, 70%, 55%);
+  --term-color-12: hsl(193, 70%, 49.5%);
+  --term-color-13: hsl(283, 70%, 60.5%);
+  --term-color-14: hsl(163, 70%, 60.5%);
+  --term-color-15: hsl(0, 0%, 100%);
+}
+
+.demo-cast .ap-control-bar {
+  background: #000000;
+  border-top: 1px solid #fffefa;
+}
+
+.demo-cast .ap-control-bar svg {
+  fill: #fffefa;
+}
+
+.demo-cast .ap-control-bar span.ap-timer {
+  color: #fffefa;
+}
+
+.demo-cast .ap-control-bar .ap-progressbar .ap-bar .ap-gutter-empty {
+  background: #000000;
+  background-image: radial-gradient(#fffefa 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+.demo-cast .ap-control-bar .ap-progressbar .ap-bar .ap-gutter-full {
+  background: #fffefa;
+}
+
+.demo-cast .ap-play-button svg .ap-play-btn-fill {
+  fill: #fffefa;
+}
+
+.cast-poster {
+  margin: 0;
+  padding: 14px 16px 10px;
+  background: #000000;
+  color: #fffefa;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-x: auto;
+  border: 0;
+}
+
+.cast-load {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: #000000;
+  color: #fffefa;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  border: 0;
+  border-top: 1px solid #fffefa;
+  cursor: pointer;
+}
+
+.cast-load:hover {
+  background: #fffefa;
+  color: #000000;
+}
+
+.demo-cast-window .property-sheet {
+  margin: 12px 0 0;
+}
+
+.demo-cast-window .window-body {
+  padding: 0 0 14px;
+}
+
+.demo-cast-window .property-sheet {
+  padding: 0 16px;
+}
+
+.demo-stack {
+  display: grid;
+  gap: 48px;
+  margin-top: 40px;
 }
